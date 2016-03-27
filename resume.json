@@ -40,7 +40,7 @@
       "position": "Web Developer",
       "website": "http://carlabs.com",
       "startDate": "2014-04-01",
-      "summary": "I am a full-stack developer, working on everything from the database (MySQL), to backend code (a mixture of PHP on Yii2 and Express JS), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I have to make decisions about design, architecture, and libraries and live with those choices. I pitch projects internally, design, prototype, and build them using everything tools that include: ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I end up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
+      "summary": "I am a full-stack developer, working on everything from the database (MySQL), to backend code (a mixture of PHP on Yii2 and Express JS), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I have to make decisions about design, architecture, and libraries and live with those choices. I pitch projects internally, design, prototype, and build them using tools that include: ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I end up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
       "highlights": [
         "Built a lead-scrubbing tool using PHP and MySQL that scored leads using a statistical model.",
         "Made a research tool using Yii, MySQL, jQuery and d3.js that updates charts in realtime in response to user preferences.",
