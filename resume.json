@@ -34,6 +34,28 @@
       "url": "https://www.linkedin.com/in/samhavens"
     }]
   },
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Solid",
+      "keywords": ["HTLM/CSS","JavaScript","ES6","Node","React","d3.js","PHP","jQuery","MySQL"]
+    },
+    {
+      "name": "Chat UI",
+      "level": "Intermediate",
+      "keywords": ["API.ai","Botkit","Slack API"]
+    },
+    {
+      "name": "Design",
+      "level": "Intermediate",
+      "keywords": ["Invision","Proto.io","Sketch"]
+    },
+    {
+      "name": "Education",
+      "level": "Advanced",
+      "keywords": ["Presenting","Curriculum Design","Training"]
+    }
+  ],
   "work": [
     {
       "company": "CarLabs",
@@ -109,28 +131,6 @@
     "website": "http://arxiv.org/abs/1210.3161",
     "summary": "What does it mean to say that space expands? One approach to this question is the study of relative velocities. In this context, a non local test particle is 'superluminal' if its relative velocity exceeds the local speed of light of the observer. The existence of superluminal relative velocities of receding test particles, in a particular cosmological model, suggests itself as a possible criterion for expansion of space in that model. In this point of view, superluminal velocities of distant receding galaxy clusters result from the expansion of space between the observer and the clusters. However, there is a fundamental ambiguity that must be resolved before this approach can be meaningful. The notion of relative velocity of a nonlocal object depends on the choice of coordinates, and this ambiguity suggests the need for coordinate independent definitions. In this work, we review four (inequivalent) geometrically defined and universal notions of relative velocity: Fermi, kinematic, astrometric, and spectroscopic relative velocities. We apply this formalism to test particles undergoing radial motion relative to comoving observers in expanding Robertson-Walker cosmologies, and include previously unpublished results on Fermi coordinates for a class of inflationary cosmologies. We compare relative velocities to each other, and show how pairs of them determine geometric properties of the spacetime, including the scale factor with sufficient data. Necessary and sufficient conditions are given for the existence of superluminal recessional Fermi speeds in general Robertson-Walker cosmologies. We conclude with a discussion of expansion of space."
   }],
-  "skills": [
-    {
-      "name": "Web Development",
-      "level": "Solid",
-      "keywords": ["HTLM/CSS","JavaScript","ES6","Node","React","d3.js","PHP","jQuery","MySQL"]
-    },
-    {
-      "name": "Chat UI",
-      "level": "Intermediate",
-      "keywords": ["API.ai","Botkit","Slack API"]
-    },
-    {
-      "name": "Design",
-      "level": "Intermediate",
-      "keywords": ["Invision","Proto.io","Sketch"]
-    },
-    {
-      "name": "Education",
-      "level": "Advanced",
-      "keywords": ["Presenting","Curriculum Design","Training"]
-    }
-  ],
   "languages": [
     {
       "language": "Spanish",
