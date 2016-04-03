@@ -40,11 +40,11 @@
       "position": "Web Developer",
       "website": "http://carlabs.com",
       "startDate": "2014-04-01",
-      "summary": "I am a full-stack developer, working on everything from the database (MySQL), to backend code (a mixture of PHP on Yii2 and Express JS), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I have to make decisions about design, architecture, and libraries and live with those choices. I pitch projects internally, design, prototype, and build them using tools that include: ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I end up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
+      "summary": "I am a full-stack developer, working on everything from the database (MySQL), to backend code (a mixture of PHP on Yii2 and Express JS), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I have to make decisions about design, architecture, and libraries and live with those choices. I pitch projects internally, design, prototype, and build them using tools that include: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I end up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
       "highlights": [
         "Built a lead-scrubbing tool using PHP and MySQL that scored leads using a statistical model.",
         "Made a research tool using Yii, MySQL, jQuery and d3.js that updates charts in realtime in response to user preferences.",
-        "Designed and built a mobile web app using React, ES6, Webpack, and MaterialUI.",
+        "Designed and built a mobile web app using Node, React, ES6, Webpack, and MaterialUI.",
         "Modernized front-end build process to use Webpack and ES6.",
         "Pitched product design which has become the focus of the company."
       ]
@@ -113,17 +113,22 @@
     {
       "name": "Web Development",
       "level": "Solid",
-      "keywords": ["HTLM/CSS","ES6","Node","React","d3.js","PHP","jQuery","MySQL"]
+      "keywords": ["HTLM/CSS","JavaScript","ES6","Node","React","d3.js","PHP","jQuery","MySQL"]
     },
     {
       "name": "Chat UI",
       "level": "Intermediate",
-      "keywords": ["API.ai","Botkit","Regexes","Slack API"]
+      "keywords": ["API.ai","Botkit","Slack API"]
     },
     {
       "name": "Design",
       "level": "Intermediate",
       "keywords": ["Invision","Proto.io","Sketch"]
+    },
+    {
+      "name": "Education",
+      "level": "Advanced",
+      "keywords": ["Presenting","Curriculum Design","Training"]
     }
   ],
   "languages": [
