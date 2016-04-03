@@ -5,6 +5,7 @@
     "label": "Developer at CarLabs",
     "phone": "(818) 590-0484",
     "website": "http://samuelhavens.com",
+    "picture": "ttp://www.samuelhavens.com/me.jpg",
     "summary": "I have been programming for two years, primarily in JavaScript. Currently, I am super into ES6, React, and Redux. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about Javascript and chatbots and build them. I think conversational UIs are the future and am super excited to work on them.\n\nI care a lot about education, and still teach some math whenever I can. As a board member, I also help to guide Topanga Mountain School.",
     "location": {
       "address": "1651 Old Topanga Canyon Road",
@@ -37,23 +38,33 @@
   "skills": [
     {
       "name": "Web Development",
-      "level": "Solid",
-      "keywords": ["HTLM/CSS","JavaScript","ES6","Node","React","d3.js","PHP","jQuery","MySQL"]
+      "level": "Advanced",
+      "keywords": ["JavaScript","ES6","Node","Express","React","d3.js","PHP","Yii/2","jQuery","MySQL","HTLM/CSS","CSS3","SASS","Webkit","Gulp"]
     },
     {
       "name": "Chat UI",
-      "level": "Intermediate",
+      "level": "Beginner",
       "keywords": ["API.ai","Botkit","Slack API"]
+    },
+    {
+      "name": "DevOps",
+      "level": "Intermediate",
+      "keywords": ["AWS","Heroku","Linux","Apache"]
+    },
+    {
+      "name": "Other Languages",
+      "level": "Beginner - Intermediate",
+      "keywords": ["Python","Ruby","BASH"]
     },
     {
       "name": "Design",
       "level": "Intermediate",
-      "keywords": ["Invision","Proto.io","Sketch"]
+      "keywords": ["Invision","Proto.io","Sketch","Responsive Design"]
     },
     {
       "name": "Education",
       "level": "Advanced",
-      "keywords": ["Presenting","Curriculum Design","Training"]
+      "keywords": ["Presenting","Curriculum Design","Training","Tutoring","Mentoring"]
     }
   ],
   "work": [
