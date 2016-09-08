@@ -1,12 +1,12 @@
 {
   "basics": {
-    "email": "samhavens@gmail.com",
+    "email": "sam@carlabs.com",
     "name": "Sam Havens",
-    "label": "Developer at CarLabs",
+    "label": "CTO of CarLabs",
     "phone": "(818) 590-0484",
     "website": "http://samuelhavens.com",
-    "picture": "ttp://www.samuelhavens.com/me.jpg",
-    "summary": "I have been programming for two years, primarily in JavaScript. Currently, I am super into ES6, React, and Redux. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about Javascript and chatbots and build them. I think conversational UIs are the future and am super excited to work on them.\n\nI care a lot about education, and still teach some math whenever I can. As a board member, I also help to guide Topanga Mountain School.",
+    "picture": "http://www.samuelhavens.com/me.jpg",
+    "summary": "Currently, I am super into functional programming and learning about type systems. I think Docker is amazing and am interested to see how things like now.sh, Serverless, and Apex will change DevOps. \n\n I make front end with ES6, React, and Redux, and back ends with Node, or really any scripting language. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about JavaScript and other technology topics. But I have irrationally strong feeling for JavaScript. I think conversational UIs are the future and am super excited to work on them.\n\nI care a lot about education, and still teach some math whenever I can. As a board member, I also help to guide Topanga Mountain School.",
     "location": {
       "address": "1651 Old Topanga Canyon Road",
       "postalCode": "90290",
@@ -39,22 +39,22 @@
     {
       "name": "Web Development",
       "level": "Advanced",
-      "keywords": ["JavaScript","ES6","Node","Express","React","d3.js","PHP","Yii/2","jQuery","MySQL","HTLM/CSS","CSS3","SASS","Webkit","Gulp"]
+      "keywords": ["JavaScript","ES6","Node","Express","React","Hapi","d3.js","PHP","Yii/2","jQuery","MySQL","PostgreSQL","CSS3","SASS","Webpack","Gulp"]
     },
     {
-      "name": "Chat UI",
-      "level": "Beginner",
-      "keywords": ["API.ai","Botkit","Slack API"]
+      "name": "Conversational UI",
+      "level": "Advanced",
+      "keywords": ["API.ai","Botkit","Slack API","Messenger API","Sentiment Analysis","Entity Recognition","Intent Classification"]
     },
     {
       "name": "DevOps",
       "level": "Intermediate",
-      "keywords": ["AWS","Heroku","Linux","Apache"]
+      "keywords": ["AWS","Heroku","Linux","Apache","NGINX","Docker","Vagrant","Serverless Architecture"]
     },
     {
       "name": "Other Languages",
       "level": "Beginner - Intermediate",
-      "keywords": ["Python","Ruby","BASH"]
+      "keywords": ["Python","Ruby","BASH","Mathematica","Octave","R"]
     },
     {
       "name": "Design",
@@ -70,10 +70,10 @@
   "work": [
     {
       "company": "CarLabs",
-      "position": "Web Developer",
+      "position": "CTO",
       "website": "http://carlabs.com",
       "startDate": "2014-04-01",
-      "summary": "I am a full-stack developer, working on everything from the database (MySQL), to backend code (a mixture of PHP on Yii2 and Express JS), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I have to make decisions about design, architecture, and libraries and live with those choices. I pitch projects internally, design, prototype, and build them using tools that include: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I end up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
+      "summary": "I was a full-stack developer, working on everything from the database (MySQL), to backend code (a Node/Hapi app supported by services written in  PHP/Yii2 and Python/Flask), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I had to make decisions about design, architecture, and libraries and live with those choices. I pitched projects internally, design, prototype, and built them using tools that included: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I ended up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
       "highlights": [
         "Built a lead-scrubbing tool using PHP and MySQL that scored leads using a statistical model.",
         "Made a research tool using Yii, MySQL, jQuery and d3.js that updates charts in realtime in response to user preferences.",
