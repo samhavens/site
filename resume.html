@@ -1,622 +1,438 @@
 <!doctype html>
 <html>
-	<head>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
-	<title>Sam Havens</title>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-	
-	<style type="text/css">
-	@import url(
-	https://fonts.googleapis.com/css?family=Lato:400,700
-);
-body {
-	background: #fff;
-	font-family: Lato, sans-serif;
-	margin: 0 0 80px;
-}
-a {
-	color: #2ecc71;
-}
-a:focus,
-a:hover {
-	color: #f1c40f;
-	text-decoration: none;
-}
-p {
-	line-height: 1.5;
-	margin: 0;
-}
-p + p {
-	margin-top: 10px;
-}
-h1,
-h2,
-h3,
-h4 {
-	margin-top: 0
-}
-section {
-	margin-top: 30px;
-}
-li {
-	line-height: 1.8;
-	list-style: none;
-}
-li:before {
-	content: "\f052";
-	float: left;
-	font: 13px Octicons;
-	margin-top: 6px;
-	margin-left: -20px;
-	opacity: .1;
-	position: absolute;
-}
-blockquote {
-	border-left: 5px solid #e7e9ec;
-	font-size: 14px;
-}
-em {
-	color: #95a5a6;
-	font-weight: normal;
-	font-style: normal;
-}
-h4 span:first-child {
-	color: #000;
-	font-weight: bold;
-}
-.container {
-	max-width: 750px;
-	padding: 0 30px;
-}
-.col-sm-6 {
-	margin-bottom: 10px;
-}
-.col-sm-12 h4 {
-	margin-top: 12px; 
-}
-.col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
-}
-#header {
-	background: #f4f6f6;
-	padding: 50px 0;
-	margin-bottom: 30px;
-}
-#header h2 {
-	color: #95a5a6;
-	font-size: 24px;
-}
-#content h3 {
-	color: #f1c40f;
-	font-size: 26px;
-	margin-top: -4px;
-}
-#content aside {
-	text-align: right;
-	padding-right: 30px;
-}
-#profiles .network {
-	text-transform: capitalize;
-}
-#work .position,
-#volunteer .position {
-	font-weight: bold;
-	margin-bottom: 8px;
-}
-#education .area {
-	font-weight: bold;
-}
-#education .area:before {
-	content: "\f0d7";
-	font: 16px Octicons;
-	margin-right: 6px;
-}
-#education .studyType {
-	margin-left: 25px;
-}
-#awards .summary,
-#publications .summary {
-	margin-top: 8px;
-}
-#publications .website a:before {
-	content: attr(href);
-}
-
-@media (min-width: 480px) {
-	.strike-through {
-		border-top: 1px solid #f4f6f6;
-		height: 20px;
-		margin-top: 12px;
-		margin-bottom: -2px;
-		position: relative;
-	}
-	.strike-through span,
-	.strike-through a {
-		background: #fff;
-		position: absolute;
-	}
-	.strike-through span:first-child {
-		padding-right: 20px;
-		margin-top: -12px;
-	}
-	.strike-through span + span {
-		font-size: 14px;
-		margin-top: -10px;
-		padding-left: 20px;
-		right: 0;
-	}
-}
-@media (max-width: 768px) {
-	.col-sm-6:last-child {
-		margin-bottom: 0px;
-	}
-	#content aside {
-		margin-bottom: 20px;
-		padding-right: 0;
-		text-align: left;
-	}
-	#publications .website a:before {
-		content: "View publication";
-	}
-}
-@media (max-width: 480px) {
-	h1 {
-		font-size: 26px;
-	}
-	.date {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	.strike-through span:first-child {
-		margin-bottom: 7px;
-	}
-	.strike-through span {
-		display: block;
-	}	
-	#header {
-		margin-bottom: 10px;
-		padding: 40px 0;
-	}
-	#actions {
-		display: none;
-	}
-}
-
-	</style>
-	
-	</head>
-	<body>
-	
-	<header id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9 col-sm-push-3">
-					<h1>
-						Sam Havens
-					</h1>
-					<h2>
-						Developer at CarLabs
-					</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div id="content" class="container">
-
-	<section id="contact" class="row">
-		<aside class="col-sm-3">
-			<h3>Contact</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<strong>Email</strong>
-				<div class="email"><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="d0a3b1bdb8b1a6b5bea390b7bdb1b9bcfeb3bfbd">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></div>
-			</div>
-			<div class="col-sm-6">
-				<strong>Phone</strong>
-				<div class="phone">(818) 590-0484</div>
-			</div>
-			<div class="col-sm-6">
-				<strong>Website</strong>
-				<div class="website">
-					<a href="http://samuelhavens.com">http://samuelhavens.com</a>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>About</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p>I have been programming for two years, primarily in JavaScript. Currently, I am super into ES6, React, and Redux. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about Javascript and chatbots and build them. I think conversational UIs are the future and am super excited to work on them.
-
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+<title>Sam Havens</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+<style type="text/css">@import url(https://fonts.googleapis.com/css?family=Lato:400,700);body{background:#fff;font-family:Lato,sans-serif;margin:0 0 80px;}a{color:#2ecc71;}a:focus,a:hover{color:#f1c40f;text-decoration:none;}p{line-height:1.5;margin:0;}p+p{margin-top:10px;}h1,h2,h3,h4{margin-top:0}section{margin-top:30px;}li{line-height:1.8;list-style:none;}li:before{content:"\f052";float:left;font:13px Octicons;margin-top:6px;margin-left:-20px;opacity:.1;position:absolute;}blockquote{border-left:5px solid #e7e9ec;font-size:14px;}em{color:#95a5a6;font-weight:normal;font-style:normal;}h4 span:first-child{color:#000;font-weight:bold;}.container{max-width:750px;padding:0 30px;}.col-sm-6{margin-bottom:10px;}.col-sm-12 h4{margin-top:12px;}.col-sm-12+.col-sm-12{margin-top:30px;}#header{background:#f4f6f6;padding:50px 0;margin-bottom:30px;}#header h2{color:#95a5a6;font-size:24px;}#content h3{color:#f1c40f;font-size:26px;margin-top:-4px;}#content aside{text-align:right;padding-right:30px;}#profiles .network{text-transform:capitalize;}#work .position,#volunteer .position{font-weight:bold;margin-bottom:8px;}#education .area{font-weight:bold;}#education .area:before{content:"\f0d7";font:16px Octicons;margin-right:6px;}#education .studyType{margin-left:25px;}#awards .summary,#publications .summary{margin-top:8px;}#publications .website a:before{content:attr(href);}@media (min-width: 480px) {.strike-through{border-top:1px solid #f4f6f6;height:20px;margin-top:12px;margin-bottom:-2px;position:relative;}.strike-through span,.strike-through a{background:#fff;position:absolute;}.strike-through span:first-child{padding-right:20px;margin-top:-12px;}.strike-through span+span{font-size:14px;margin-top:-10px;padding-left:20px;right:0;}}@media (max-width: 768px) {.col-sm-6:last-child{margin-bottom:0px;}#content aside{margin-bottom:20px;padding-right:0;text-align:left;}#publications .website a:before{content:"View publication";}}@media (max-width: 480px) {h1{font-size:26px;}.date{font-size:14px;margin-bottom:5px;}.strike-through span:first-child{margin-bottom:7px;}.strike-through span{display:block;}#header{margin-bottom:10px;padding:40px 0;}#actions{display:none;}}</style>
+</head>
+<body>
+<header id="header">
+<div class="container">
+<div class="row">
+<div class="col-sm-9 col-sm-push-3">
+<h1>
+Sam Havens
+</h1>
+<h2>
+CTO of CarLabs
+</h2>
+</div>
+</div>
+</div>
+</header>
+<div id="content" class="container">
+<section id="contact" class="row">
+<aside class="col-sm-3">
+<h3>Contact</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<strong>Email</strong>
+<div class="email"><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="7407151934171506181516075a171b19">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></div>
+</div>
+<div class="col-sm-6">
+<strong>Phone</strong>
+<div class="phone">(818) 590-0484</div>
+</div>
+<div class="col-sm-6">
+<strong>Website</strong>
+<div class="website">
+<a href="http://samuelhavens.com">http://samuelhavens.com</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="about" class="row">
+<aside class="col-sm-3">
+<h3>About</h3>
+</aside>
+<div class="col-sm-9">
+<p>Currently, I am super into functional programming and learning about type systems. I think Docker is amazing and am interested to see how things like now.sh, Serverless, and Apex will change DevOps.
+I make front end with ES6, React, and Redux, and back ends with Node, or really any scripting language. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about JavaScript and other technology topics. But I have irrationally strong feeling for JavaScript. I think conversational UIs are the future and am super excited to work on them.
 I care a lot about education, and still teach some math whenever I can. As a board member, I also help to guide Topanga Mountain School.</p>
-		</div>
-	</section>
-	<section id="profiles" class="row">
-		<aside class="col-sm-3">
-			<h3>Profiles</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-				<div class="col-sm-6">
-					<strong class="network">
-						Twitter
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://twitter.com/sam_havens">sam_havens</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						Medium
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://medium.com/@samhavens">samhavens</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						GitHub
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://github.com/samhavens">samhavens</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						LinkedIn
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://www.linkedin.com/in/samhavens">samhavens</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="work" class="row">
-		<aside class="col-sm-3">
-			<h3>Work</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>CarLabs</span>
-					<span class="date">
-						2014-04-01 — 
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://carlabs.com">http://carlabs.com</a>
-				</div>
-				<div class="position">
-					Web Developer
-				</div>
-				<div class="summary">
-					<p>I am a full-stack developer, working on everything from the database (MySQL), to backend code (a mixture of PHP on Yii2 and Express JS), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I have to make decisions about design, architecture, and libraries and live with those choices. I pitch projects internally, design, prototype, and build them using tools that include: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I end up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">Built a lead-scrubbing tool using PHP and MySQL that scored leads using a statistical model.</li>
-					<li class="bullet">Made a research tool using Yii, MySQL, jQuery and d3.js that updates charts in realtime in response to user preferences.</li>
-					<li class="bullet">Designed and built a mobile web app using Node, React, ES6, Webpack, and MaterialUI.</li>
-					<li class="bullet">Modernized front-end build process to use Webpack and ES6.</li>
-					<li class="bullet">Pitched product design which has become the focus of the company.</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Topanga Mountain School</span>
-					<span class="date">
-						2007-08-01 — 
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.topangamountainschool.org">http://www.topangamountainschool.org</a>
-				</div>
-				<div class="position">
-					Board Member and Teacher
-				</div>
-				<div class="summary">
-					<p>I was a full-time math and science teacher from 2007-2014. I trained new hires, designed curricula, and constantly improved my methods by incorporating new strategies and technologies. Anecdotally, alumni performance and engagement in math and science at the high school and college level improved during my tenure, but this is hard to quantify.
-
+</div>
+</section>
+<section id="profiles" class="row">
+<aside class="col-sm-3">
+<h3>Profiles</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<strong class="network">
+Twitter
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://twitter.com/sam_havens">sam_havens</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<strong class="network">
+Medium
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://medium.com/@samhavens">samhavens</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<strong class="network">
+GitHub
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://github.com/samhavens">samhavens</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<strong class="network">
+LinkedIn
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://www.linkedin.com/in/samhavens">samhavens</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="work" class="row">
+<aside class="col-sm-3">
+<h3>Work</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>CarLabs</span>
+<span class="date">
+2014-04-01 —
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://carlabs.com">http://carlabs.com</a>
+</div>
+<div class="position">
+CTO
+</div>
+<div class="summary">
+<p>I was a full-stack developer, working on everything from the database (MySQL), to backend code (a Node/Hapi app supported by services written in PHP/Yii2 and Python/Flask), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I had to make decisions about design, architecture, and libraries and live with those choices. I pitched projects internally, design, prototype, and built them using tools that included: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I ended up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Built a lead-scrubbing tool using PHP and MySQL that scored leads using a statistical model.</li>
+<li class="bullet">Made a research tool using Yii, MySQL, jQuery and d3.js that updates charts in realtime in response to user preferences.</li>
+<li class="bullet">Designed and built a mobile web app using Node, React, ES6, Webpack, and MaterialUI.</li>
+<li class="bullet">Modernized front-end build process to use Webpack and ES6.</li>
+<li class="bullet">Pitched product design which has become the focus of the company.</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Topanga Mountain School</span>
+<span class="date">
+2007-08-01 —
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://www.topangamountainschool.org">http://www.topangamountainschool.org</a>
+</div>
+<div class="position">
+Board Member and Teacher
+</div>
+<div class="summary">
+<p>I was a full-time math and science teacher from 2007-2014. I trained new hires, designed curricula, and constantly improved my methods by incorporating new strategies and technologies. Anecdotally, alumni performance and engagement in math and science at the high school and college level improved during my tenure, but this is hard to quantify.
 As a board member, I work to increase our (already strong) employee retention, automate processes for teachers and administrators, and find new sources of funding for innovative programs.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">Introduced Khan Academy to the math department in 2009, which improved instruction by making feedback instantaneous.</li>
-					<li class="bullet">Ran the programming club, which regularly had attendance of over 10% of the student body, with a near even gender split.</li>
-					<li class="bullet">Brought programming into the math program by adding a unit on Ruby to the Advanced Algebra class.</li>
-					<li class="bullet">Modernized the focus of the statistics unit by utilizing Google Sheets and Tuva Labs.</li>
-					<li class="bullet">Researched and implemented new employee benefits program.</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-
-	
-	<section id="education" class="row">
-		<aside class="col-sm-3">
-			<h3>Education</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>California State University-Northridge</span>
-					<span class="date">
-						2011-01-01 — 2013-05-21
-					</span>
-				</h4>
-				<div class="area">
-					Mathematics
-				</div>
-				<div class="studyType">
-					Master of Science
-				</div>
-				<h4>Courses</h4>
-				<ul class="courses">
-					<li>Topology</li>
-					<li>Advanced Abstract Algebra</li>
-					<li>Mathematical Modeling</li>
-					<li>Calculus on Manifolds</li>
-					<li>Complex Analysis</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>University of California, Santa Barbara</span>
-					<span class="date">
-						2002-01-01 — 2006-06-15
-					</span>
-				</h4>
-				<div class="area">
-					Physics
-				</div>
-				<div class="studyType">
-					Bachelor’s Degree
-				</div>
-				<h4>Courses</h4>
-				<ul class="courses">
-					<li>Advanced Linear Algebra</li>
-					<li>Tensor Analysis</li>
-					<li>Quantum Mechanics</li>
-					<li>Advanced Mechanics</li>
-					<li>Communicating Science to the Public</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	<section id="awards" class="row">
-		<aside class="col-sm-3">
-			<h3>Awards</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Bianchi Outstanding Graduate Student</span>
-				</h4>
-				<div class="date pull-right">
-					<em>Awarded</em>
-					2012-05-21
-				</div>
-				<div class="awarder">
-					<em>by</em>
-					<strong>California State University Northridge</strong>
-				</div>
-				<div class="summary">
-					Awarded to one graduate student per year in the College of Science for outstanding academic and research performance.
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>IRIS Fellow</span>
-				</h4>
-				<div class="date pull-right">
-					<em>Awarded</em>
-					2012-09-01
-				</div>
-				<div class="awarder">
-					<em>by</em>
-					<strong>Interdisciplinary Research Institute for the Sciences at CSUN</strong>
-				</div>
-				<div class="summary">
-					For research in mathematical physics.
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>LEAPS Fellow</span>
-				</h4>
-				<div class="date pull-right">
-					<em>Awarded</em>
-					2006-10-01
-				</div>
-				<div class="awarder">
-					<em>by</em>
-					<strong>California Nanosystems Institute</strong>
-				</div>
-				<div class="summary">
-					Helped communicate science to the public by running the science club at local middle schools.
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	<section id="publications" class="row">
-		<aside class="col-sm-3">
-			<h3>Publications</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Relative velocities, geometry, and expansion of space</span>
-					<span class="date">
-						2012-10-11
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://arxiv.org/abs/1210.3161"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>NOVA</strong>
-				</div>
-				<div class="summary">
-					<p>What does it mean to say that space expands? One approach to this question is the study of relative velocities. In this context, a non local test particle is &#x27;superluminal&#x27; if its relative velocity exceeds the local speed of light of the observer. The existence of superluminal relative velocities of receding test particles, in a particular cosmological model, suggests itself as a possible criterion for expansion of space in that model. In this point of view, superluminal velocities of distant receding galaxy clusters result from the expansion of space between the observer and the clusters. However, there is a fundamental ambiguity that must be resolved before this approach can be meaningful. The notion of relative velocity of a nonlocal object depends on the choice of coordinates, and this ambiguity suggests the need for coordinate independent definitions. In this work, we review four (inequivalent) geometrically defined and universal notions of relative velocity: Fermi, kinematic, astrometric, and spectroscopic relative velocities. We apply this formalism to test particles undergoing radial motion relative to comoving observers in expanding Robertson-Walker cosmologies, and include previously unpublished results on Fermi coordinates for a class of inflationary cosmologies. We compare relative velocities to each other, and show how pairs of them determine geometric properties of the spacetime, including the scale factor with sufficient data. Necessary and sufficient conditions are given for the existence of superluminal recessional Fermi speeds in general Robertson-Walker cosmologies. We conclude with a discussion of expansion of space.</p>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	<section id="skills" class="row">
-		<aside class="col-sm-3">
-			<h3>Skills</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Web Development</h4>
-				</div>
-				<ul class="keywords">
-					<li>JavaScript</li>
-					<li>ES6</li>
-					<li>Node</li>
-					<li>Express</li>
-					<li>React</li>
-					<li>d3.js</li>
-					<li>PHP</li>
-					<li>Yii/2</li>
-					<li>jQuery</li>
-					<li>MySQL</li>
-					<li>HTLM/CSS</li>
-					<li>CSS3</li>
-					<li>SASS</li>
-					<li>Webkit</li>
-					<li>Gulp</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Chat UI</h4>
-				</div>
-				<ul class="keywords">
-					<li>API.ai</li>
-					<li>Botkit</li>
-					<li>Slack API</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>DevOps</h4>
-				</div>
-				<ul class="keywords">
-					<li>AWS</li>
-					<li>Heroku</li>
-					<li>Linux</li>
-					<li>Apache</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Other Languages</h4>
-				</div>
-				<ul class="keywords">
-					<li>Python</li>
-					<li>Ruby</li>
-					<li>BASH</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Design</h4>
-				</div>
-				<ul class="keywords">
-					<li>Invision</li>
-					<li>Proto.io</li>
-					<li>Sketch</li>
-					<li>Responsive Design</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Education</h4>
-				</div>
-				<ul class="keywords">
-					<li>Presenting</li>
-					<li>Curriculum Design</li>
-					<li>Training</li>
-					<li>Tutoring</li>
-					<li>Mentoring</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="languages" class="row">
-		<aside class="col-sm-3">
-			<h3>Languages</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>Spanish</strong>
-				</div>
-				<div class="fluency">
-					I get by
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>English</strong>
-				</div>
-				<div class="fluency">
-					Native speaker
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>French</strong>
-				</div>
-				<div class="fluency">
-					Minimal
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-
-	
-
-	</div>
-	
-	</body>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Introduced Khan Academy to the math department in 2009, which improved instruction by making feedback instantaneous.</li>
+<li class="bullet">Ran the programming club, which regularly had attendance of over 10% of the student body, with a near even gender split.</li>
+<li class="bullet">Brought programming into the math program by adding a unit on Ruby to the Advanced Algebra class.</li>
+<li class="bullet">Modernized the focus of the statistics unit by utilizing Google Sheets and Tuva Labs.</li>
+<li class="bullet">Researched and implemented new employee benefits program.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="education" class="row">
+<aside class="col-sm-3">
+<h3>Education</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>California State University-Northridge</span>
+<span class="date">
+2011-01-01 — 2013-05-21
+</span>
+</h4>
+<div class="area">
+Mathematics
+</div>
+<div class="studyType">
+Master of Science
+</div>
+<h4>Courses</h4>
+<ul class="courses">
+<li>Topology</li>
+<li>Advanced Abstract Algebra</li>
+<li>Mathematical Modeling</li>
+<li>Calculus on Manifolds</li>
+<li>Complex Analysis</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>University of California, Santa Barbara</span>
+<span class="date">
+2002-01-01 — 2006-06-15
+</span>
+</h4>
+<div class="area">
+Physics
+</div>
+<div class="studyType">
+Bachelor’s Degree
+</div>
+<h4>Courses</h4>
+<ul class="courses">
+<li>Advanced Linear Algebra</li>
+<li>Tensor Analysis</li>
+<li>Quantum Mechanics</li>
+<li>Advanced Mechanics</li>
+<li>Communicating Science to the Public</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="awards" class="row">
+<aside class="col-sm-3">
+<h3>Awards</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Bianchi Outstanding Graduate Student</span>
+</h4>
+<div class="date pull-right">
+<em>Awarded</em>
+2012-05-21
+</div>
+<div class="awarder">
+<em>by</em>
+<strong>California State University Northridge</strong>
+</div>
+<div class="summary">
+Awarded to one graduate student per year in the College of Science for outstanding academic and research performance.
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>IRIS Fellow</span>
+</h4>
+<div class="date pull-right">
+<em>Awarded</em>
+2012-09-01
+</div>
+<div class="awarder">
+<em>by</em>
+<strong>Interdisciplinary Research Institute for the Sciences at CSUN</strong>
+</div>
+<div class="summary">
+For research in mathematical physics.
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>LEAPS Fellow</span>
+</h4>
+<div class="date pull-right">
+<em>Awarded</em>
+2006-10-01
+</div>
+<div class="awarder">
+<em>by</em>
+<strong>California Nanosystems Institute</strong>
+</div>
+<div class="summary">
+Helped communicate science to the public by running the science club at local middle schools.
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="publications" class="row">
+<aside class="col-sm-3">
+<h3>Publications</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Relative velocities, geometry, and expansion of space</span>
+<span class="date">
+2012-10-11
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://arxiv.org/abs/1210.3161"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>NOVA</strong>
+</div>
+<div class="summary">
+<p>What does it mean to say that space expands? One approach to this question is the study of relative velocities. In this context, a non local test particle is &#x27;superluminal&#x27; if its relative velocity exceeds the local speed of light of the observer. The existence of superluminal relative velocities of receding test particles, in a particular cosmological model, suggests itself as a possible criterion for expansion of space in that model. In this point of view, superluminal velocities of distant receding galaxy clusters result from the expansion of space between the observer and the clusters. However, there is a fundamental ambiguity that must be resolved before this approach can be meaningful. The notion of relative velocity of a nonlocal object depends on the choice of coordinates, and this ambiguity suggests the need for coordinate independent definitions. In this work, we review four (inequivalent) geometrically defined and universal notions of relative velocity: Fermi, kinematic, astrometric, and spectroscopic relative velocities. We apply this formalism to test particles undergoing radial motion relative to comoving observers in expanding Robertson-Walker cosmologies, and include previously unpublished results on Fermi coordinates for a class of inflationary cosmologies. We compare relative velocities to each other, and show how pairs of them determine geometric properties of the spacetime, including the scale factor with sufficient data. Necessary and sufficient conditions are given for the existence of superluminal recessional Fermi speeds in general Robertson-Walker cosmologies. We conclude with a discussion of expansion of space.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="row">
+<aside class="col-sm-3">
+<h3>Skills</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<div class="name">
+<h4>Web Development</h4>
+</div>
+<ul class="keywords">
+<li>JavaScript</li>
+<li>ES6</li>
+<li>Node</li>
+<li>Express</li>
+<li>React</li>
+<li>Hapi</li>
+<li>d3.js</li>
+<li>PHP</li>
+<li>Yii/2</li>
+<li>jQuery</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>CSS3</li>
+<li>SASS</li>
+<li>Webpack</li>
+<li>Gulp</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Conversational UI</h4>
+</div>
+<ul class="keywords">
+<li>API.ai</li>
+<li>Botkit</li>
+<li>Slack API</li>
+<li>Messenger API</li>
+<li>Sentiment Analysis</li>
+<li>Entity Recognition</li>
+<li>Intent Classification</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>DevOps</h4>
+</div>
+<ul class="keywords">
+<li>AWS</li>
+<li>Heroku</li>
+<li>Linux</li>
+<li>Apache</li>
+<li>NGINX</li>
+<li>Docker</li>
+<li>Vagrant</li>
+<li>Serverless Architecture</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Other Languages</h4>
+</div>
+<ul class="keywords">
+<li>Python</li>
+<li>Ruby</li>
+<li>BASH</li>
+<li>Mathematica</li>
+<li>Octave</li>
+<li>R</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Design</h4>
+</div>
+<ul class="keywords">
+<li>Invision</li>
+<li>Proto.io</li>
+<li>Sketch</li>
+<li>Responsive Design</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Education</h4>
+</div>
+<ul class="keywords">
+<li>Presenting</li>
+<li>Curriculum Design</li>
+<li>Training</li>
+<li>Tutoring</li>
+<li>Mentoring</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="languages" class="row">
+<aside class="col-sm-3">
+<h3>Languages</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<div class="language">
+<strong>Spanish</strong>
+</div>
+<div class="fluency">
+I get by
+</div>
+</div>
+<div class="col-sm-6">
+<div class="language">
+<strong>English</strong>
+</div>
+<div class="fluency">
+Native speaker
+</div>
+</div>
+<div class="col-sm-6">
+<div class="language">
+<strong>French</strong>
+</div>
+<div class="fluency">
+Minimal
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</body>
 </html>
