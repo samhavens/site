@@ -6,7 +6,7 @@
     "phone": "(818) 590-0484",
     "website": "http://samuelhavens.com",
     "picture": "http://www.samuelhavens.com/me.jpg",
-    "summary": "As the CTO of a CarLabs, I am in charge of making sure our engineering team is functioning efficiently and realizing business goals. I understand current practices, and how technology is likely to change in the coming months. My math background helps me to stay up-to-date with developments in deep learning and other AI fields relevant to NLP. \n\n Currently, I am super into functional programming and learning about type systems. I think Docker is amazing and am interested to see how things like now.sh, Serverless, and Apex will change DevOps. \n\n I make front end with ES6, React, and Redux, and back ends with Node, or really any scripting language. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about JavaScript and other technology topics. But I have irrationally strong feeling for JavaScript. I think conversational UIs are the future and am super excited to work on them.\n\nI care a lot about education, and still teach some math whenever I can. As a board member, I also help to guide Topanga Mountain School.",
+    "summary": "As the CTO of a CarLabs, I am in charge of making sure our engineering team is functioning efficiently and realizing business goals. I understand current practices, and how technology is likely to change in the coming months. My math background helps me to stay up-to-date with developments in deep learning and other AI fields relevant to NLP. \n\n Currently, I am super into functional programming and learning about type systems. I think Docker is amazing and am interested to see how things like now.sh, Serverless, and Apex will change DevOps. \n\n I make front ends with ES6, React, and Redux, and back ends with Node, or really any scripting language. But I love designing with Sketch, making visualizations in d3.js, or knocking something quick and dirty out in PHP. In my spare time I read about Deep Learning, functional programming, and other technology-related topics... but I have irrationally strong feeling for JavaScript. I think conversational UIs are the future and am super excited to work on them.\n\nI care a lot about education, and still teach some math whenever I can. As a board member, I also help to guide Topanga Mountain School.",
     "location": {
       "address": "1651 Old Topanga Canyon Road",
       "postalCode": "90290",
@@ -39,27 +39,22 @@
     {
       "name": "Web Development",
       "level": "Advanced",
-      "keywords": ["JavaScript","ES6","Node","Express","React","Hapi","d3.js","PHP","Yii/2","jQuery","MySQL","PostgreSQL","CSS3","SASS","Webpack","Gulp"]
+      "keywords": ["JavaScript","ES6","Node","Express","React","React Native", "Hapi","d3.js", "MySQL","PostgreSQL","CSS3","SASS","Webpack","Gulp"]
     },
     {
       "name": "Conversational UI",
       "level": "Advanced",
-      "keywords": ["API.ai","Botkit","Slack API","Messenger API","Sentiment Analysis","Entity Recognition","Intent Classification"]
+      "keywords": ["API.ai","Botkit","Slack API","Messenger API","Sentiment Analysis","Entity Recognition","Intent Classification", "Conversation Design"]
     },
     {
       "name": "DevOps",
       "level": "Intermediate",
-      "keywords": ["AWS","Heroku","Linux","Apache","NGINX","Docker","Vagrant","Serverless Architecture"]
+      "keywords": ["AWS","Apache","NGINX","Docker","Vagrant","Serverless Architecture"]
     },
     {
       "name": "Other Languages",
       "level": "Beginner - Intermediate",
-      "keywords": ["Python","Ruby","BASH","Mathematica","Octave","R"]
-    },
-    {
-      "name": "Design",
-      "level": "Intermediate",
-      "keywords": ["Invision","Proto.io","Sketch","Responsive Design"]
+      "keywords": ["Python","Elixir","Mathematica","Racket"]
     },
     {
       "name": "Education",
@@ -72,8 +67,21 @@
       "company": "CarLabs",
       "position": "CTO",
       "website": "http://carlabs.com",
+      "startDate": "2016-03-15",
+      "summary": "As the CTO of a CarLabs, I am in charge of making sure our engineering team is functioning efficiently and realizing business goals. I understand current practices, and how technology is likely to change in the coming months. My math background helps me to stay up-to-date with developments in deep learning and other AI fields relevant to NLP.",
+      "highlights": [
+        "Grew engineering team from 2 to 9 full-time members.",
+        "Developed custom solutions with customers to meet their business needs while leveraging our strength in web development and machine learning.",
+        "Frequently presented to the board and investors."
+      ]
+    },
+    {
+      "company": "CarLabs",
+      "position": "Full Stack Developer",
+      "website": "http://carlabs.com",
       "startDate": "2014-04-01",
-      "summary": "As the CTO of a CarLabs, I am in charge of making sure our engineering team is functioning efficiently and realizing business goals. I understand current practices, and how technology is likely to change in the coming months. My math background helps me to stay up-to-date with developments in deep learning and other AI fields relevant to NLP.\n\n Before becoming CTO, I was a full-stack developer, working on everything from the database (MySQL), to backend code (a Node/Hapi app supported by services written in  PHP/Yii2 and Python/Flask), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I had to make decisions about design, architecture, and libraries and live with those choices. I pitched projects internally, design, prototype, and built them using tools that included: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I ended up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
+      "endDate": "2016-03-15",
+      "summary": "Before becoming CTO, I was a full-stack developer, working on everything from the database (MySQL), to backend code (a Node/Hapi app supported by services written in  PHP/Yii2 and Python/Flask), to the front-end, where I modernized our build and deploy process by introducing Gulp.js and then Webpack. As one of two full-time developers, I had to make decisions about design, architecture, and libraries and live with those choices. I pitched projects internally, design, prototype, and built them using tools that included: Vanilla JavaScript, ES6, React, Redux, d3.js, jQuery, lodash, Bootstrap, Material-UI, Material Design Lite. I ended up doing a lot of gluing-together of various APIs, and the last API I helped design is really badass.",
       "highlights": [
         "Built a lead-scrubbing tool using PHP and MySQL that scored leads using a statistical model.",
         "Made a research tool using Yii, MySQL, jQuery and d3.js that updates charts in realtime in response to user preferences.",
@@ -86,7 +94,7 @@
       "company": "Topanga Mountain School",
       "position": "Board Member and Teacher",
       "website": "http://www.topangamountainschool.org",
-      "startDate": "2007-08-01",
+      "startDate": "2014-05-01",
       "summary": "I was a full-time math and science teacher from 2007-2014. I trained new hires, designed curricula, and constantly improved my methods by incorporating new strategies and technologies. Anecdotally, alumni performance and engagement in math and science at the high school and college level improved during my tenure, but this is hard to quantify.\n\nAs a board member, I work to increase our (already strong) employee retention, automate processes for teachers and administrators, and find new sources of funding for innovative programs.",
       "highlights": [
         "Introduced Khan Academy to the math department in 2009, which improved instruction by making feedback instantaneous.",
