@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link rel="preconnect" href="https://assets.standardresume.co" crossorigin="anonymous" /> -->
+    <link rel="preload"
+        href="https://assets.standardresume.co/raw/upload/v1613930712/fonts/inter-var-latin_slr2rc.woff2" as="font"
+        type="font/woff2" crossorigin="anonymous" />
+        <style type="text/css" media="print">
+            div.page
+            {
+              page-break-after: always;
+              page-break-inside: avoid;
+            }
+          </style>
+    <style>
+        .css-1r0ji2m {
+            box-sizing: border-box;
+            margin: 0;
+            min-width: 0;
+            font-family: barlow, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #000;
+            font-size: 16px;
+        }
+        .css-1ghvx9x {
+            box-sizing: border-box;
+            margin: 0;
+            min-width: 0;
+            font-family: barlow, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #000;
+            font-size: 16px;
+            color: #717278;
+            font-weight: 400;
+            line-height: 1.296;
+            font-family: "Libre Baskerville", sans-serif;
+            font-size: 16px;
+            margin-bottom: 6px;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+        }
+        /* Copied and modified from https://fonts.googleapis.com/css2?family=Inter:wght@400..700 */
+        /* latin-ext */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1613930712/fonts/inter-var-latin-ext_e4rknq.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1613930712/fonts/inter-var-latin_slr2rc.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* italic latin-ext */
+        @font-face {
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1628265386/fonts/inter-italic-var-latin-ext_nenjsi.woff2) format('woff2');
+            unicode-range: U+0100-0149, U+014A-01C4, U+01C5-0250, U+0259,
+                U+1E00-1F00, U+2020, U+20A0-20AC, U+20AD-20C0, U+2113, U+2C7C, U+2C7F,
+                U+A7FF;
+            font-named-instance: 'Italic';
+        }
+
+        /* italic latin */
+        @font-face {
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1628265386/fonts/inter-italic-var-latin_qedl54.woff2) format('woff2');
+            unicode-range: U+0000-007F, U+00A0-0100, U+0131, U+0152-0154,
+                U+02BB-02BD, U+02C6, U+02DA, U+02DC, U+2000-200C, U+2010-2028,
+                U+202F-2060, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+FEFF;
+            font-named-instance: 'Italic';
+        }
+    </style>
+    <style>
+        /* https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap */
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1613933475/fonts/ibm-plex-300-latin-ext_yk9mx1.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1613933475/fonts/ibm-plex-300-latin_niyzcs.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1613933474/fonts/ibm-plex-500-latin-ext_hryzso.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://assets.standardresume.co/raw/upload/v1613933474/fonts/ibm-plex-500-latin_mu9ky0.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-icon-167.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120.png" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#000000" />
+    <meta name="apple-mobile-web-app-title" content="Standard Resume" />
+    <meta name="theme-color" content="#2a3ffb" />
+    <meta name="msapplication-TileColor" content="#2a3ffb" />
+    <meta name="viewport" content="width=device-width" />
+    <meta charSet="utf-8" />
+    <title>Sam Havens&#x27;s Resume | Director of NLP Engineering at Writer</title>
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta property="og:title" content="Sam Havens&#x27;s Resume | Director of NLP Engineering at Writer" />
+    <meta property="og:type" content="profile" />
+    <meta property="profile:first_name" content="Sam" />
+    <meta property="profile:last_name" content="Havens" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="__next" data-reactroot="">
+        <style data-emotion-css="18bnnuq">
+            body {
+                color: rgba(0, 0, 0, 1);
+                background-color: rgba(242, 247, 252, 1);
+            }
+        </style>
+        <style data-emotion-css="1xwpiaj">
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+                color: rgba(0, 0, 0, 1);
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 1.5;
+                background-color: rgba(242, 247, 252, 1);
+                font-feature-settings: 'case'1, 'rlig'1, 'calt'1, 'kern'1;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-variant-ligatures: contextual common-ligatures;
+                font-kerning: normal;
+            }
+
+        </style>
+        <style data-emotion-css="be9d8r">
+            .css-be9d8r {
+                box-sizing: border-box;
+                margin: 0;
+                min-width: 0;
+                background-color: #e4ebf1;
+                min-height: 100vh;
+                min-width: 100vw;
+            }
+        </style>
+        <div class="css-be9d8r">
+            <style data-emotion-css="1jmx1h9">
+                .css-1jmx1h9 {
+                    box-sizing: border-box;
+                    margin: 0;
+                    min-width: 0;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    max-width: 1084px;
+                    padding-bottom: 0;
+                }
+
+            </style>
+            <div class="css-1jmx1h9">
+                <style data-emotion-css="1qbz534">
+                    .css-1qbz534 {
+                        box-sizing: border-box;
+                        margin: 0;
+                        min-width: 0;
+                        display: -webkit-box;
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: justify;
+                        -webkit-justify-content: space-between;
+                        -ms-flex-pack: justify;
+                        justify-content: space-between;
+                        -webkit-align-items: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                        padding-left: 16px;
+                        padding-right: 16px;
+                        min-height: 0;
+                    }
+
+                </style>
+                <style data-emotion-css="1tcp1k1">
+                    .css-1tcp1k1 {
+                        box-sizing: border-box;
+                        margin: 0;
+                        min-width: 0;
+                        margin: 0 auto;
+                        width: 100%;
+                        max-width: 1000px;
+                        background-color: #fff;
+                        overflow: hidden;
+                        min-height: auto;
+                    }
+                </style>
+                <div class="css-1tcp1k1">
+                    <style data-emotion-css="qz2fpi">
+                        .css-qz2fpi {
+                            box-sizing: border-box;
+                            margin: 0;
+                            min-width: 0;
+                            margin: 0 auto;
+                            width: 100%;
+                            /* max-width: 800px; */
+                            padding-left: 24px;
+                            padding-right: 24px;
+                            padding-top: 24px;
+                            padding-bottom: 24px;
+                        }
+
+                    </style>
+                    <div class="css-qz2fpi">
+                        <link
+                            href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap"
+                            rel="stylesheet" />
+                        <style data-emotion-css="1heaknp">
+                            .css-1heaknp {
+                                box-sizing: border-box;
+                                margin: 0;
+                                min-width: 0;
+                                margin-bottom: 28px;
+                                position: relative;
+                            }
+                        </style>
+                        <header class="pdf-resume-header css-1heaknp">
+                            <style data-emotion-css="1emq3c3">
+                                .css-1emq3c3 {
+                                    box-sizing: border-box;
+                                    margin: 0;
+                                    min-width: 0;
+                                    font-family: "Libre Baskerville", sans-serif;
+                                    font-weight: 700;
+                                    line-height: 1.296;
+                                    color: #000;
+                                    font-weight: 700;
+                                    line-height: 1.296;
+                                    font-family: "Libre Baskerville", sans-serif;
+                                    font-size: 28px;
+                                    -webkit-letter-spacing: 0.03em;
+                                    -moz-letter-spacing: 0.03em;
+                                    -ms-letter-spacing: 0.03em;
+                                    letter-spacing: 0.03em;
+                                }
+                            </style>
+                            <h1 class="css-1emq3c3">Sam Havens
+                            </h1>
+                            <style data-emotion-css="mggfql">
+                                .css-mggfql {
+                                    box-sizing: border-box;
+                                    margin: 0;
+                                    min-width: 0;
+                                    font-family: barlow, sans-serif;
+                                    line-height: 1.5;
+                                    font-weight: 400;
+                                    color: #000;
+                                    font-size: 16px;
+                                    margin-bottom: 12px;
+                                }
+                            </style>
+                            <div class="css-mggfql">
+                                <style data-emotion-css="dzq4wi">
+                                    .css-dzq4wi {
+                                        box-sizing: border-box;
+                                        margin: 0;
+                                        min-width: 0;
+                                        font-family: barlow, sans-serif;
+                                        line-height: 1.5;
+                                        font-weight: 400;
+                                        color: #000;
+                                        font-size: 16px;
+                                        font-weight: 700;
+                                        padding-right: 3px;
+                                    }
+                                </style><span class="css-dzq4wi">Machine Learning Engineer &amp; Manager</span> | Portland, Oregon | 
+                                <style data-emotion-css="1cuak6k">
+                                    .css-1cuak6k {
+                                        box-sizing: border-box;
+                                        margin: 0;
+                                        min-width: 0;
+                                        color: inherit;
+                                        -webkit-text-decoration: inherit;
+                                        text-decoration: inherit;
+                                        font-size: inherit;
+                                        font-weight: inherit;
+                                        overflow-wrap: break-word;
+                                    }
+
+                                    .css-1cuak6k:hover {
+                                        opacity: 0.7;
+                                    }
+                                </style><a href="http://linkedin.com/in/samhavens" target="_blank"
+                                    rel="noopener noreferrer nofollow ugc"
+                                    class="css-1cuak6k">linkedin.com/in/samhavens</a> | samhavens@gmail.com | 818.590.0484
+                            </div>
+
+                            <div class="css-1r0ji2m">Experience across the stack, specializing in NLP research,
+                                engineering, and management.</div>
+                        </header>
+                        <style data-emotion-css="vurnku">
+                            .css-vurnku {
+                                box-sizing: border-box;
+                                margin: 0;
+                                min-width: 0;
+                            }
+                        </style>
+                        <div class="pdf-page-container css-vurnku">
+                            <div class="pdf-page-column css-vurnku">
+                                <style data-emotion-css="ufg8u0">
+                                    .css-ufg8u0 {
+                                        box-sizing: border-box;
+                                        margin: 0;
+                                        min-width: 0;
+                                        margin-bottom: 40px;
+                                    }
+                                </style>
+                                <section class="css-ufg8u0">
+                                    <style data-emotion-css="1g8vxrq">
+                                        .css-1g8vxrq {
+                                            box-sizing: border-box;
+                                            margin: 0;
+                                            min-width: 0;
+                                            font-family: "Libre Baskerville", sans-serif;
+                                            font-weight: 700;
+                                            line-height: 1.296;
+                                            color: #626367;
+                                            font-weight: 400;
+                                            line-height: 1.296;
+                                            font-family: barlow, sans-serif;
+                                            font-size: 16px;
+                                            -webkit-letter-spacing: 0.1em;
+                                            -moz-letter-spacing: 0.1em;
+                                            -ms-letter-spacing: 0.1em;
+                                            letter-spacing: 0.1em;
+                                            text-transform: uppercase;
+                                            margin-bottom: 16px;
+                                        }
+                                    </style>
+                                    <h2 class="css-1g8vxrq">Work Experience</h2>
+                                    <style data-emotion-css="19ug6vd">
+                                        .css-19ug6vd {
+                                            box-sizing: border-box;
+                                            margin: 0;
+                                            min-width: 0;
+                                            margin-bottom: 24px;
+                                            page-break-inside: avoid;
+                                        }
+                                    </style>
+                                    <div class="css-19ug6vd">
+                                        <style data-emotion-css="ivebmu">
+                                            .css-ivebmu {
+                                                box-sizing: border-box;
+                                                margin: 0;
+                                                min-width: 0;
+                                                display: -webkit-box;
+                                                display: -webkit-flex;
+                                                display: -ms-flexbox;
+                                                display: flex;
+                                                -webkit-box-pack: justify;
+                                                -webkit-justify-content: space-between;
+                                                -ms-flex-pack: justify;
+                                                justify-content: space-between;
+                                                -webkit-flex-direction: column;
+                                                -ms-flex-direction: column;
+                                                flex-direction: column;
+                                            }
+
+                                            @media (min-width:768px) {
+                                                .css-ivebmu {
+                                                    -webkit-flex-direction: row;
+                                                    -ms-flex-direction: row;
+                                                    flex-direction: row;
+                                                }
+                                            }
+                                        </style>
+                                        <div class="css-ivebmu">
+                                            <style data-emotion-css="q2wk8b">
+                                                .css-q2wk8b {
+                                                    box-sizing: border-box;
+                                                    margin: 0;
+                                                    min-width: 0;
+                                                    display: -webkit-box;
+                                                    display: -webkit-flex;
+                                                    display: -ms-flexbox;
+                                                    display: flex;
+                                                    -webkit-flex-wrap: wrap;
+                                                    -ms-flex-wrap: wrap;
+                                                    flex-wrap: wrap;
+                                                }
+                                            </style>
+                                            <div class="css-q2wk8b">
+                                                <style data-emotion-css="1w10s8c">
+                                                    .css-1w10s8c {
+                                                        box-sizing: border-box;
+                                                        margin: 0;
+                                                        min-width: 0;
+                                                        font-family: "Libre Baskerville", sans-serif;
+                                                        font-weight: 700;
+                                                        line-height: 1.296;
+                                                        color: #000;
+                                                        font-weight: 700;
+                                                        line-height: 1.296;
+                                                        font-family: "Libre Baskerville", sans-serif;
+                                                        font-size: 16px;
+                                                        margin-bottom: 6px;
+                                                    }
+                                                </style>
+                                                <h2 class="css-1w10s8c">
+                                                    <style data-emotion-css="1wafmg3">
+                                                        .css-1wafmg3 {
+                                                            box-sizing: border-box;
+                                                            margin: 0;
+                                                            min-width: 0;
+                                                            color: inherit;
+                                                            -webkit-text-decoration: inherit;
+                                                            text-decoration: inherit;
+                                                            font-size: inherit;
+                                                            font-weight: inherit;
+                                                        }
+
+                                                        .css-1wafmg3:hover {
+                                                            opacity: 0.7;
+                                                        }
+                                                    </style><a href="http://writer.com" target="_blank"
+                                                        rel="noopener noreferrer nofollow ugc"
+                                                        class="css-1wafmg3">Writer</a>
+                                                </h2>, <style data-emotion-css="crs7vy">
+                                                    .css-crs7vy {
+                                                        box-sizing: border-box;
+                                                        margin: 0;
+                                                        min-width: 0;
+                                                        color: #000;
+                                                        font-weight: 400;
+                                                        line-height: 1.296;
+                                                        font-family: "Libre Baskerville", sans-serif;
+                                                        font-size: 16px;
+                                                        margin-bottom: 6px;
+                                                        padding-left: 3px;
+                                                    }
+                                                </style>
+                                                <div class="css-crs7vy">Director of NLP Engineering</div>
+                                            </div>
+
+                                            <div class="css-1ghvx9x"><span>Sep 2020
+                                                    <!-- --> - Current
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <style data-emotion-css="ddt54r">
+                                                    .css-ddt54r {
+                                                        box-sizing: border-box;
+                                                        margin: 0;
+                                                        min-width: 0;
+                                                        font-family: barlow, sans-serif;
+                                                        line-height: 1.5;
+                                                        font-weight: 400;
+                                                        color: #000;
+                                                        font-size: 16px;
+                                                        margin-bottom: 6px;
+                                                    }
+                                                </style>
+                                                <p class="css-ddt54r">Writer is an AI writing assistant used by brands
+                                                    like Twitter, Intuit, and Accenture. The NLP team uses a
+                                                    microservice architecture based on Kubernetes, FastAPI, HuggingFace
+                                                    Transformers, NVIDIA Triton, and ONNX.</p>
+                                                <style data-emotion-css="1yh09yi">
+                                                    .css-1yh09yi {
+                                                        box-sizing: border-box;
+                                                        margin: 0;
+                                                        min-width: 0;
+                                                        padding: 0;
+                                                    }
+                                                </style>
+                                                <ul class="css-1yh09yi">
+                                                    <style data-emotion-css="1xcpymp">
+                                                        .css-1xcpymp {
+                                                            box-sizing: border-box;
+                                                            margin: 0;
+                                                            min-width: 0;
+                                                            font-family: barlow, sans-serif;
+                                                            line-height: 1.5;
+                                                            font-weight: 400;
+                                                            color: #000;
+                                                            font-size: 16px;
+                                                            margin-left: 30px;
+                                                            padding-left: 0;
+                                                        }
+                                                    </style>
+                                                    <li class="css-1xcpymp">Responsible for NLP from research to
+                                                        operations, including &gt;25 microservices</li>
+                                                    <li class="css-1xcpymp">Trained an encoder/decoder Grammar Error
+                                                        Correction model using novel synthetic data techniques, which
+                                                        outperformed an open-source baseline by 130%</li>
+                                                    <li class="css-1xcpymp">Used NVIDIA Triton and ONNX to serve a
+                                                        character-based transformer spelling correction model while
+                                                        keeping inference latencies below 300ms at 50 req/s</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c"><a href="http://qordoba.com" target="_blank"
+                                                        rel="noopener noreferrer nofollow ugc"
+                                                        class="css-1wafmg3">Qordoba</a></h2>, <div class="css-crs7vy">
+                                                    Director of Data Science</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>Feb 2019
+                                                    <!-- --> -
+                                                    <!-- -->Sep 2020
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">Reduced mean service latency from &gt;1.5s
+                                                        to &lt;300ms.</li>
+                                                    <li class="css-1xcpymp">Grew team from 2 to 6, while improving
+                                                        onboarding effectiveness (time to first commit: from weeks to
+                                                        &lt; 1 day).</li>
+                                                    <li class="css-1xcpymp">Implemented classification and seq2seq
+                                                        models in spaCy, Flair, and Marian with aggressive latency
+                                                        requirements.</li>
+                                                    <li class="css-1xcpymp">Responsible for all ML Ops. Made models
+                                                        available using modern async/await Python, and
+                                                        Docker/Kubernetes/PubSub, with some help from Bash and Jenkins.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c"><a href="http://carlabs.com" target="_blank"
+                                                        rel="noopener noreferrer nofollow ugc"
+                                                        class="css-1wafmg3">Carlabs</a></h2>, <div class="css-crs7vy">
+                                                    Chief Technology Officer</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>May 2016
+                                                    <!-- --> -
+                                                    <!-- -->Jan 2019
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">Created a suite of tools for automotive
+                                                        OEMs and dealers to manage chatbots for their brand on
+                                                        web, chat, and voice platforms.</li>
+                                                    <li class="css-1xcpymp">Used Docker/Kubernetes to operate
+                                                        services written in Node.js, Elixir, and Python, and models made
+                                                        in FastText and TensorFlow.</li>
+                                                    <li class="css-1xcpymp">Engineering team grew from 4 to 16 during my tenure. Established a strong
+                                                        engineering culture of testing, code reviews, pair programming,
+                                                        and mentorship.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c"><a href="http://carlabs.com" target="_blank"
+                                                        rel="noopener noreferrer nofollow ugc"
+                                                        class="css-1wafmg3">Carlabs</a></h2>, <div class="css-crs7vy">
+                                                    Software Engineer</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>Mar 2015
+                                                    <!-- --> -
+                                                    <!-- -->May 2016
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">Created a car comparison shopping tool using
+                                                        React, ES6, Webpack, and MaterialUI.</li>
+                                                    <li class="css-1xcpymp">Built a conversational agent with a
+                                                        Node.js/Docker backend and NLP services in Python using
+                                                        FastText, NLTK, and Gensim.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c"><a href="http://topangamountainschool.org"
+                                                        target="_blank" rel="noopener noreferrer nofollow ugc"
+                                                        class="css-1wafmg3">Topanga Mountain School</a></h2>, <div
+                                                    class="css-crs7vy">Board Member and Teacher</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>Aug 2007
+                                                    <!-- --> - Current
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">Full-time math and science teacher from
+                                                        2007-2014.</li>
+                                                    <li class="css-1xcpymp">Current board member.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c">Revmaker</h2>, <div class="css-crs7vy">Software
+                                                    Engineer</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>Apr 2014
+                                                    <!-- --> -
+                                                    <!-- -->Mar 2015
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">Implemented a probabilistic lead-scoring
+                                                        model and built an MVC lead generation web app with a LAMP
+                                                        backend and d3.js + jQuery frontend</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="css-ufg8u0">
+                                    <h2 class="css-1g8vxrq">Education</h2>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c"><a href="http://csun.edu" target="_blank"
+                                                        rel="noopener noreferrer nofollow ugc"
+                                                        class="css-1wafmg3">California State University, Northridge</a>
+                                                </h2>, <div class="css-crs7vy">Master of Science Mathematics</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>2011
+                                                    <!-- --> -
+                                                    <!-- -->2013
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">
+                                                        Bianchi Outstanding Graduate Student research award, and IRIS Fellowship recipient.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-19ug6vd">
+                                        <div class="css-ivebmu">
+                                            <div class="css-q2wk8b">
+                                                <h2 class="css-1w10s8c"><a href="http://ucsb.edu" target="_blank"
+                                                        rel="noopener noreferrer nofollow ugc" class="css-1wafmg3">UC
+                                                        Santa Barbara</a></h2>, <div class="css-crs7vy">Bachelors
+                                                    Physics</div>
+                                            </div>
+                                            <div class="css-1ghvx9x"><span>2002
+                                                    <!-- --> -
+                                                    <!-- -->2006
+                                                </span></div>
+                                        </div>
+                                        <div class="css-vurnku">
+                                            <div class="css-vurnku">
+                                                <ul class="css-1yh09yi">
+                                                    <li class="css-1xcpymp">LEAPS Fellow</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style data-emotion-css="1si0cz4">
+                    .css-1si0cz4 {
+                        box-sizing: border-box;
+                        margin: 0;
+                        min-width: 0;
+                        display: -webkit-box;
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-align-items: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                        -webkit-box-pack: center;
+                        -webkit-justify-content: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        margin-top: 48px;
+                        padding-bottom: 24px;
+                    }
+
+                    @media (min-width:768px) {
+                        .css-1si0cz4 {
+                            margin-top: 120px;
+                            padding-bottom: 0;
+                        }
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
