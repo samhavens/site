@@ -4,6 +4,10 @@
 
 `resume.html` is the source of truth. It and `index.html` are just raw HTML/CSS, so builder. Edit by hand.
 
+## Source
+
+https://app.standardresume.co/resumes/QVEJ4QXFwghVVSMU94E0M/share
+
 ## PDF
 
 To make the resume into a PDF:
