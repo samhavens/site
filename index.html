@@ -1,313 +1,68 @@
-<!doctype html>
-<html>
-	<head>
+<!DOCTYPE html>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sam Havens</title>
+<meta content="Sam Havens — LLM researcher focused on post-training, continual learning, and agentic systems." name="description"/>
+<style>
+    :root { --maxw: 860px; --fg: #111; --muted: #444; --rule: #e5e5e5; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--fg);
+      line-height: 1.55;
+      max-width: var(--maxw);
+      margin: 32px auto;
+      padding: 0 16px 48px;
+      font-size: 16px;
+    }
+    a { color: inherit; }
+    a:hover { text-decoration: underline; }
+    h1 { font-size: 34px; margin: 0 0 10px; letter-spacing: -0.02em; }
+    h2 { font-size: 18px; margin: 22px 0 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+    h3 { font-size: 16px; margin: 18px 0 6px; }
+    hr { border: 0; border-top: 1px solid var(--rule); margin: 22px 0; }
+    ul { margin: 8px 0 0 20px; padding: 0; }
+    li { margin: 6px 0; }
+    .muted { color: var(--muted); }
+    .pill a { text-decoration: none; }
+    .pill a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<h1>Sam Havens</h1>
+<p class="muted">LLM researcher focused on post-training, continual learning, and agentic systems.</p>
+<h2>About</h2>
+<p>I am a Staff Research Scientist at <a href="https://www.databricks.com/">Databricks</a> (Mosaic AI Research), working on post-training, continual learning, evaluation, and agentic systems (tool use, long-context context management, and memory).</p>
+<p>
+    Previously I was a Research Scientist at <a href="https://www.mosaicml.com/">MosaicML</a>. Before that I led NLP at
+    <a href="https://writer.com/">Writer</a>, and prior to that I was the CTO of the conversational AI startup CarLabs.
+  </p>
+<p class="muted">
+    I like to build innovative products using machine learning, and also understand (empirically) how these models work.
+    I try to create a supportive environment in which people can learn and create work they are proud of.
+  </p>
 
-	<title>Sam Havens</title>
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-
-	<style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
-body {
-	background: #fff;
-	/* font-family: Lato, sans-serif; */
-	font-family: 'Open Sans', sans-serif;
-	margin: 0 0 80px;
-}
-a {
-	color: #d81b60;
-}
-a:focus,
-a:hover {
-	color: #9c27b0;
-	text-decoration: none;
-}
-p {
-	line-height: 1.5;
-	margin: 0;
-}
-p + p {
-	margin-top: 10px;
-}
-
-h1,
-h2,
-h3,
-h4 {
-	font-family: 'News Cycle', sans-serif;
-	margin-top: 0
-}
-section {
-	margin-top: 30px;
-}
-li {
-	line-height: 1.8;
-	list-style: none;
-}
-li:before {
-	content: "\f052";
-	float: left;
-	font: 13px Octicons;
-	margin-top: 6px;
-	margin-left: -20px;
-	opacity: .1;
-	position: absolute;
-}
-blockquote {
-	border-left: 5px solid #e7e9ec;
-	font-size: 14px;
-}
-em {
-	color: #95a5a6;
-	font-weight: normal;
-	font-style: normal;
-}
-h4 span:first-child {
-	color: #000;
-	font-weight: bold;
-}
-.container {
-	max-width: 750px;
-	padding: 0 30px;
-}
-.col-sm-6 {
-	margin-bottom: 10px;
-}
-.col-sm-12 h4 {
-	margin-top: 12px;
-}
-.col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
-}
-#header {
-	background: #f4f6f6;
-	padding: 50px 0;
-	margin-bottom: 30px;
-}
-#header h2 {
-	color: #95a5a6;
-	font-size: 24px;
-}
-#content h3 {
-	color: #283593;
-	font-size: 26px;
-	margin-top: -4px;
-}
-#content aside {
-	text-align: right;
-	padding-right: 30px;
-}
-#profiles .network {
-	text-transform: capitalize;
-	font-family: 'News Cycle', sans-serif;
-}
-#work .position,
-#volunteer .position {
-	font-weight: bold;
-	margin-bottom: 8px;
-}
-#education .area {
-	font-weight: bold;
-}
-#education .area:before {
-	content: "\f0d7";
-	font: 16px Octicons;
-	margin-right: 6px;
-}
-#education .studyType {
-	margin-left: 25px;
-}
-#awards .summary,
-#publications .summary {
-	margin-top: 8px;
-}
-#publications .website a:before {
-	content: attr(href);
-}
-
-@media (min-width: 480px) {
-	.strike-through {
-		border-top: 1px solid #f4f6f6;
-		height: 20px;
-		margin-top: 12px;
-		margin-bottom: -2px;
-		position: relative;
-	}
-	.strike-through span,
-	.strike-through a {
-		background: #fff;
-		position: absolute;
-	}
-	.strike-through span:first-child {
-		padding-right: 20px;
-		margin-top: -12px;
-	}
-	.strike-through span + span {
-		font-size: 14px;
-		margin-top: -10px;
-		padding-left: 20px;
-		right: 0;
-	}
-}
-@media (max-width: 768px) {
-	.col-sm-6:last-child {
-		margin-bottom: 0px;
-	}
-	#content aside {
-		margin-bottom: 20px;
-		padding-right: 0;
-		text-align: left;
-	}
-	#publications .website a:before {
-		content: "View publication";
-	}
-}
-@media (max-width: 480px) {
-	h1 {
-		font-size: 26px;
-	}
-	.date {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	.strike-through span:first-child {
-		margin-bottom: 7px;
-	}
-	.strike-through span {
-		display: block;
-	}
-	#header {
-		margin-bottom: 10px;
-		padding: 40px 0;
-	}
-	#actions {
-		display: none;
-	}
-}
-
-	</style>
-
-	</head>
-	<body>
-
-	<header id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9 col-sm-push-3">
-					<h1>
-						Sam Havens
-					</h1>
-					<h2>
-						Machine learning researcher, engineer, and manager
-					</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div id="content" class="container">
-
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>About</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p>I am currently an AI researcher on the NLP team at <a href="https://www.mosaicml.com/">MosaicML</a>, working under <a href="https://scholar.google.com/citations?user=MlLJapIAAAAJ&hl=en">Jonathan Frankle</a>. We focus on empirical methods to speed up model convergence.</p>
-			<p>Previously I led NLP at <a href="http://writer.com" target="_blank">Writer</a>. Prior to that I was the CTO of the conversational AI startup CarLabs.</p>
-
-			<p>I like to build innovative products using machine learning, as well as understand, empirically, how these models work. I try to create a supportive environment in which people can learn and create work that they are proud of.</p>
-			<p>I volunteer in the education sector. For fun, I lift weights, run, learn, and go exploring with my family.</p>
-		</div>
-	</section>
-
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>Advising</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p>I occasionally advise investors, founders, and executives about NLP and generative models. If you would like to learn more about modern NLP and its current and expected future capabilities, reach out by <a href="mailto:samhavens@gmail.com">email</a> or <a href="https://twitter.com/sam_havens" target="_blank">Twitter</a>.</p>
-		</div>
-	</section>
-
-	<section id="resume" class="row">
-		<aside class="col-sm-3">
-			<h3>Resume</h3>
-		</aside>
-		<div class="col-sm-9">
-			<!-- <a href="resume.pdf" target="_blank">pdf</a> -->
-			<ul>
-				<li><a href="resume.html" target="_blank">html</a></li>
-				<li><a href="resume.pdf" download>pdf</a></li>
-			</ul>
-		</div>
-	</section>
-
-	<section id="profiles" class="row">
-		<aside class="col-sm-3">
-			<h3>Profiles</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-				<div class="col-sm-6">
-					<strong class="network">
-						Stack Overflow
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://stackoverflow.com/users/3518108/sam-h" target="_blank">Sam H.</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						Medium
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://medium.com/@samhavens" target="_blank">samhavens</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						GitHub
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://github.com/samhavens" target="_blank">samhavens</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						LinkedIn
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://www.linkedin.com/in/samhavens" target="_blank">samhavens</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						Twitter
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://twitter.com/sam_havens" target="_blank">@sam_havens</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	</div>
-
-	</body>
+<h2>Resume</h2>
+<ul>
+<li><a href="/resume.html">html</a></li>
+<li><a href="/resume.pdf">pdf</a></li>
+</ul>
+<h2>Selected links</h2>
+<ul>
+<li><a href="https://www.databricks.com/blog/author/sam-havens">Databricks blog author page</a></li>
+<li><a href="https://scholar.google.com/citations?hl=en&amp;user=3WXWL3UAAAAJ">Google Scholar</a></li>
+<li><a href="https://dblp.org/pid/361/7360">DBLP</a></li>
+</ul>
+<h2>Profiles</h2>
+<ul>
+<li>Stack Overflow: <a href="https://stackoverflow.com/users/2052240/sam-h">Sam H.</a></li>
+<!-- <li>Medium: <a href="https://medium.com/@samhavens">samhavens</a></li> -->
+<li>GitHub: <a href="https://github.com/samhavens">samhavens</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/in/samhavens/">samhavens</a></li>
+<li>Twitter/X: <a href="https://x.com/sam_havens">@sam_havens</a></li>
+</ul>
+</body>
 </html>
