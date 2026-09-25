@@ -4,7 +4,7 @@ Checked September 24, 2026. The essay starts from 2013 survey references. Dates 
 
 ## 2013 starting values (`setup.js` 1.0.0)
 
-| input | primary source | mapping and limit |
+| Input | Primary source | Mapping and limit |
 |---|---|---|
 | Jewish identity .022 | Pew, [population estimates](https://www.pewresearch.org/religion/2013/10/01/chapter-1-population-estimates/), October 2013 | Adult “net Jewish” estimate, including Jews of no religion. Used for a simplified reproductive cohort, not measured ancestry or an all-age population. |
 | Orthodox .10, Conservative .18, Reform .35 | Pew, [A Portrait of Jewish Americans](https://www.pewresearch.org/religion/2013/10/01/jewish-american-beliefs-attitudes-culture-survey/), October 2013 | Survey estimates with sampling uncertainty. Residual .37 combines other affiliations and no denomination; residual arithmetic includes rounding. |

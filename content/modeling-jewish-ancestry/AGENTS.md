@@ -6,7 +6,7 @@ Read `METHODS.md` and `MODEL-AUDIT.md` before changing the draft. This is a comp
 
 This is the full-prose revision requested after Sam rejected the first draft. Use informal, direct explanation, with actual assumptions and results. Avoid aphorisms, sentimental ancestry language, dramatic reveals, grand concluding statements, and forced slang. Apply this to the whole essay and interface, not only the introduction. Do not restore the older wording or infer that short sentences alone match the author. Keep necessary technical distinctions, source notes, and definitions.
 
-The current title is `modeling jewish ancestry`. `index.md` is canonical: run `npm run build` from the site root after prose edits. The v4 numerical engine is unchanged. The current essay uses the separate survey-linked `setup.js` (2013), while legacy `M.defaults()` values remain for old saved links. Read SOURCES.md before changing the starting setup.
+The current title is `Modeling Jewish Ancestry`. `index.md` is canonical: run `npm run build` from the site root after prose edits. The v4 numerical engine is unchanged. The current essay uses the separate survey-linked `setup.js` (2013), while legacy `M.defaults()` values remain for old saved links. Read SOURCES.md before changing the starting setup.
 
 ## implementation contracts
 
@@ -21,6 +21,6 @@ Preserve these contracts:
 7. Sensitivity bands are quantiles over stated input distributions, not forecast confidence intervals. Export the model version and assumptions with numerical results.
 8. Keep a no-JavaScript reading path, visible input labels, text alternatives for animation, reduced-motion support, and a locally scrollable subgroup table on small screens.
 9. Run `npm test` after model changes and `npm run build` after source changes. Regenerate parity fixtures only as a separately explained reference-model change, never just to make a failing test pass.
-10. Do not publish, deploy, change the live blog, or assert measured demographic validity without Sam's review.
+10. Publication requires Sam's review. Sam approved this initial publication on September 24, 2026, with standard casing and no homepage link to `/blog/`. This approval does not establish measured demographic validity.
 
-Use normal code casing. The essay and interface prose are intentionally mostly lowercase. No framework, analytics, CDN, or backend is needed for the delivered version. The current destination is samuelhavens.com/blog; follow the site root PRODUCT.md and DESIGN.md.
+Use normal code casing. Use standard sentence casing and capitalize proper names in the essay and interface, as Sam requested for publication. No framework, analytics, CDN, or backend is needed for the delivered version. The current destination is samuelhavens.com/blog; follow the site root PRODUCT.md and DESIGN.md.

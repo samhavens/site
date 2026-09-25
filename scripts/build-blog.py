@@ -22,7 +22,7 @@ CSS = (ROOT / "content/blog.css").read_text()
 
 
 def header():
-    return '<a class="skip-link" href="#main">skip to content</a><header class="site-header"><a class="name" href="/">Sam Havens</a><nav aria-label="main navigation"><a href="/blog/">Blog</a><a href="/resume.html">Resume</a></nav></header>'
+    return '<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><a class="name" href="/">Sam Havens</a><nav aria-label="Main navigation"><a href="/blog/">Blog</a><a href="/resume.html">Resume</a></nav></header>'
 
 
 def document(title, description, body, path, draft, inline_css=None, scripts="", extra_head=""):
@@ -74,21 +74,21 @@ def build_post(post):
     # The article's example table comes from the same engine as its controls.
     program = 'const M=require(process.argv[1]); const S=require(process.argv[2]); console.log(JSON.stringify(M.simulate(S.historical())))'
     result = json.loads(subprocess.check_output(['node', '-e', program, str(source / 'model.js'), str(source / 'setup.js')], text=True))
-    columns = [('illustrativeYear', 'year'), ('generation', 'generation'), ('identity', 'jewish identity'), ('connection', 'roots + descendants'), ('harediShare', 'haredi share of jews'), ('aggregateIntermarriage', 'intermarriage among jews')]
+    columns = [('illustrativeYear', 'Year'), ('generation', 'Generation'), ('identity', 'Jewish identity'), ('connection', 'Roots + descendants'), ('harediShare', 'Haredi share of Jews'), ('aggregateIntermarriage', 'Intermarriage among Jews')]
     rows = [[str(r[k]) if k in ('generation', 'illustrativeYear') else f'{100*r[k]:.1f}%' for k, _ in columns] for r in result['rows'][:5]]
     md_table = '| ' + ' | '.join(label for _, label in columns) + ' |\n|' + '|'.join('---:' for _ in columns) + '|\n' + '\n'.join('| ' + ' | '.join(row) + ' |' for row in rows)
-    table = '<div class="table-scroll static-results" role="region" aria-label="default model results" tabindex="0"><table><caption>2013 reference inputs; successive generations</caption><thead><tr>' + ''.join(f'<th>{label}</th>' for _, label in columns) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
+    table = '<div class="table-scroll static-results" role="region" aria-label="Default model results" tabindex="0"><table><caption>2013 reference inputs; successive generations</caption><thead><tr>' + ''.join(f'<th>{label}</th>' for _, label in columns) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
     manuscript = (source / 'index.md').read_text()
     if '<!-- DEFAULT-TABLE -->' not in manuscript:
         raise ValueError('The manuscript must retain its computed table marker')
     example = result['rows'][4]
-    summary = f"under the 2013 reference assumptions, generation four ({example['illustrativeYear']}) is {100*example['identity']:.1f}% jewish-identifying and {100*example['connection']:.1f}% roots + descendants. these are conditional model outputs for that generation."
+    summary = f"Under the 2013 reference assumptions, generation four ({example['illustrativeYear']}) is {100*example['identity']:.1f}% Jewish-identifying and {100*example['connection']:.1f}% roots + descendants. These are conditional model outputs for that generation."
     article = render_markdown(manuscript.replace('<!-- DEFAULT-SUMMARY -->', summary)).replace('<!-- DEFAULT-TABLE -->', table)
     article = re.sub(r'^<h1>.*?</h1>\s*', '', article, count=1)
-    label = 'draft for review' if draft else date.fromisoformat(post['published']).strftime('%B %-d, %Y')
-    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · interactive essay</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="on this page"><a href="#start-in-the-past">interactive model</a><a href="#why-separate-the-denominations">why subgroups?</a><a href="#limits">limits</a><a href="#sources-and-code">sources + code</a></nav></div>
-<noscript><p class="no-js">javascript is off. the essay, equations, sources, and default results remain readable; the interactive controls need javascript.</p></noscript>
-{article}</main><footer class="site-footer">Sam Havens · <a href="/blog/">all posts</a> · model 4.0.0 · calculations run in your browser</footer>'''
+    label = 'Draft for review' if draft else date.fromisoformat(post['published']).strftime('%B %-d, %Y')
+    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · Interactive essay</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="On this page"><a href="#start-in-the-past">Interactive model</a><a href="#why-separate-the-denominations">Why subgroups?</a><a href="#limits">Limits</a><a href="#sources-and-code">Sources + code</a></nav></div>
+<noscript><p class="no-js">JavaScript is off. The essay, equations, sources, and default results remain readable; the interactive controls need JavaScript.</p></noscript>
+{article}</main><footer class="site-footer">Sam Havens · <a href="/blog/">All posts</a> · Model 4.0.0 · Calculations run in your browser</footer>'''
     script = '<script src="model.js" defer></script><script src="setup.js" defer></script><script src="app.js" defer></script>'
     page = document(post['title'], post['description'], body, f'/blog/{slug}/', draft,
         scripts=script, extra_head='<link rel="stylesheet" href="styles.css">')
@@ -97,7 +97,7 @@ def build_post(post):
     for filename in ['model.js', 'setup.js', 'app.js', 'styles.css', 'METHODS.md', 'SOURCES.md']:
         shutil.copyfile(source / filename, dest / filename)
     write(dest / 'default-results.json', json.dumps(result, indent=2) + '\n')
-    portable_body = re.sub(r'<div class="source-links">.*?</div>', '<p class="note">the model and interface code are embedded in this HTML file. the downloadable source archive on the website also contains the tests, methods, and Markdown manuscript.</p>', body)
+    portable_body = re.sub(r'<div class="source-links">.*?</div>', '<p class="note">The model and interface code are embedded in this HTML file. The downloadable source archive on the website also contains the tests, methods, and Markdown manuscript.</p>', body)
     portable = document(post['title'], post['description'], portable_body, f'/blog/{slug}/', draft,
         inline_css=CSS + '\n' + (source / 'styles.css').read_text(),
         scripts='<script>' + (source / 'model.js').read_text() + '</script><script>' + (source / 'setup.js').read_text() + '</script><script>' + (source / 'app.js').read_text() + '</script>')
@@ -115,7 +115,7 @@ def build_post(post):
             info = ZipInfo(name, (2026, 9, 24, 0, 0, 0))
             info.compress_type = ZIP_DEFLATED
             archive.writestr(info, path.read_bytes())
-        archive.writestr(ZipInfo('README.md', (2026, 9, 24, 0, 0, 0)), '# modeling jewish ancestry\n\nOpen standalone.html to read and run the essay offline. Run `node --test tests/*.test.cjs` to check the model. index.md is the editorial source. The site build computes the default-results table from model.js. See METHODS.md and MODEL-AUDIT.md for assumptions. These are conditional cohort scenarios, not population forecasts.\n')
+        archive.writestr(ZipInfo('README.md', (2026, 9, 24, 0, 0, 0)), '# Modeling Jewish Ancestry\n\nOpen standalone.html to read and run the essay offline. Run `node --test tests/*.test.cjs` to check the model. index.md is the editorial source. The site build computes the default-results table from model.js. See METHODS.md and MODEL-AUDIT.md for assumptions. These are conditional cohort scenarios, not population forecasts.\n')
     return label
 
 
@@ -124,10 +124,10 @@ def main():
     entries = []
     for post in POSTS:
         label = build_post(post)
-        entries.append(f'<li><div class="post-meta">{label} · interactive essay</div><h2><a href="{post["slug"]}/">{escape(post["title"])}</a></h2><p>{escape(post["description"])}</p></li>')
+        entries.append(f'<li><div class="post-meta">{label} · Interactive essay</div><h2><a href="{post["slug"]}/">{escape(post["title"])}</a></h2><p>{escape(post["description"])}</p></li>')
     body = '<main id="main" class="blog-index"><h1>Blog</h1><p class="muted">Essays and interactive models.</p><ul class="post-list">' + ''.join(entries) + '</ul></main><footer class="site-footer"><a href="/">Sam Havens</a></footer>'
     write(BLOG / 'index.html', document('Blog', 'Essays and interactive models by Sam Havens.', body, '/blog/', all(p['status'] == 'draft' for p in POSTS)))
-    print(f'Built /blog/ and {len(POSTS)} interactive essay; draft status preserved.')
+    print(f'Built /blog/ and {len(POSTS)} interactive essay; publication metadata applied.')
 
 
 if __name__ == '__main__':

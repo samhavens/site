@@ -10,7 +10,7 @@ Readers of Sam Havens's existing professional site, including people following a
 
 ## Established direction
 
-The reference is the live samuelhavens.com homepage and this repository's raw HTML/CSS. Sam explicitly requested that the new blog match that site. Use its system typography, light background, narrow reading column, simple links, and understated rules. The recovered essay supplies the explanatory voice: informal, mostly lowercase, concrete about assumptions. Sam rejected dramatic ancestry aphorisms throughout the earlier version.
+The reference is the live samuelhavens.com homepage and this repository's raw HTML/CSS. Sam explicitly requested that the new blog match that site. Use its system typography, light background, narrow reading column, simple links, and understated rules. The recovered essay supplies the explanatory voice: informal, concrete about assumptions, with standard sentence casing and capitalized proper names. Sam rejected dramatic ancestry aphorisms throughout the earlier version.
 
 ## Principles
 
@@ -28,4 +28,4 @@ Preserve the recovered draft's labeled controls, keyboard operation, text altern
 
 ## Scope
 
-Prepare a local real-name draft. Publication follows Sam's review. No analytics, external runtime dependencies, or personal genealogy data are needed.
+Sam approved publication on September 24, 2026. Publish the blog at its direct URLs, with no link to `/blog/` on the homepage. No analytics, external runtime dependencies, or personal genealogy data are needed.

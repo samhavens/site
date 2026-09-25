@@ -6,7 +6,7 @@
 
 ## Blog
 
-The blog extends the existing site at `/blog/`. Its first essay is a local draft at `/blog/modeling-jewish-ancestry/`, by Sam Havens. The engine and its numerical reference tests were recovered from the latest revised ancestry essay, without numerical changes.
+The blog extends the existing site at `/blog/`. Its first essay is published at `/blog/modeling-jewish-ancestry/`, by Sam Havens. The engine and its numerical reference tests were recovered from the latest revised ancestry essay, without numerical changes.
 
 Canonical prose, model, and widget code live in `content/modeling-jewish-ancestry/`. The catalog is `content/posts.json`; the shared blog design is `content/blog.css`. Read that content directory's `AGENTS.md`, `METHODS.md`, and `MODEL-AUDIT.md` before changing the model. The original recovered bundle remains outside this repository.
 
@@ -30,7 +30,7 @@ Results, real downloaded exports, and screenshots are written to ignored `artifa
 
 The interface begins at generation zero in 2013. Starting population, existing outside ancestry, denomination mix and fertility are visible together. `setup.js` supplies the survey-linked reference; editing the date alone does not load historical demography. The parent/child samples were removed; the timeline and optional random-pairing animation remain.
 
-GitHub Pages currently serves the repository root from `master`, with the custom domain `www.samuelhavens.com`. `.nojekyll` makes the generated HTML and companion Markdown serve as static files. Do not push the draft to `master` before Sam reviews it. Before an approved publication, set its status to `published` and supply the actual ISO publication date in `content/posts.json`, rebuild, and rerun the checks. A `noindex` tag labels this review build; it is not access control.
+GitHub Pages currently serves the repository root from `master`, with the custom domain `www.samuelhavens.com`. `.nojekyll` makes the generated HTML and companion Markdown serve as static files. Sam approved the first publication on September 24, 2026. Keep the homepage free of a blog link until he asks for one; `/blog/` and individual posts remain available directly. Publication metadata lives in `content/posts.json`; rebuild and rerun the checks before deployment. Draft posts receive `noindex` metadata, which is not access control.
 
 ## Source
 

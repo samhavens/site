@@ -34,12 +34,15 @@ async function run(name) {
   const field = id => page.locator('#p-' + id);
   try {
     await page.goto(origin);
-    await page.getByRole('link', { name: 'Essays and interactive models', exact: true }).click();
-    await page.getByRole('link', { name: 'modeling jewish ancestry', exact: true }).click();
+    check('homepage has no link to the blog', await page.locator('a[href="/blog"], a[href^="/blog/"]').count() === 0);
+    await page.goto(origin + '/blog/');
+    check('blog lists the publication date without draft metadata', (await page.locator('.post-meta').innerText()).includes('September 24, 2026') && await page.locator('meta[name="robots"]').count() === 0);
+    await page.getByRole('link', { name: 'Modeling Jewish Ancestry', exact: true }).click();
     await page.locator('#a-value').waitFor();
-    check('home → blog → article navigation', page.url() === origin + articlePath);
-    check('opens at the historical starting population', await text('a-value') === '2.2%' && await text('j-value') === '2.2%' && await text('clock') === '2013 · starting population');
-    check('start date, generation length and fertility are visible without opening details', await field('referenceYear').isVisible() && await field('generationYears').isVisible() && await page.getByLabel('haredi: children per pairing', { exact: true }).isVisible());
+    check('direct blog → article navigation', page.url() === origin + articlePath);
+    check('article has its final title, publication date and public metadata', await page.title() === 'Modeling Jewish Ancestry · Sam Havens' && (await page.locator('.post-meta').innerText()).includes('September 24, 2026') && await page.locator('meta[name="robots"]').count() === 0);
+    check('opens at the historical starting population', await text('a-value') === '2.2%' && await text('j-value') === '2.2%' && await text('clock') === '2013 · Starting population');
+    check('start date, generation length and fertility are visible without opening details', await field('referenceYear').isVisible() && await field('generationYears').isVisible() && await page.getByLabel('Haredi: children per pairing', { exact: true }).isVisible());
     check('parent-child samples are removed', await page.locator('#birth-canvas, #sample-details, #birth-filter').count() === 0 && !(await page.locator('main').innerText()).includes('parent and child samples'));
     check('initial form values satisfy browser constraints', await page.locator('#sim-widget input').evaluateAll(inputs => inputs.every(el => el.checkValidity())));
     check('desktop has no viewport overflow', await noOverflow(page));
@@ -58,9 +61,9 @@ async function run(name) {
     const afterDates = await state();
     check('custom year and interval change dates without changing reproductive states', JSON.stringify(beforeDates.result.full) === JSON.stringify(afterDates.result.full) && (await text('clock')).startsWith('1925'));
     check('a custom date is never described as loaded historical data', (await text('baseline-status')).includes('does not supply historical population data'));
-    await page.getByText('full results table', { exact: true }).click();
+    await page.getByText('Full results table', { exact: true }).click();
     check('charts and table carry the configured years', (await page.locator('#connection-plot').textContent()).includes('1900') && (await text('cohort-table')).includes('1 / 1925'));
-    await page.getByText('full results table', { exact: true }).click();
+    await page.getByText('Full results table', { exact: true }).click();
 
     await enter(field('initialJewish'), 3); await enter(field('initialDescendants'), 5);
     await range(page, 'generation', 0);
@@ -72,7 +75,7 @@ async function run(name) {
     await page.locator('#reset-baseline').click();
     let p = (await state()).parameters;
     check('historical reset restores linked population, mix, fertility and marriage inputs', S.isHistorical(p) && p.generationYears === 25 && await text('generation-value') === '0');
-    const mix = page.getByLabel('haredi: share of jews (%)', { exact: true });
+    const mix = page.getByLabel('Haredi: share of Jews (%)', { exact: true });
     await enter(mix, 10);
     p = (await state()).parameters;
     check('denomination editing balances the visible remainder', Math.abs(p.jewishMix.reduce((a, b) => a + b) - 1) < 1e-12 && await page.locator('#remainder-mix').inputValue() === '33.20');
@@ -81,8 +84,8 @@ async function run(name) {
     await page.locator('#reset-baseline').click();
     await range(page, 'generation', 4);
     const referenceIdentity = (await state()).result.rows[4].identity;
-    await enter(page.getByLabel('haredi: children per pairing', { exact: true }), 6.2);
-    check('fertility edit changes later identity and composition', (await state()).result.rows[4].identity > referenceIdentity && (await text('baseline-status')).startsWith('custom'));
+    await enter(page.getByLabel('Haredi: children per pairing', { exact: true }), 6.2);
+    check('fertility edit changes later identity and composition', (await state()).result.rows[4].identity > referenceIdentity && (await text('baseline-status')).startsWith('Custom'));
     await page.locator('#reset-baseline').click();
     await range(page, 'generation', 4);
     check('reference result returns after reset', await text('j-value') === pct(referenceIdentity));
@@ -104,7 +107,7 @@ async function run(name) {
     await enter(page.locator('#draws'), 100); await page.locator('#run-sweep').click();
     await page.waitForFunction(() => document.querySelector('#sweep-status').textContent.includes('100 scenarios complete'));
     check('sensitivity produces bands and quantiles', await page.locator('#sweep-table tbody tr').count() === 4 && await page.locator('#connection-plot path[opacity=".12"]').count() === 1);
-    await page.getByRole('link', { name: 'limits', exact: true }).click();
+    await page.getByRole('link', { name: 'Limits', exact: true }).click();
     await page.locator('#compare').uncheck();
     check('article navigation and comparison toggle preserve sensitivity', (await text('sweep-status')).includes('100 scenarios complete'));
     const jsonDownload = page.waitForEvent('download'); await page.locator('#export-json').click();
@@ -114,7 +117,7 @@ async function run(name) {
     const csvDownload = page.waitForEvent('download'); await page.locator('#export-csv').click();
     const csvPath = path.join(artifacts, `${name}-cohorts.csv`); await (await csvDownload).saveAs(csvPath);
     const csv = await fs.readFile(csvPath, 'utf8');
-    check('real CSV export carries dates and units', csv.includes('shares are fractions of 1') && csv.includes('generation,illustrativeYear,connection,identity') && csv.includes('\n4,2113,'));
+    check('real CSV export carries dates and units', csv.includes('Shares are fractions of 1') && csv.includes('generation,illustrativeYear,connection,identity') && csv.includes('\n4,2113,'));
 
     const saved = { v: M.VERSION, p: exported.parameters, g: 4, c: true };
     saved.p.referenceYear = 1900; saved.p.initialConnection = .08;
@@ -127,12 +130,12 @@ async function run(name) {
     await page.goto(origin + articlePath + '#sim=' + encodeURIComponent(Buffer.from(JSON.stringify(legacy)).toString('base64')));
     check('previously shared v4 links keep their original values', await text('a-value') === '12.4%' && await text('j-value') === '5.4%' && (await text('clock')).startsWith('2134'));
     await page.goto(origin + articlePath + '#sim=invalid');
-    check('bad state links show an accessible error', await page.locator('#export-status').isVisible() && (await text('export-status')).includes('could not load saved state'));
+    check('bad state links show an accessible error', await page.locator('#export-status').isVisible() && (await text('export-status')).includes('Could not load saved state'));
     await page.goto(origin + articlePath); await page.reload();
     await page.locator('#play').click();
     await page.waitForFunction(() => document.querySelector('#generation-value').textContent === '1');
     await page.locator('#play').click();
-    check('timeline play advances and pauses', await text('generation-value') === '1' && await text('play') === 'play timeline');
+    check('timeline play advances and pauses', await text('generation-value') === '1' && await text('play') === 'Play timeline');
     await range(page, 'generation', 4); await page.locator('#generation').press('ArrowLeft');
     check('timeline works by keyboard', await text('generation-value') === '3');
     await page.locator('.results-section').screenshot({ path: path.join(artifacts, `${name}-results.png`) });
@@ -147,7 +150,7 @@ async function run(name) {
         const boxes = labels.map(label => label.getBoundingClientRect()).sort((a, b) => a.left - b.left);
         return boxes.every((box, i) => i === 0 || box.left >= boxes[i - 1].right + 2);
       }));
-      check(`mobile ${width}px has accessible starting inputs`, await noOverflow(page) && await field('referenceYear').isVisible() && await page.getByLabel('haredi: children per pairing', { exact: true }).isVisible());
+      check(`mobile ${width}px has accessible starting inputs`, await noOverflow(page) && await field('referenceYear').isVisible() && await page.getByLabel('Haredi: children per pairing', { exact: true }).isVisible());
       await page.locator('#group-settings summary').click();
       check(`mobile ${width}px contains the advanced table`, await noOverflow(page));
       await page.locator('#group-settings summary').click();

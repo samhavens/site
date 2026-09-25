@@ -1,6 +1,6 @@
-# audit of the earlier narrative and changes in v4
+# Audit of the earlier narrative and changes in v4
 
-## claims this draft does not carry forward
+## Claims this draft does not carry forward
 
 **“About 8% of Americans have recent Jewish ancestry.”** This was the output of an exploratory historical setup, not a validated national estimate. The supplied future subgroup model starts from it; it cannot establish it. It remains a clearly labeled alternative starting assumption, not the post's conclusion.
 
@@ -12,13 +12,13 @@
 
 **“Many Monte Carlo runs make the model credible.”** They make the calculation reproducible and characterize sensitivity over selected distributions. They do not validate the distributions or identify the omitted mechanisms.
 
-## inherited corrections
+## Inherited corrections
 
 v2 reportedly applied a full reproductive update to a shortened last interval. The supplied v3 reference uses whole generations. v4 preserves that whole-step contract and tests it. The current generation-years slider changes labels only; it does not repeat the partial-step bug under a different interface.
 
 v3 improved the single-Jewish-group model by separating five identity groups and adding identity switching. Its frozen aggregate control matches the first reproductive step. These features are retained rather than replaced with a visually convenient but scientifically different model.
 
-## explicit v4 changes
+## Explicit v4 changes
 
 1. **Default counting horizon:** start `J0=A0=.024`. Current Jewish members and specified Jewish arrivals are roots. There is initially no ancestry-only population counted in this experiment. This avoids presenting an unsupported historical estimate as an observed input.
 2. **Terminology:** broad output is “Jewish roots + their descendants,” not a claim that every initial Jew, including a convert, necessarily has a Jewish ancestor. “No modeled connection” does not mean no real Jewish ancestors.
@@ -29,7 +29,7 @@ v3 improved the single-Jewish-group model by separating five identity groups and
 7. **Sensitivity:** the browser samples stated, independently chosen intervals around the current inputs. These are not a rerun of the earlier 20,000-draw v3 ensemble. Bands are labeled accordingly and discarded when inputs change or a run is cancelled.
 8. **Animation:** independent illustrative events come from the same birth-weighted law as the exact cohort update. Filter probabilities and ancestry persistence are visible. No persistent agents or recovered ancestry trees are claimed.
 
-## known interpretive limits to keep visible
+## Known interpretive limits to keep visible
 
 The model is sex-symmetric, non-overlapping, and age-free. Survey fertility for adult respondents is not automatically statistical-pair fertility. Branch labels, especially the future Haredi/modern split, do not determine immutable behavior. Inputs may evolve over time; one optional fertility-convergence rule does not resolve that uncertainty. The D/N clustering coefficient is a proxy, not a geographic mating network. Conversion, reaffiliation outside mixed families, mortality, and migration-by-origin are absent.
 

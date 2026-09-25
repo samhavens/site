@@ -1,19 +1,19 @@
-# model v4: definitions, assumptions, and update equations
+# Model v4: definitions, assumptions, and update equations
 
-## scope
+## Scope
 
 This is a deterministic expected-value model of **successive non-overlapping reproductive cohorts**. It illustrates inheritance and compositional effects. It does not estimate the present number of Americans with Jewish ancestry or forecast the population alive in a calendar year.
 
 “Connection” in the code means membership in the starting Jewish community, Jewish membership among specified arrivals, or descent from those roots. A convert can be a root without having a Jewish ancestor. No genetic fractions, halakhic status, observed individual identities, or personal family records are inferred.
 
-## state
+## State
 
 The state is `x = [H,M,C,R,U,D,N]`, a nonnegative vector summing to one:
 
-| index | state |
+| Index | State |
 |---|---|
-| H | haredi Jewish identity |
-| M | modern/other non-haredi Orthodox Jewish identity |
+| H | Haredi Jewish identity |
+| M | Modern/other non-Haredi Orthodox Jewish identity |
 | C | Conservative Jewish identity |
 | R | Reform Jewish identity |
 | U | other/unaffiliated Jewish identity, including secular identifying Jews |
@@ -22,13 +22,13 @@ The state is `x = [H,M,C,R,U,D,N]`, a nonnegative vector summing to one:
 
 `J = H+M+C+R+U`, `A = J+D = 1-N`. H and M partition Orthodoxy. These broad labels are a simplification of heterogeneous communities.
 
-## essay starting setup (2013)
+## Essay starting setup (2013)
 
 The page, computed article examples, and offline copy use `setup.js` version 1.0.0, which applies survey-linked starting values to the unchanged v4 engine. This is a conditional reference scenario, not a fitted reconstruction of the 2013 population.
 
 `J0=A0=.022`, so `D0=0`. The zero is a counting-horizon choice, not an estimate of absent earlier ancestry. The interface separately exposes Jewish identity and **additional ancestry outside identity**, both as percentages of the whole initial population. Their sum is `A0`; changing J0 preserves the user-entered D0.
 
-| group | share within Jewish identity | effective same-group offspring | non-Jewish partner rate |
+| Group | Share within Jewish identity | Effective same-group offspring | Non-Jewish partner rate |
 |---|---:|---:|---:|
 | H | .062 | 4.1 | .02 |
 | M | .038 | 4.1 | .02 |
@@ -50,7 +50,7 @@ A fertility entry is offspring per **statistical pairing**, incorporating childl
 
 Other essay defaults: D/N clustering `.25`; Jewish/non-Jewish fertility multiplier `.90`; arrival fraction of each next cohort `.15`; Jewish share of arrivals `.022`; additional ancestry-only share of arrivals `0`. Jewish arrivals use a separately specified mixture, initially the same as the initial Jewish mixture. Editing initial composition does not silently change arrival composition.
 
-## balanced pairing
+## Balanced pairing
 
 The implementation constructs a symmetric **ordered-pair** matrix `P`. Both row and column sums equal `x`, and the entries sum to one. This is a distribution of parental positions, not an unordered count of couples. Double-counting the two orientations cancels in the normalized birth update.
 
@@ -72,7 +72,7 @@ P_ab = (1-c)*d_a*d_b/sum(d) + c*indicator(a=b)*d_a
 
 Here c is a crude proxy for population structure, not a claim that people know remote ancestry and deliberately choose on that basis. Geography, ethnicity, education, and persistent social networks are not separately modeled.
 
-## fertility
+## Fertility
 
 For group fertility inputs f_i:
 
@@ -90,11 +90,11 @@ f_i(g) = f_N + (f_i(0)-f_N)*2^(-g/h), i in {H,M}
 
 A half-life of zero switches convergence off. The first step g=0 is unchanged. “Half over three steps” means the excess has halved when evaluating g=3, not that every parameter is linearly interpolated by calendar year.
 
-## identity transmission
+## Identity transmission
 
 Each pair has a probability vector `T_ij,k` over adult offspring identities. Default rows for two same-group Jewish parents are:
 
-| parent group | H | M | C | R | U | D | N |
+| Parent group | H | M | C | R | U | D | N |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | H | .920 | .040 | .010 | .010 | .018 | .002 | 0 |
 | M | .050 | .720 | .080 | .060 | .070 | .020 | 0 |
@@ -110,7 +110,7 @@ D/D and D/N offspring enter D. N/N offspring enter N. There is no N-to-J convers
 
 The “stays in same group” slider changes the diagonal entry and rescales the other destinations proportionally. It preserves the previous relative destinations among leavers. The full JSON editor exposes every transmission row; all rows must sum to one and have zero N probability for rooted parents.
 
-## cohort update and arrivals
+## Cohort update and arrivals
 
 Compute birth weights and the next normalized state:
 
@@ -124,7 +124,7 @@ u is the **arrival share of the next cohort**, not the annual immigration rate a
 
 An individual descendant never loses descent. Its population frequency can nevertheless decrease under differential fertility or denominator changes from arrivals. “Ancestry is an OR” does not imply unconditional monotonic growth of its population share.
 
-## the matched frozen-average control
+## The matched frozen-average control
 
 Collapse the seven groups into `[J,D,N]`. From the initial fine-grained pair distribution, compute for coarse pair a,b:
 
@@ -142,17 +142,17 @@ This matches the fine model's collapsed first next-cohort state exactly. Subsequ
 
 The frozen control is not an alternative empirically fitted forecast. It isolates the danger of extrapolating initial averages.
 
-## common generation length and start date
+## Common generation length and start date
 
 `generationYears` and `referenceYear` only produce the label `referenceYear + g*generationYears`. Changing either leaves every state exactly unchanged. A run performs whole reproductive steps only. There are no fractional endpoint generations.
 
-Typing a different starting year does **not** load a historical population, marriage regime, migration flow, or survival schedule. The separate “load 2013 starting values” action restores that reference bundle. Dates appear on chart axes, the selected generation, the full results table, saved state links and exports. A different common generation interval does **not** give Haredim a shorter interval than other groups. Those would require substantive historical/age-structured extensions.
+Typing a different starting year does **not** load a historical population, marriage regime, migration flow, or survival schedule. The separate “Load 2013 starting values” action restores that reference bundle. Dates appear on chart axes, the selected generation, the full results table, saved state links and exports. A different common generation interval does **not** give Haredim a shorter interval than other groups. Those would require substantive historical/age-structured extensions.
 
-## sensitivity explorer
+## Sensitivity explorer
 
 A seeded Mulberry32 generator samples independent uniform intervals around the selected inputs, clipped to valid domains. At width 1:
 
-| parameter | half-range |
+| Parameter | Half-range |
 |---|---|
 | effective fertility | 20% of selected value |
 | non-Jewish partner rates H/M/C/R/U | .01 / .035 / .15 / .13 / .10 |
@@ -167,13 +167,13 @@ D/N fertility use the same multiplicative change, preserving their selected rati
 
 Width multiplies these ranges; zero returns the selected parameters exactly. Quantiles use sorted values with linear interpolation. The bands are the 5th and 95th percentiles of this **chosen input ensemble**. They are not sampling-error confidence intervals, a Bayesian posterior, or estimated probabilities of future outcomes. At the root-only default the initial-ancestry interval is clipped on its lower side, so sampled runs generally start with more connection than the selected scenario; the band need not center on that line.
 
-## presentation and optional sampling API
+## Presentation and optional sampling API
 
 The page opens at generation zero. Play, next and keyboard scrubbing advance the selected whole generation and update its year, exact shares and composition marker. The frozen-average comparison is opt-in. A separate expandable random-pairing example retains the animated ancestry area and its numerical text equivalent; reduced-motion settings disable its transitions.
 
 The parent/child sample animation and filters were removed at Sam's request because they obscured the main experiment. The engine's tested `sampleBirths` API remains available to source users: unconditional event weights are `(1-u)*P_ij*F_ij*T_ij,k/B` for births and `u*v_k` for arrivals. These are independent illustrative draws, not persistent people or a family tree.
 
-## major omitted mechanisms
+## Major omitted mechanisms
 
 No empirical historical calibration; no ages, mortality, sex asymmetries, subgroup generation times, fertility schedules, or absolute population counts; no separate geography or migration by origin; no independent conversion/reaffiliation process outside mixed families; no time-varying behavior except optional Orthodox fertility convergence; no endogenous feedback between community size and fertility/partner choices beyond finite partner availability; no persistent stochastic pedigrees or DNA inheritance.
 
