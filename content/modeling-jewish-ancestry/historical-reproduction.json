@@ -1,0 +1,41 @@
+{
+  "verifiedOn": "2026-09-25",
+  "provenance": "Original Python attachments recovered from Estimate Jewish Ancestry; scripts retained unchanged in reference/.",
+  "firstExperiment": {
+    "script": "reference/jewish_ancestry_model.py",
+    "sha256": "80fe7aa805415a5573e0f5c18e623229cfb7dfcbadba90034df62014aba66b00",
+    "command": "uv run --no-project --with numpy python reference/jewish_ancestry_model.py --draws 100000 --seed 20260923",
+    "draws": 100000,
+    "seed": 20260923,
+    "retained": 34503,
+    "quantileOrder": [5, 50, 95],
+    "units": "percent; original CLI output rounded to 3 decimal places",
+    "allAgeAncestry": [5.193, 6.394, 8.098],
+    "youngestCohortAncestry": [7.082, 9.133, 12.200],
+    "allAgeIdentity": [2.258, 2.502, 2.698],
+    "adultParentOrIdentityProxy": [3.124, 3.326, 3.620],
+    "adultIdentityScreen": [2.1, 2.7],
+    "adultParentProxyScreen": [3.1, 4.0],
+    "allAgeWeights": [0.08, 0.27, 0.33, 0.32],
+    "adultWeights": [0.105, 0.357, 0.436, 0.102]
+  },
+  "secondExperiment": {
+    "script": "reference/jewish_ancestry_sensitivity_v2.py",
+    "sha256": "8ca307dd9d241c3cf8d3853a9d81d97ac60a7256051bb3af1b3c6cf117333cd7",
+    "command": "uv run --no-project --with numpy python reference/jewish_ancestry_sensitivity_v2.py",
+    "endYear": 2025,
+    "drawsPerCase": 30000,
+    "quantileOrder": [5, 25, 50, 75, 95],
+    "units": "percent; original CLI output rounded to 2 decimal places",
+    "warning": "These original runs apply a whole reproductive generation to a shortened final interval. They are reproduced for provenance, not the corrected interactive defaults. Endpoints have no all-age weighting or first-experiment adult-parent screen.",
+    "cases": [
+      {"label":"short generations","startRange":[1877,1927],"generationRange":[20,24],"seed":100,"retained":2164,"ancestry":[7.26,8.91,10.69,13.09,18.07]},
+      {"label":"central generations","startRange":[1877,1927],"generationRange":[24,28],"seed":101,"retained":1312,"ancestry":[6.21,7.23,8.14,9.49,12.05]},
+      {"label":"long generations","startRange":[1877,1927],"generationRange":[28,32],"seed":102,"retained":748,"ancestry":[5.21,6.24,7.19,8.13,9.95]},
+      {"label":"early start","startRange":[1877,1897],"generationRange":[24,30],"seed":103,"retained":1087,"ancestry":[6.22,7.21,8.27,9.68,12.05]},
+      {"label":"middle start","startRange":[1897,1907],"generationRange":[24,30],"seed":104,"retained":1446,"ancestry":[6.22,7.06,7.95,8.90,10.70]},
+      {"label":"late start","startRange":[1907,1927],"generationRange":[24,30],"seed":105,"retained":986,"ancestry":[5.91,6.85,7.89,9.17,11.42]},
+      {"label":"main ensemble","startRange":[1877,1927],"generationRange":[24,30],"seed":106,"retained":1134,"ancestry":[6.04,7.08,8.02,9.21,11.69]}
+    ]
+  }
+}

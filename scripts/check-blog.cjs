@@ -38,20 +38,21 @@ async function run(name) {
     await page.goto(origin + '/blog/');
     check('blog lists the publication date without draft metadata', (await page.locator('.post-meta').innerText()).includes('September 24, 2026') && await page.locator('meta[name="robots"]').count() === 0);
     await page.getByRole('link', { name: 'Modeling Jewish Ancestry', exact: true }).click();
+    await page.locator('#denomination-extension > summary').click();
     await page.locator('#a-value').waitFor();
     check('direct blog → article navigation', page.url() === origin + articlePath);
     check('article has its final title, publication date and public metadata', await page.title() === 'Modeling Jewish Ancestry · Sam Havens' && (await page.locator('.post-meta').innerText()).includes('September 24, 2026') && await page.locator('meta[name="robots"]').count() === 0);
-    check('opens at the historical starting population', await text('a-value') === '2.2%' && await text('j-value') === '2.2%' && await text('clock') === '2013 · Starting population');
-    check('start date, generation length and fertility are visible without opening details', await field('referenceYear').isVisible() && await field('generationYears').isVisible() && await page.getByLabel('Haredi: children per pairing', { exact: true }).isVisible());
+    check('optional subgroup extension opens at its 2013 reference', await text('a-value') === '2.2%' && await text('j-value') === '2.2%' && await text('clock') === '2013 · Starting population');
+    check('subgroup date, generation length and fertility are visible inside the extension', await field('referenceYear').isVisible() && await field('generationYears').isVisible() && await page.getByLabel('Haredi: children per pairing', { exact: true }).isVisible());
     check('parent-child samples are removed', await page.locator('#birth-canvas, #sample-details, #birth-filter').count() === 0 && !(await page.locator('main').innerText()).includes('parent and child samples'));
     check('initial form values satisfy browser constraints', await page.locator('#sim-widget input').evaluateAll(inputs => inputs.every(el => el.checkValidity())));
     check('desktop has no viewport overflow', await noOverflow(page));
     await page.screenshot({ path: path.join(artifacts, `${name}-opening.png`) });
-    await page.locator('.setup-section').screenshot({ path: path.join(artifacts, `${name}-setup.png`) });
+    await page.locator('#sim-widget .setup-section').screenshot({ path: path.join(artifacts, `${name}-setup.png`) });
 
-    check('comparison is optional on first load', await page.locator('path[stroke-dasharray]').count() === 0);
+    check('comparison is optional on first load', await page.locator('#sim-widget path[stroke-dasharray]').count() === 0);
     await page.locator('#compare').check();
-    check('comparison shows both matched controls', await page.locator('path[stroke-dasharray]').count() === 2 && await page.locator('#comparison-note').isVisible());
+    check('comparison shows both matched controls', await page.locator('#sim-widget path[stroke-dasharray]').count() === 2 && await page.locator('#comparison-note').isVisible());
     await page.locator('#next').click();
     check('next advances by one configured generation', await text('generation-value') === '1' && (await text('clock')).startsWith('2040'));
     const first = (await state()).result.rows[1];
@@ -100,7 +101,7 @@ async function run(name) {
     const differentBackground = (await state()).parameters;
     differentBackground.fertility[5] = 3.1;
     await page.locator('#config').fill(JSON.stringify(differentBackground)); await page.locator('#apply-config').click();
-    check('imported unequal background fertility is visible', (await page.locator('.setup-section').innerText()).includes('descendants use 3.1'));
+    check('imported unequal background fertility is visible', (await page.locator('#sim-widget .setup-section').innerText()).includes('descendants use 3.1'));
     await page.locator('#reset-baseline').click(); await range(page, 'generation', 4);
     await page.locator('#close-config').click();
     await page.locator('#sensitivity-settings > summary').click();
@@ -132,6 +133,7 @@ async function run(name) {
     await page.goto(origin + articlePath + '#sim=invalid');
     check('bad state links show an accessible error', await page.locator('#export-status').isVisible() && (await text('export-status')).includes('Could not load saved state'));
     await page.goto(origin + articlePath); await page.reload();
+    await page.locator('#denomination-extension > summary').click();
     await page.locator('#play').click();
     await page.waitForFunction(() => document.querySelector('#generation-value').textContent === '1');
     await page.locator('#play').click();
@@ -155,7 +157,7 @@ async function run(name) {
       check(`mobile ${width}px contains the advanced table`, await noOverflow(page));
       await page.locator('#group-settings summary').click();
       if (width === 390) {
-        await page.locator('.setup-section').screenshot({ path: path.join(artifacts, `${name}-mobile-setup.png`) });
+        await page.locator('#sim-widget .setup-section').screenshot({ path: path.join(artifacts, `${name}-mobile-setup.png`) });
         await page.locator('.results-section').screenshot({ path: path.join(artifacts, `${name}-mobile-results.png`) });
       }
     }
@@ -163,12 +165,12 @@ async function run(name) {
     check('reduced motion removes optional toy transitions', await page.locator('#toy-dots rect').first().evaluate(el => getComputedStyle(el).transitionDuration) === '0s');
     const staticContext = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
     const staticPage = await staticContext.newPage(); await staticPage.goto(origin + articlePath);
-    check('no-JavaScript version has historical results and citations', await staticPage.locator('h1').count() === 1 && await staticPage.locator('.static-results tbody tr').count() === 5 && (await staticPage.locator('.static-results').textContent()).includes('2013') && await staticPage.locator('.footnotes').count() === 1);
+    check('no-JavaScript version has historical results and citations', await staticPage.locator('h1').count() === 1 && await staticPage.locator('.static-results tbody tr').count() === 8 && (await staticPage.locator('.static-results').textContent()).includes('1877–1927') && await staticPage.locator('.footnotes').count() === 1);
     check('no-JavaScript mobile stays inside viewport', await noOverflow(staticPage)); await staticContext.close();
     const offline = await context.newPage(), external = [];
     offline.on('request', request => { if (/^https?:/.test(request.url())) external.push(request.url()); });
     await offline.goto(pathToFileURL(path.join(root, 'blog/modeling-jewish-ancestry/standalone.html')).href);
-    check('offline file runs the same starting setup without network dependencies', await offline.locator('#a-value').innerText() === '2.2%' && await offline.locator('#p-referenceYear').inputValue() === '2013' && external.length === 0);
+    check('offline file runs the same starting setup without network dependencies', await offline.locator('#a-value').textContent() === '2.2%' && await offline.locator('#p-referenceYear').inputValue() === '2013' && external.length === 0);
     check('no browser JavaScript errors', errors.length === 0);
   } finally { await browser.close(); }
 }

@@ -1,8 +1,37 @@
-# Blog publication verification
+# Historical restoration verification — September 25, 2026
+
+This revision restores the original historical-to-present modeling task and both scenario-screening experiments. It replaces the main 2013-to-future widget with a historical sweep and retains the subgroup engine as a closed optional extension. The opening anecdote, standard casing, direct blog URLs and unchanged homepage are preserved.
+
+## Recovered evidence and model checks
+
+- Recovered both original historical Python attachments and preserved them byte-for-byte. Their hashes and exact reproduced summaries are in `historical-reproduction.json`.
+- Original first experiment: 100,000 draws, 34,503 retained, median rough all-age ancestry 6.394% (5th–95th: 5.193–8.098%). Original second experiment: reproduced all seven 30,000-draw cases; main case retained 1,134, median 8.02% (6.04–11.69%). These do not share a screen or age weighting.
+- Verified and corrected the original full-reproduction-on-a-partial-final-interval bug. The correction and the prorated arrivals assumption are explicit in the essay and Methods. The original timing behavior remains only for reproduction/audit comparison.
+- `npm test`: **89 passing tests**. Includes historical date semantics, elapsed fractions, decimal-year arithmetic, conservation, screen/rejection accounting, retained quantiles, reproducibility and empty-screen behavior, plus all 80 existing subgroup/reference tests.
+- Python reference check: **490 historical steps across 95 retained paths** match the recovered full-generation function plus independently applied elapsed-fraction interpolation, prorated arrivals and calibration.
+- Corrected default: starts 1877–1927, generations 24–30 years, endpoint 2026, seed 106, 30,000 draws; 1,335 retained; median 6.801% (5.315–9.178%). Source and proxy limitations, selection, and endpoint-versus-all-age distinctions remain explicit.
+
+## Browser and artifact checks
+
+- **87 historical browser checks** across Chromium, Firefox and WebKit: historical defaults, screening, matched initial share, real year/interval changes, empty screens, stale-result clearing, error messages, JSON/CSV exports, keyboard/timeline controls, 320/390px layouts, reduced-motion styles, no-JavaScript reading and offline execution.
+- **147 existing blog/subgroup browser checks** still pass after adapting them to open the separate extension. Saved v4 links retain their original values and open the extension. No browser JavaScript errors.
+- Desktop and mobile screenshots inspected. The main widget shows retained and rejected counts, a histogram of retained endpoints, and a single real historical path. No parent/child samples.
+- Source archive verified against canonical files, including both unchanged recovered Python scripts and the reference checker. Runtime asset URLs and the source archive use content hashes to avoid stale caches.
+- Rebuilding yields **16 byte-identical publication files**. The homepage is byte-identical to `db6ab60:index.html`; it has no local blog link. `git diff --check` passes.
+
+## Review
+
+Fresh Eyes review found a decimal generation-length rounding case that could put a computed fraction just above one; a failing regression test reproduced it before the bounded elapsed-fraction fix. Review also ensured failures hide incomplete results, exported paths include arrival multipliers, and histogram labels retain fractional-percent precision. The main calculations, UI, build, references and tests were re-read. Primary-source checks distinguished inherited curve approximations from independently verified survey figures; these are documented in the source ledger rather than silently upgraded into observations.
+
+These checks validate implementation and presentation, not demographic accuracy. WebKit automation is not a physical iPhone test. Deployment uses the existing GitHub Pages root on `master`; live deployment evidence is recorded in ignored `artifacts/blog/` after release.
+
+---
+
+# Earlier publication verification — September 24
 
 Validated for publication on September 24, 2026 (America/Los_Angeles), following Sam's approval. The catalog marks the essay published on that date, and the built blog and article have no draft or `noindex` metadata. The homepage is byte-identical to the pre-publication version on `origin/master`, with no blog link. Deployment uses the existing GitHub Pages root on `master`.
 
-## Current revision
+## September 24 revision (superseded as the main model)
 
 - Apply standard sentence casing and proper-name capitalization throughout the essay, model interface, chart labels, exports and downloadable notes.
 - Publish the blog through its direct URLs without adding homepage navigation.

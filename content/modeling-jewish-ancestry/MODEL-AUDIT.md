@@ -1,4 +1,20 @@
-# Audit of the earlier narrative and changes in v4
+# September 25, 2026 historical restoration
+
+The first published revision mistakenly promoted the later 2013-to-future subgroup experiment into the main essay and omitted the historical scenario screening. Sam identified that error. The corrected page restores the historical question, experiments and explicit screening, leaving the subgroup model as a separate extension.
+
+Both original historical scripts were recovered from the original conversation and run unchanged. The first reproduced 34,503 retained / 100,000 drawn and the 6.394% rough all-age median (5th–95th: 5.193–8.098%). The second reproduced all seven 30,000-draw cases, including 1,134 retained in the main ensemble, median 8.02% (6.04–11.69%). These are provenance results, not validated population estimates.
+
+The second script's final-interval bug was verified directly: it performs a full reproductive update even for a short remainder. Historical engine 1.0.0 prorates both the update and the full-generation arrival share by the elapsed fraction. The interpolation is an explicit new assumption. Full-generation calculations remain the recovered model's equations. A Python check independently verifies 490 steps over 95 retained paths against the original generation function plus this stated correction.
+
+The main browser default now samples starts 1877–1927, generations 24–30 years, and ends in 2026. It retains 1,335 / 30,000 draws with median 6.801% (5th–95th: 5.315–9.178%). Its same-input old-timing comparison is computed during every build. The 2026 endpoint holds the last reference values constant, not newly observed 2026 data. The first model's age weights and adult-parent filter are not silently added to the second model.
+
+Source checks found limitations beyond timing: the early 1877 point is not the 1880 point in the cited AJYB table; intermediate identity references mix definitions; the stock proxy differs in places from Census's series; exact calibration ignores measurement uncertainty. These remain clearly documented legacy assumptions for this restoration. A high rejection rate and sensitivity quantiles do not establish a fitted historical population or a national confidence interval. No denomination history has been invented.
+
+The original subgroup engine and its numerical fixtures are unchanged. Its old saved links still open the optional extension. The historical widget has independent controls and state, so its calendar semantics cannot accidentally change the subgroup engine's whole-generation contract.
+
+---
+
+# Archived audit of the separate subgroup extension
 
 ## Claims this draft does not carry forward
 
@@ -14,7 +30,7 @@
 
 ## Inherited corrections
 
-v2 reportedly applied a full reproductive update to a shortened last interval. The supplied v3 reference uses whole generations. v4 preserves that whole-step contract and tests it. The current generation-years slider changes labels only; it does not repeat the partial-step bug under a different interface.
+The recovered v2 script applies a full reproductive update to a shortened last interval. The supplied v3 reference uses whole generations. v4 preserves that whole-step contract and tests it. The current generation-years slider changes labels only; it does not repeat the partial-step bug under a different interface.
 
 v3 improved the single-Jewish-group model by separating five identity groups and adding identity switching. Its frozen aggregate control matches the first reproductive step. These features are retained rather than replaced with a visually convenient but scientifically different model.
 
@@ -27,7 +43,7 @@ v3 improved the single-Jewish-group model by separating five identity groups and
 5. **Transparent transmission:** same-group retention sliders preserve destinations among leavers. Full matrices are exposed in JSON. Degenerate transition rows are normalized rather than silently dropping mass.
 6. **Validation:** non-finite values, invalid probability rows, ancestry below Jewish roots, inconsistent arrival shares, and fractional generation counts are rejected. Finite partner supply is preserved.
 7. **Sensitivity:** the browser samples stated, independently chosen intervals around the current inputs. These are not a rerun of the earlier 20,000-draw v3 ensemble. Bands are labeled accordingly and discarded when inputs change or a run is cancelled.
-8. **Animation:** independent illustrative events come from the same birth-weighted law as the exact cohort update. Filter probabilities and ancestry persistence are visible. No persistent agents or recovered ancestry trees are claimed.
+8. **Animation:** the original parent/child event display was removed at Sam's request. The model's sampling helpers and their tests remain, but the page uses timelines and the optional random-pairing example.
 
 ## Known interpretive limits to keep visible
 
@@ -35,7 +51,7 @@ The model is sex-symmetric, non-overlapping, and age-free. Survey fertility for 
 
 The matched-control comparison is a mechanism experiment. With constant subgroup inputs, later differences arise from subgroup composition and the identity/partner structure it induces. With fertility convergence enabled, differences also include that imposed within-group rate change. Neither comparison is a causal estimate from observed demographic data.
 
-## September 2026 clarity revision
+## September 24, 2026 clarity revision (superseded as the main essay)
 
 The page now starts in 2013 at generation zero. `setup.js` contains the survey-linked reference, separately versioned from the unchanged engine and fixtures. The old 2020-inspired engine defaults are retained only for reproducibility and previously saved scenarios. Source denominators, proxy mappings, unknown pre-existing ancestry and future-rule assumptions are visible in the setup and source ledger.
 

@@ -1,26 +1,22 @@
-# instructions for the integrating agent
+# Integrating and editing this essay
 
-Read `METHODS.md` and `MODEL-AUDIT.md` before changing the draft. This is a completed prototype to integrate and improve, not an invitation to replace the engine with an unrelated model.
+Read `METHODS.md`, `SOURCES.md` and `MODEL-AUDIT.md` before changing calculations or numerical claims. Canonical files live here; run `npm run build` at the site root to regenerate `blog/`. Do not edit generated copies directly.
 
-## editorial direction
+## Editorial scope
 
-This is the full-prose revision requested after Sam rejected the first draft. Use informal, direct explanation, with actual assumptions and results. Avoid aphorisms, sentimental ancestry language, dramatic reveals, grand concluding statements, and forced slang. Apply this to the whole essay and interface, not only the introduction. Do not restore the older wording or infer that short sentences alone match the author. Keep necessary technical distinctions, source notes, and definitions.
+Sam's original question concerned how much Jewish ancestry Americans might have today. The main model now restores the historical experiments: approximately 1925–2025 first, then varied starts from 1877–1927 and generation lengths. The main widget ends in 2026, with 2025 available as the original endpoint. The 2013-start subgroup model is a separate optional extension, not a substitute for the historical reconstruction.
 
-The current title is `Modeling Jewish Ancestry`. `index.md` is canonical: run `npm run build` from the site root after prose edits. The v4 numerical engine is unchanged. The current essay uses the separate survey-linked `setup.js` (2013), while legacy `M.defaults()` values remain for old saved links. Read SOURCES.md before changing the starting setup.
+Use direct, informal prose with standard casing. Preserve the opening anecdote about someone doubting an 8% claim. Avoid dramatic ancestry aphorisms, sentimental language and grand conclusions. Keep source definitions, uncertainty and assumptions intelligible.
 
-## implementation contracts
+## Contracts
 
-Preserve these contracts:
-
-1. Distinguish Jewish identity, roots-plus-genealogical-descent, detectable DNA, and halakhic status. Only the first two are simulated. Secular Jews can be Jewish-identifying. Haredi and other Orthodox groups partition Orthodoxy.
-2. The 8% initial ancestry setting is an assumption, not an empirical estimate. Default root-counting starts with no ancestry-only population; that is a limited counting horizon, not a claim that old ancestry is absent.
-3. All numerical outputs describe successive whole cohorts. Never label them the share of all Americans alive in a future year. A common generation interval only changes the clock labels in this model.
-4. The ordered pairing matrix is symmetric and has both marginals equal to the input population. Offspring identity rows sum to one. A rooted parent's child never enters the no-connection group.
-5. The frozen-average control matches the subgroup model at the first reproductive step. Do not replace it with an arbitrary competing scenario.
-6. The parent/child sample animation was removed at Sam’s request; do not restore it. If sampling is used elsewhere, samples must use the engine's birth-weighted distribution. A filtered sample must state its conditioning and its mass. Do not imply the 12 displayed families are an unconditioned population sample or a persistent genealogy.
-7. Sensitivity bands are quantiles over stated input distributions, not forecast confidence intervals. Export the model version and assumptions with numerical results.
-8. Keep a no-JavaScript reading path, visible input labels, text alternatives for animation, reduced-motion support, and a locally scrollable subgroup table on small screens.
-9. Run `npm test` after model changes and `npm run build` after source changes. Regenerate parity fixtures only as a separately explained reference-model change, never just to make a failing test pass.
-10. Publication requires Sam's review. Sam approved this initial publication on September 24, 2026, with standard casing and no homepage link to `/blog/`. This approval does not establish measured demographic validity.
-
-Use normal code casing. Use standard sentence casing and capitalize proper names in the essay and interface, as Sam requested for publication. No framework, analytics, CDN, or backend is needed for the delivered version. The current destination is samuelhavens.com/blog; follow the site root PRODUCT.md and DESIGN.md.
+1. Distinguish identity, roots plus genealogical descent, DNA and halakhic status. Only the first two are modeled. Secular Jews can be Jewish-identifying.
+2. Do not merge the two historical screens. The first used rough adult identity/parent-proxy windows and cohort weights; the second matches a historical identity curve and screens implied arrival composition. Neither filters on proximity to 8%.
+3. In `historical.js`, a different start loads the matching reference share and a different generation length changes reproductive steps before the endpoint. An incomplete final generation receives a fractional update and prorated arrivals. Keep this approximation explicit. The endpoint is not an age-weighted count of all living Americans.
+4. Preserve the recovered historical Python files unchanged. Original results are reproduced in `historical-reproduction.json`; corrected browser results use a different documented RNG. Do not regenerate reference evidence to make new code pass.
+5. Keep `model.js` v4 and `setup.js` numerical behavior compatible with existing saved subgroup links. Only that separate engine uses whole-generation clock labels. Its frozen-average comparison matches at the first step.
+6. Initial outside ancestry defaults to zero as a counting-horizon assumption. Modern identity anchors are adult survey estimates; historical anchors mix definitions. Held-fixed 2026 references are not new observations. Relative fertility, migration proxies and screening ceilings are assumptions.
+7. Retained quantiles are sensitivity distributions, not demographic confidence intervals. Show rejection counts, never fill rejected endpoints with zero, and export settings, versions and seed with results. Clear stale results when controls change.
+8. Do not restore parent/child sample animations. Preserve keyboard access, reduced-motion support, no-JavaScript results, accessible labels and mobile table scrolling. No analytics or external runtime dependencies.
+9. Run `npm test`, the historical Python parity check, `npm run build` and the browser checks after relevant changes. Keep the standalone HTML self-contained.
+10. Sam approved publication on September 24, 2026 and requested this correction on September 25. Publish to the existing GitHub Pages site, retaining standard casing and **no homepage link to /blog/**. Publication approval does not establish demographic validity.

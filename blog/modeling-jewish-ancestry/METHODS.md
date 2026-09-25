@@ -1,4 +1,108 @@
-# Model v4: definitions, assumptions, and update equations
+# Historical experiments and their screens
+
+Updated September 25, 2026. The main interactive is historical engine **1.0.0** (`historical.js`). It reconstructs the second historical experiment from the original conversation, with an explicit correction for an incomplete final generation. The separate subgroup extension remains engine **4.0.0** (`model.js`); its equations follow later in this document.
+
+## Three distinct experiments
+
+| Experiment | Starting point and endpoint | Screen | What its output describes |
+|---|---|---|---|
+| First historical script | Approximately 1925–2025, four 25-year steps | Rough adult-weighted identity 2.1–2.7%; parent-or-identity proxy 3.1–4.0% | Four cohorts combined with assumed surviving-population weights |
+| Second historical script / main interactive | Sampled starts 1877–1927; 24–30 years per generation; original endpoint 2025, interactive default 2026 | Match the historical identity reference curve by solving arrival composition; reject any step requiring less than 0% or more than 60% Jewish arrivals | A simplified terminal population state; no all-age weighting |
+| Subgroup extension | A 2013 survey-linked setup followed into the future | None; optional sensitivity draws are summarized without historical screening | Successive reproductive cohorts, distinguishing Jewish denominations |
+
+No screen uses proximity to 8% as a criterion. The historical model does not derive or calibrate denomination shares. Its three states are J (Jewish identity), D (counted descendants outside identity), and N (no counted ancestry), with J+D+N=1. The broader quantity includes community roots as well as descent; it is not DNA or halakhic status.
+
+## Recovered first experiment
+
+`reference/jewish_ancestry_model.py` is unchanged. Running it with 100,000 draws and seed 20260923 reproduces **34,503 retained**. Percentiles (5th / median / 95th), in percent:
+
+| Quantity | 5th | Median | 95th |
+|---|---:|---:|---:|
+| Rough all-age ancestry | 5.193 | 6.394 | 8.098 |
+| Youngest-cohort ancestry | 7.082 | 9.133 | 12.200 |
+| Rough all-age identity | 2.258 | 2.502 | 2.698 |
+| Adult parent-or-identity proxy | 3.124 | 3.326 | 3.620 |
+
+All-age weights are `[.08,.27,.33,.32]`; adult weights are `[.105,.357,.436,.102]`. These are stipulated, not estimated survival or age-structure schedules. Screening windows are analyst choices, not Pew confidence intervals. The parent proxy is the share of offspring with at least one Jewish-identifying parent plus Jewish arrivals; it approximates, but does not duplicate, a survey category that also includes upbringing. Exact distributions and code are in the original script. Full reproduction metadata for both historical scripts is in `historical-reproduction.json`.
+
+## Historical reference curves
+
+The second experiment retained these points. Between points, interpolate linearly; outside the listed period, hold the nearest endpoint fixed. Points mix estimates, proxies and assumptions; they are not a homogeneous measured series. See SOURCES.md for source checks and discrepancies. Percent units below.
+
+- Jewish share: 1877: 0.52; 1897: 1.31; 1907: 2.00; 1917: 3.27; 1927: 3.58; 1937: 3.70; 1957: 3.20; 1970: 2.70; 1990: 2.20; 2013: 2.20; 2020: 2.40; 2025: 2.40.
+- Foreign-born-stock proxy: 1900: 13.7; 1910: 14.6; 1920: 12.7; 1930: 11.3; 1940: 8.5; 1950: 6.9; 1960: 5.6; 1970: 4.8; 1980: 6.2; 1990: 8.2; 2000: 11.4; 2010: 12.7; 2018: 14.1; 2025: 14.5.
+- Central intermarriage proxy: 1877: 1.0; 1897: 1.5; 1907: 2.0; 1935: 5.5; 1957: 3.8; 1975: 18; 1985: 42; 1995: 37; 2005: 45; 2015: 61; 2025: 63.
+
+The 2025 Jewish share repeats the 2020 adult survey reference. The 2025 arrival and marriage proxy points are assumptions. The browser's 2026 endpoint holds all final points fixed for the extra year. The default does not assert any newly measured 2026 rates.
+
+## Sampled assumptions
+
+All ranges are independent uniform draws. Starting year and generation length can be fractional. Setting the two ends of a range equal fixes that input.
+
+| Input | Default range | Resampled when? |
+|---|---|---|
+| Start year | 1877–1927 | Each scenario |
+| Years per generation | 24–30 | Each scenario |
+| Initial outside ancestry | 0 (editable 0–20%) | Fixed user assumption |
+| Descendant clustering c | 0–.5 | Each scenario, then constant |
+| Relative fertility, two Jewish parents | .85–1.08 | Each scenario, then constant |
+| Relative fertility, one Jewish parent | .82–1.06 | Each scenario, then constant |
+| Relative fertility, D/D or D/N | .90–1.06 | Each scenario, then constant |
+| Relative fertility, N/N | 1 | Fixed reference |
+| Jewish identity retention, two Jewish parents | .94–.995 | Each scenario, then constant |
+| Intermarriage multiplier | .55–1.65 before 1960; .75–1.35 before 1980; .88–1.12 thereafter | Each step, at its calendar midpoint; final rate clipped to .001–.80 |
+| One-Jewish-parent identity retention | .12–.45 before 1940; .15–.50 before 1970; .25–.62 before 2000; .48–.75 thereafter | Each step, at its calendar midpoint |
+| Arrival proxy multiplier | .65–1.45 | Each step |
+
+Dates, fertility, clustering, two-parent retention and arrival settings are editable in the main widget. Calendar proxy curves and the one-parent retention intervals are fixed in code and documented here. N arrivals have no counted ancestry. No conversion process or mortality schedule is fitted.
+
+## Full-generation update
+
+Let j,d,n be the current shares; m the Jewish intermarriage rate; c the clustering assumption; z=d/(1-j); and h=1-j-j*m. Unordered pair masses are:
+
+```
+jj = j*(1-m)
+jd = 2*j*m*d/(1-j)
+jn = 2*j*m*n/(1-j)
+dd = h*(c*z + (1-c)*z*z)
+dn = h*(1-c)*2*z*(1-z)
+nn = h*(c*(1-z) + (1-c)*(1-z)^2)
+```
+
+Here the final line names the pair mass `nn` in the implementation (not the individual share n). The six masses sum to one. Weight jj by fjj, jd+jn by fmix, dd+dn by fd, and nn by 1. Divide by their sum B. Then ancestry A=1-nn/B, identity J=(jj*fjj*rjj+(jd+jn)*fmix*rm)/B, D=A-J. The offspring parent proxy is (jj*fjj+(jd+jn)*fmix)/B.
+
+## Partial final interval and calibration
+
+A historical step ends at `min(current_year + generation_years, end_year)`. Let f be elapsed years / generation years. Compute a full next cohort F(x), then use `pre = x + f*(F(x)-x)`. Full steps have f=1; a seven-year remainder of a 28-year generation has f=.25. This convex mixture preserves a valid population distribution, but it is an interpolation assumption rather than an age-structured demographic process. The initial parent proxy is set to J; a partial final step blends it the same way. The proxy is exported for reproducibility but is not a screen in this experiment.
+
+Let b be the foreign-born proxy at the step endpoint and k the sampled arrival multiplier. The full-generation arrival share is `u_full = clip(b * generation_years / 25 * k, .01, .35)`. Apply `u = f * u_full`. This makes arrivals vanish with elapsed time, instead of imposing at least 1% arrivals on even a tiny remainder. For a full generation, it matches the original script.
+
+For target Jewish share t, solve `q = (t - (1-u)*pre.J) / u`. Reject the entire scenario immediately if q<0 or q exceeds the chosen ceiling (default .60). Otherwise `J=t`, `D=(1-u)*pre.D`; the remaining share is N. Jewish arrivals are new counted roots. This calibration matches identity at the modeled step endpoints, not every intervening year; lines between displayed points are visual interpolation.
+
+The original script applied F(x) in full even when f<1 and used `clip(b * elapsed_years / 25 * k, .01, .35)` for arrivals. Audit-only `legacyTiming` reproduces those timing rules. This is bundled to expose the effect of the correction, not as an equally recommended interactive option. Both reproduction and correction retain the original population curves and assumptions.
+
+## Sampling, display and reproducibility
+
+The browser uses Mulberry32, a separate stream per scenario: `(seed + index * 0x9e3779b9) mod 2^32`. NumPy's original RNG is different, so a browser run does not reproduce the exact historical acceptance count merely by sharing its seed. Use the unchanged original Python scripts to reproduce those counts. The old/new timing comparison in `default-results.json` uses the same browser draws, with each timing version applying its own screen.
+
+Histograms and linearly interpolated 5th/50th/95th percentiles include **only retained endpoints**. Rejected endpoints are absent, not zero. The displayed trajectory is the lower-middle retained scenario sorted by endpoint ancestry (ties by draw index), so it is a real path near the median rather than a synthetic median path. Exports retain every draw's status and rejection reason. JSON includes the displayed path's step-specific sampled rates. Complete settings, seed, version and record index reproduce every other path.
+
+The reference default is 30,000 draws, seed 106, ending in 2026: **1,335 retained**, 28,665 rejected for negative implied Jewish arrivals and none for the 60% ceiling. Retained ancestry percentiles are **5.315 / 6.801 / 9.178%**. The same browser inputs ending in 2025 retain 1,345, with **5.263 / 6.709 / 9.013%**. These ranges describe the chosen scenarios, not measured-population uncertainty. Most trials fail; that selection is part of the result, not hidden evidence of fit.
+
+Reproduce from the article directory:
+
+```
+node --test tests/*.test.cjs
+uv run --no-project --with numpy python reference/verify_historical.py
+uv run --no-project --with numpy python reference/jewish_ancestry_model.py --draws 100000 --seed 20260923
+uv run --no-project --with numpy python reference/jewish_ancestry_sensitivity_v2.py
+```
+
+The independent Python parity check uses the recovered full-generation function with the browser's exported sampled inputs, then separately applies the stated interpolation and calibration. Reproduction validates implementation, not the historical assumptions.
+
+---
+
+# Separate subgroup extension (v4): definitions and equations
 
 ## Scope
 
@@ -22,9 +126,9 @@ The state is `x = [H,M,C,R,U,D,N]`, a nonnegative vector summing to one:
 
 `J = H+M+C+R+U`, `A = J+D = 1-N`. H and M partition Orthodoxy. These broad labels are a simplification of heterogeneous communities.
 
-## Essay starting setup (2013)
+## Subgroup extension starting setup (2013)
 
-The page, computed article examples, and offline copy use `setup.js` version 1.0.0, which applies survey-linked starting values to the unchanged v4 engine. This is a conditional reference scenario, not a fitted reconstruction of the 2013 population.
+The optional subgroup widget and its offline counterpart use `setup.js` version 1.0.0, which applies survey-linked starting values to the unchanged v4 engine. This is a conditional reference scenario, not a fitted reconstruction of the 2013 population.
 
 `J0=A0=.022`, so `D0=0`. The zero is a counting-horizon choice, not an estimate of absent earlier ancestry. The interface separately exposes Jewish identity and **additional ancestry outside identity**, both as percentages of the whole initial population. Their sum is `A0`; changing J0 preserves the user-entered D0.
 

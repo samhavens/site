@@ -17,8 +17,8 @@ The reference is the live samuelhavens.com homepage and this repository's raw HT
 - Let the reasoning and working model carry the page.
 - Preserve the site's identity rather than introducing a separate publication brand.
 - Keep assumptions and definitions near their outputs.
-- Begin at an explicit historical starting population. Put date, generation interval, existing ancestry, denomination mix and fertility ahead of the results.
-- Make the frozen-average comparison optional. Keep secondary rules expandable.
+- Begin in the historical period and end in the present. Make start-date and generation-length ranges, matched starting population, existing ancestry, fertility and the scenario screen explicit.
+- Keep the denomination/fertility extension separate from the historical reconstruction. Its frozen-average comparison and secondary rules remain optional.
 - Follow generations with a simple timeline; do not restore the removed parent/child sample animation.
 - Keep a readable static document with source links.
 

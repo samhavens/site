@@ -1,6 +1,28 @@
-# Source and assumption ledger
+# Historical source and assumption ledger
 
-Checked September 24, 2026. The essay starts from 2013 survey references. Dates below are source dates; none implies present-day measurement or historical calibration.
+Checked September 25, 2026. The main model restores the original historical experiment; it does not turn its approximate reference points into newly verified observations. Original scripts and their SHA-256 hashes are in `reference/` and `historical-reproduction.json`. `METHODS.md` lists every numerical reference point and sampling range.
+
+| Input or claim | Source and status | Mapping and limitation |
+|---|---|---|
+| Early Jewish population curve | Sidney Goldstein, [American Jewry, 1970: A Demographic Profile](https://www.jewishdatabank.org/content/upload/bjdb/304/NJPS1971-AJYB_Article.pdf), AJYB 1971, printed p.11, Table 1 | The table gives approximately 1.3% in 1897, 2.0% in 1907, 3.3% in 1917, 3.6% in 1927 and 3.7% in 1937. Those support the broad trajectory, not the model's extra decimal precision. The table's early point is 1880 at 0.5%, not the script's 1877 at 0.52%; the latter is retained as a legacy assumption, not asserted as verified by this table. |
+| 1957 Jewish religion reference | Goldstein's article describes the Census religion survey; printed p.38, Table 7 reports 3.868 million Jewish people among 119.333 million civilians aged 14+ | Approximately 3.2% is religion among civilians aged 14+, not the same definition as modern broad adult Jewish identity or an all-age share. |
+| 1970 2.7%, 1990 2.2% | Legacy reference choices in the recovered script | Retained for reproduction; these exact points were not independently established as a consistent series in this restoration. Do not attribute them to AJYB Table 1, which lists 1968 at 2.9%. |
+| 2013 2.2%, 2020 2.4% identity; 2020 1.1% additional background | Pew, [The Size of the U.S. Jewish Population](https://www.pewresearch.org/religion/2021/05/11/the-size-of-the-u-s-jewish-population/) | Adult survey estimates under Pew's definitions, with sampling uncertainty. Background covers parents or upbringing, not all ancestry. The first model's adult proxy is approximate. Repeating 2.4% in 2025/2026 is an assumption. |
+| Modern intermarriage curve | Pew, [Marriage, Families and Children](https://www.pewresearch.org/religion/2021/05/11/marriage-families-and-children/) | Intact marriages by marriage era, including 18% before 1980 and 61% in 2010 or later. Applying them to all reproductive pairings and assigning era midpoints is a convention. The script's early rates and 2025 63% endpoint remain assumptions/proxies, not a validated annual series. |
+| Mixed-parent identity retention | Same Pew marriage/family chapter informed broad ranges | Parental reports of how children are being raised are not longitudinal adult retention probabilities. The historical intervals are analyst assumptions. |
+| Foreign-born-stock proxy | [Census historical foreign-born statistics](https://www.census.gov/library/working-papers/2006/demo/POP-twps0081.html) | The legacy points are approximate and sometimes differ: Census gives 4.7% in 1970, 7.9% in 1990 and 11.1% in 2000; the script uses 4.8%, 8.2% and 11.4%. All are resident stocks, not generation-specific arrival flows. The multiplier and 2025 14.5% endpoint are assumptions. Retaining these inputs aids comparison with the original experiment; it is not an endorsement of their precision. |
+| Fertility, clustering, screening windows, 60% arrival ceiling, cohort weights | Analyst choices in the original scripts | Not observed confidence bounds. Screening on exact identity points does not propagate their measurement uncertainty. |
+| Partial-generation interpolation | New, explicit correction in historical engine 1.0.0 | Removes a full-extra-generation timing artifact; does not supply a validated age structure. |
+
+The corrected interactive uses a **2026 endpoint**, not a new 2026 dataset. Values beyond the last curve point are held constant. Starting outside ancestry defaults to zero as a counting-horizon choice. Non-Jewish arrivals carry no counted additional ancestry. The historical endpoint is not an age-weighted estimate of everyone alive today.
+
+All displayed ranges summarize selected sensitivity assumptions. They are not survey confidence intervals or posterior probabilities. The desired 8% result is never a selection criterion.
+
+---
+
+# Subgroup extension source ledger
+
+Checked September 24, 2026. The separate subgroup extension starts from 2013 survey references. Dates below are source dates; none implies present-day measurement or historical calibration.
 
 ## 2013 starting values (`setup.js` 1.0.0)
 

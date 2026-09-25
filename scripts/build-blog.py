@@ -72,39 +72,53 @@ def build_post(post):
     source = ROOT / 'content' / slug
     dest = BLOG / slug
     dest.mkdir(parents=True, exist_ok=True)
-    # The article's example table comes from the same engine as its controls.
-    program = 'const M=require(process.argv[1]); const S=require(process.argv[2]); console.log(JSON.stringify(M.simulate(S.historical())))'
-    result = json.loads(subprocess.check_output(['node', '-e', program, str(source / 'model.js'), str(source / 'setup.js')], text=True))
-    columns = [('illustrativeYear', 'Year'), ('generation', 'Generation'), ('identity', 'Jewish identity'), ('connection', 'Roots + descendants'), ('harediShare', 'Haredi share of Jews'), ('aggregateIntermarriage', 'Intermarriage among Jews')]
-    rows = [[str(r[k]) if k in ('generation', 'illustrativeYear') else f'{100*r[k]:.1f}%' for k, _ in columns] for r in result['rows'][:5]]
-    md_table = '| ' + ' | '.join(label for _, label in columns) + ' |\n|' + '|'.join('---:' for _ in columns) + '|\n' + '\n'.join('| ' + ' | '.join(row) + ' |' for row in rows)
-    table = '<div class="table-scroll static-results" role="region" aria-label="Default model results" tabindex="0"><table><caption>2013 reference inputs; successive generations</caption><thead><tr>' + ''.join(f'<th>{label}</th>' for _, label in columns) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
+    # Static prose and downloads use the exact historical engine shown in the UI.
+    program = 'const H=require(process.argv[1]); const compact=r=>{delete r.records;return r;}; console.log(JSON.stringify({corrected:compact(H.ensemble(H.defaults())),originalTiming:compact(H.ensemble(H.defaults(),{legacyTiming:true}))}))'
+    audit = json.loads(subprocess.check_output(['node', '-e', program, str(source / 'historical.js')], text=True))
+    result = audit['corrected']
+    p = result['parameters']
+    percent = lambda x: f'{100*x:.1f}%'
+    q = result['quantiles']
+    old_q = audit['originalTiming']['quantiles']
+    rows = [
+        ['Starting years', '–'.join(map(str, p['startRange']))],
+        ['Years per generation', '–'.join(map(str, p['generationRange']))],
+        ['Endpoint', str(p['endYear'])],
+        ['Scenarios drawn', f"{p['draws']:,}"],
+        ['Scenarios retained', f"{result['retained']:,} ({100*result['retained']/p['draws']:.1f}%)"],
+        ['Retained median ancestry', percent(q[1])],
+        ['Middle 90% of retained ancestry', f'{percent(q[0])}–{percent(q[2])}'],
+        ['Random seed', str(p['seed'])],
+    ]
+    md_table = '| Default historical experiment | Value |\n|---|---:|\n' + '\n'.join('| ' + ' | '.join(row) + ' |' for row in rows)
+    table = '<div class="table-scroll static-results" role="region" aria-label="Default historical results" tabindex="0"><table><caption>Corrected historical default; selected scenarios, not a confidence interval</caption><thead><tr><th>Default historical experiment</th><th>Value</th></tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
     manuscript = (source / 'index.md').read_text()
     if '<!-- DEFAULT-TABLE -->' not in manuscript:
         raise ValueError('The manuscript must retain its computed table marker')
-    example = result['rows'][4]
-    summary = f"Under the 2013 reference assumptions, generation four ({example['illustrativeYear']}) is {100*example['identity']:.1f}% Jewish-identifying and {100*example['connection']:.1f}% roots + descendants. These are conditional model outputs for that generation."
+    summary = f"With {p['draws']:,} draws ending in {p['endYear']}, the corrected default gives a retained median of **{percent(q[1])}**, with a middle 90% range of **{percent(q[0])}–{percent(q[2])}**. Applying the old timing rule to the same input draws gives **{percent(old_q[1])}**, with a range of **{percent(old_q[0])}–{percent(old_q[2])}**. Each version applies its own feasibility screen. These are sensitivity results under the stated assumptions, not population confidence intervals."
     article = render_markdown(manuscript.replace('<!-- DEFAULT-SUMMARY -->', summary)).replace('<!-- DEFAULT-TABLE -->', table)
     article = re.sub(r'^<h1>.*?</h1>\s*', '', article, count=1)
     label = 'Draft for review' if draft else date.fromisoformat(post['published']).strftime('%B %-d, %Y')
-    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · Interactive essay</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="On this page"><a href="#start-in-the-past">Interactive model</a><a href="#why-separate-the-denominations">Why subgroups?</a><a href="#limits">Limits</a><a href="#sources-and-code">Sources + code</a></nav></div>
+    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · Updated September 25, 2026</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="On this page"><a href="#start-in-the-past-finish-in-the-present">Interactive model</a><a href="#which-scenarios-survived">The screen</a><a href="#what-the-model-leaves-uncertain">Limits</a><a href="#sources-and-code">Sources + code</a></nav></div>
 <noscript><p class="no-js">JavaScript is off. The essay, equations, sources, and default results remain readable; the interactive controls need JavaScript.</p></noscript>
-{article}</main><footer class="site-footer">Sam Havens · <a href="/blog/">All posts</a> · Model 4.0.0 · Calculations run in your browser</footer>'''
-    script = '<script src="model.js" defer></script><script src="setup.js" defer></script><script src="app.js" defer></script>'
+{article}</main><footer class="site-footer">Sam Havens · <a href="/blog/">All posts</a> · Historical model 1.0.0 · Calculations run in your browser</footer>'''
+    runtime = ['historical.js', 'historical-app.js', 'model.js', 'setup.js', 'app.js']
+    script = ''.join(f'<script src="{name}?v={hashlib.sha256((source / name).read_bytes()).hexdigest()[:12]}" defer></script>' for name in runtime)
+    style_version = hashlib.sha256((source / 'styles.css').read_bytes()).hexdigest()[:12]
     page = document(post['title'], post['description'], body, f'/blog/{slug}/', draft,
-        scripts=script, extra_head='<link rel="stylesheet" href="styles.css">')
+        scripts=script, extra_head=f'<link rel="stylesheet" href="styles.css?v={style_version}">')
     write(dest / 'post.md', manuscript.replace('<!-- DEFAULT-TABLE -->', md_table).replace('<!-- DEFAULT-SUMMARY -->', summary))
-    for filename in ['model.js', 'setup.js', 'app.js', 'styles.css', 'METHODS.md', 'SOURCES.md']:
+    for filename in runtime + ['styles.css', 'METHODS.md', 'SOURCES.md', 'historical-reproduction.json']:
         shutil.copyfile(source / filename, dest / filename)
-    write(dest / 'default-results.json', json.dumps(result, indent=2) + '\n')
+    write(dest / 'default-results.json', json.dumps(audit, indent=2) + '\n')
     portable_body = re.sub(r'<div class="source-links">.*?</div>', '<p class="note">The model and interface code are embedded in this HTML file. The downloadable source archive on the website also contains the tests, methods, and Markdown manuscript.</p>', body)
     portable = document(post['title'], post['description'], portable_body, f'/blog/{slug}/', draft,
         inline_css=CSS + '\n' + (source / 'styles.css').read_text(),
-        scripts='<script>' + (source / 'model.js').read_text() + '</script><script>' + (source / 'setup.js').read_text() + '</script><script>' + (source / 'app.js').read_text() + '</script>')
+        scripts=''.join('<script>' + (source / name).read_text() + '</script>' for name in runtime))
     portable = portable.replace('href="/"', f'href="{ORIGIN}/"').replace('href="/blog/"', f'href="{ORIGIN}/blog/"').replace('href="/resume.html"', f'href="{ORIGIN}/resume.html"')
     # Companion files come with the archive; the standalone HTML itself needs no network.
     write(dest / 'standalone.html', portable)
-    archive_files = {name: dest / name for name in ['standalone.html', 'model.js', 'setup.js', 'app.js', 'styles.css', 'post.md', 'METHODS.md', 'SOURCES.md', 'default-results.json']}
+    archive_files = {name: dest / name for name in runtime + ['standalone.html', 'styles.css', 'post.md', 'METHODS.md', 'SOURCES.md', 'default-results.json', 'historical-reproduction.json']}
     for pattern in ['tests/*.cjs', 'fixtures/*.json', 'reference/*.py']:
         archive_files.update({str(p.relative_to(source)): p for p in source.glob(pattern)})
     archive_files['index.md'] = source / 'index.md'
@@ -115,7 +129,7 @@ def build_post(post):
             info = ZipInfo(name, (2026, 9, 24, 0, 0, 0))
             info.compress_type = ZIP_DEFLATED
             archive.writestr(info, path.read_bytes())
-        archive.writestr(ZipInfo('README.md', (2026, 9, 24, 0, 0, 0)), '# Modeling Jewish Ancestry\n\nOpen standalone.html to read and run the essay offline. Run `node --test tests/*.test.cjs` to check the model. index.md is the editorial source. The site build computes the default-results table from model.js. See METHODS.md and MODEL-AUDIT.md for assumptions. These are conditional cohort scenarios, not population forecasts.\n')
+        archive.writestr(ZipInfo('README.md', (2026, 9, 24, 0, 0, 0)), '# Modeling Jewish Ancestry\n\nOpen standalone.html to read and run the essay offline. Run `node --test tests/*.test.cjs` to check both models. index.md is the editorial source. historical.js runs the corrected historical screen; model.js is the separate subgroup extension. The recovered original historical Python scripts are unchanged in reference/. Reproduction commands and results are in METHODS.md and historical-reproduction.json. These are selected sensitivity scenarios, not population confidence intervals.\n')
     archive_version = hashlib.sha256((dest / 'source.zip').read_bytes()).hexdigest()[:12]
     write(dest / 'index.html', page.replace('href="source.zip"', f'href="source.zip?v={archive_version}"'))
     return label

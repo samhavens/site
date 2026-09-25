@@ -191,6 +191,7 @@
  }
  function loadHash(){
   if(!location.hash.startsWith('#sim='))return;
+  $('denomination-extension').open=true;
   try{const s=JSON.parse(atob(decodeURIComponent(location.hash.slice(5))));if(s.v!==M.VERSION)throw Error('Saved state uses a different model version');M.validate(s.p);params=M.clone(s.p);$('compare').checked=s.c===true;selected=Math.max(0,Math.min(params.generations,Number.isInteger(s.g)?s.g:0));}
   catch(e){$('export-settings').open=true;status('export-status','Could not load saved state: '+e.message,true);}
  }
@@ -209,6 +210,7 @@
   $('apply-config').addEventListener('click',()=>{try{const s=JSON.parse($('config').value),p=s.parameters||s;M.validate(p);params=M.clone(p);renderControls();rerun();status('config-status','Valid settings applied.');}catch(e){status('config-status',e.message,true);}});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)stopPlaying();});
   window.addEventListener('resize',()=>{if(result){plot('connection-plot','connection','controlConnection',A);plot('identity-plot','identity','controlIdentity',J);composition();}});
+  $('denomination-extension').addEventListener('toggle',()=>{if($('denomination-extension').open&&result)render();else stopPlaying();});
   window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#sim=')){loadHash();renderControls();rerun();}});
  }
  function toyInit(){

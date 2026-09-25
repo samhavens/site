@@ -103,7 +103,40 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
 .footnotes hr { border: 0; border-top: 1px solid var(--rule); margin-top: 32px; }
 .no-js { padding: 15px; background: var(--panel); margin: 20px 0; }
 .static-results { font: 13px/1.5 system-ui, sans-serif; }
+.historical-inputs { border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+.historical-time { display: grid; grid-template-columns: 1fr 1fr .65fr; gap: 24px; align-items: start; }
+.range-field { border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+.range-field legend { padding: 0; font-weight: 600; font-size: 13px; margin-bottom: 8px; }
+.range-pair { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: end; gap: 8px; }
+.range-pair label { min-width: 0; font-size: 11px; color: var(--muted); }
+.range-pair input { display: block; margin-top: 4px; font-size: 16px; }
+.range-to { align-self: end; padding-bottom: 10px; }
+.historical-time > .number-control input { margin-top: 17px; font-size: 16px; }
+.historical-ranges { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin: 22px 0; }
+.matched-start { font-size: 15px; font-weight: 500; }
+.historical-run { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.historical-run > button { background: var(--identity); color: var(--paper); border-color: var(--identity); }
+.historical-run > button:hover { background: #294b6b; }
+.filter-bar { display: flex; height: 12px; margin: 18px 0 14px; background: var(--rule); }
+.filter-bar span:nth-child(1) { background: var(--identity); }
+.filter-bar span:nth-child(2) { background: #c6cbd0; }
+.filter-bar span:nth-child(3) { background: #8b9197; }
+.screen-counts { list-style: none; padding: 0; font-size: 13px; }
+.screen-counts li { margin: 5px 0; }
+.screen-counts b { font-variant-numeric: tabular-nums; }
+.historical-estimate { display: flex; flex-wrap: wrap; gap: 18px 48px; margin: 24px 0 8px; }
+.historical-estimate strong { display: block; font-size: 30px; font-weight: 500; color: var(--ancestry); font-variant-numeric: tabular-nums; }
+.estimate-label { font-size: 12px; color: var(--muted); }
+.historical-legend span:first-child { color: var(--ancestry); }
+.historical-legend span:last-child { color: var(--identity); }
+#h-path-section h3 { margin-top: 0; }
+#denomination-extension > summary { font-size: 16px; }
+#denomination-extension[open] > summary { margin-bottom: 12px; }
 @media (max-width: 760px) {
+ .historical-time { grid-template-columns: 1fr 1fr; gap: 18px; }
+ .historical-time > .number-control { grid-column: 1/-1; }
+ .historical-time > .number-control input { margin-top: 0; max-width: 140px; }
+ .historical-ranges { grid-template-columns: 1fr; gap: 18px; }
  .widget-head { padding: 20px 16px 8px; }
  .section { padding: 18px 16px; }
  .setup-section { padding-top: 8px; }
@@ -127,6 +160,7 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
  .toy-inner { padding: 16px; }
 }
 @media (max-width: 390px) {
+ .historical-time { grid-template-columns: 1fr; gap: 18px; }
  .time-controls { gap: 8px; }
  .advanced-grid { grid-template-columns: 1fr; }
  .population-controls { grid-template-columns: 1fr; }

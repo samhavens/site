@@ -5,7 +5,8 @@
     "build": "uv run --script scripts/build-blog.py",
     "test": "node --test content/modeling-jewish-ancestry/tests/*.test.cjs",
     "serve": "uv run --no-project python -m http.server 8765 --bind 127.0.0.1",
-    "test:browser": "node scripts/check-blog.cjs"
+    "test:browser": "node scripts/check-blog.cjs",
+    "test:historical-browser": "node scripts/check-historical.cjs"
   },
   "engines": {
     "node": ">=18"
