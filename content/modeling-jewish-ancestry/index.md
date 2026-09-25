@@ -1,12 +1,14 @@
 # Modeling Jewish Ancestry
 
-Start in 2013. Pew estimated that 2.2% of American adults identified as Jewish, including secular and cultural Jews.[^population] Take a population with that starting share and follow its descendants, one generation at a time.
+Someone told me they'd heard that 8% of Americans had some Jewish ancestry. They thought that had to be wrong, so I tried modeling it.
 
-I wanted to know how many Americans have at least one Jewish ancestor. A child inherits ancestry from either parent, even if they grow up with a different identity. Meanwhile, differences in fertility and marriage patterns change the composition of the Jewish population itself. This model follows both processes.
+A child inherits ancestry from either parent, even if they grow up with a different identity. Meanwhile, differences in fertility and marriage patterns change the composition of the Jewish population itself. This model follows both processes.
 
 ## Start in the past
 
-The starting denomination mix and available fertility references come from the 2013 survey. Some inputs remain assumptions, identified under the setup.[^denominations][^fertility][^orthodox] Edit the starting values, then follow the timeline. This is a conditional experiment, not yet a historical estimate of today's ancestry.
+For a starting point, I used Pew's 2013 survey. It estimated that 2.2% of American adults identified as Jewish, including secular and cultural Jews.[^population] The denomination mix and available fertility references come from the same survey; other inputs remain assumptions.[^denominations][^fertility][^orthodox]
+
+Edit the starting values, then follow the population's descendants one generation at a time. This is a conditional experiment, not yet a historical estimate of today's ancestry.
 
 <div id="sim-widget" class="interactive wide"><p>Enable JavaScript to change the model. The 2013 reference results remain available below.</p></div>
 

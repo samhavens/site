@@ -7,7 +7,8 @@ Validated for publication on September 24, 2026 (America/Los_Angeles), following
 - Apply standard sentence casing and proper-name capitalization throughout the essay, model interface, chart labels, exports and downloadable notes.
 - Publish the blog through its direct URLs without adding homepage navigation.
 
-- Begin explicitly in 2013 at generation zero.
+- Open with the reported 8% claim and the objection that prompted the model. Introduce the 2013 source and starting population in the model section.
+- Begin the model explicitly in 2013 at generation zero.
 - Load a survey-linked starting population from `setup.js` 1.0.0. Show the source denominators, mappings and assumptions; distinguish unknown older ancestry from zero ancestry counted in this run.
 - Put starting year, generation interval, initial Jewish identity, outside ancestry, denomination mix and fertility together before the results.
 - Remove the parent/child samples, associated filters, explanation and unused presentation code.
