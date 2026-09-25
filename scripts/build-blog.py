@@ -5,6 +5,7 @@
 """Build the static blog. Prose and model inputs live in content/, not outputs."""
 from datetime import date
 from html import escape
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -92,7 +93,6 @@ def build_post(post):
     script = '<script src="model.js" defer></script><script src="setup.js" defer></script><script src="app.js" defer></script>'
     page = document(post['title'], post['description'], body, f'/blog/{slug}/', draft,
         scripts=script, extra_head='<link rel="stylesheet" href="styles.css">')
-    write(dest / 'index.html', page)
     write(dest / 'post.md', manuscript.replace('<!-- DEFAULT-TABLE -->', md_table).replace('<!-- DEFAULT-SUMMARY -->', summary))
     for filename in ['model.js', 'setup.js', 'app.js', 'styles.css', 'METHODS.md', 'SOURCES.md']:
         shutil.copyfile(source / filename, dest / filename)
@@ -116,6 +116,8 @@ def build_post(post):
             info.compress_type = ZIP_DEFLATED
             archive.writestr(info, path.read_bytes())
         archive.writestr(ZipInfo('README.md', (2026, 9, 24, 0, 0, 0)), '# Modeling Jewish Ancestry\n\nOpen standalone.html to read and run the essay offline. Run `node --test tests/*.test.cjs` to check the model. index.md is the editorial source. The site build computes the default-results table from model.js. See METHODS.md and MODEL-AUDIT.md for assumptions. These are conditional cohort scenarios, not population forecasts.\n')
+    archive_version = hashlib.sha256((dest / 'source.zip').read_bytes()).hexdigest()[:12]
+    write(dest / 'index.html', page.replace('href="source.zip"', f'href="source.zip?v={archive_version}"'))
     return label
 
 
