@@ -65,118 +65,212 @@ p { margin: 18px 0; }
   a { text-decoration: none; }
 }
 
-/* Page-specific model styles; the shared document style is ../blog.css. */
+/* The essay inherits the personal site's typography and restrained palette. */
 :root { --error: oklch(42% 0.13 26); }
-.equation { padding: 18px 10px; text-align: center; font: 21px/1.8 ui-monospace, SFMono-Regular, monospace; overflow: auto; background: var(--panel); margin: 24px 0; }
+.equation { padding: 16px 10px; text-align: center; font: 21px/1.8 ui-monospace, SFMono-Regular, monospace; overflow: auto; background: var(--panel); margin: 22px 0; }
 code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--panel); padding: 2px 4px; overflow-wrap: anywhere; }
-.wide{width:min(1060px,calc(100vw - 32px));position:relative;left:50%;transform:translateX(-50%)}.interactive{font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;border:1px solid var(--rule);margin:32px 0;background:var(--paper);border-radius:3px}.interactive p{margin:10px 0}.interactive h2{font:600 23px/1.25 system-ui,sans-serif;margin:0 0 8px;letter-spacing:-.4px}.interactive h3{font:600 16px/1.3 system-ui,sans-serif;margin:0 0 8px}.widget-head{padding:24px 24px 12px}.kicker{font:600 11px/1.5 system-ui,sans-serif;letter-spacing:1.2px;color:var(--muted);margin:0 0 10px}.note{color:var(--muted);font-size:12px;line-height:1.5}.assumption{padding:10px 12px;background:oklch(97% 0.014 65);border:1px solid var(--rule);font-size:12px}.presets{display:flex;flex-wrap:wrap;gap:7px;padding:12px 24px 20px}button,select,input,textarea{font:inherit}button,select{border:1px solid oklch(70% 0.008 250);background:var(--paper);color:var(--ink);border-radius:3px;padding:7px 10px;cursor:pointer;min-height:36px}button:hover{background:oklch(95% 0.005 250)}button[aria-pressed=true],button.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}button:disabled{cursor:default;opacity:.5}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid #547d9c;outline-offset:3px}input[type=range]{width:100%;accent-color:var(--identity);height:24px;cursor:pointer}input[type=number]{width:77px;padding:6px 4px;border:1px solid oklch(70% 0.008 250);border-radius:2px;background:var(--paper);color:var(--ink);min-height:34px}input[type=checkbox]{accent-color:var(--identity);width:16px;height:16px;vertical-align:middle}label.control{display:block;margin:0 0 18px}label.control .labelrow{display:flex;justify-content:space-between;gap:12px;margin-bottom:3px;font-size:12px;font-weight:600}.control output{white-space:nowrap;font-variant-numeric:tabular-nums}.control .note{display:block;margin-top:2px;font-size:12px}.sim-layout{display:grid;grid-template-columns:260px minmax(0,1fr);border-top:1px solid var(--rule)}.controls{background:var(--panel);padding:22px;border-right:1px solid var(--rule)}.plots{padding:20px 24px 18px;min-width:0}.plot{width:100%;display:block;height:auto;touch-action:pan-y}.plot text{fill:var(--muted);font:11px system-ui,sans-serif}.plot .axis-title{font-size:11px}.plot-title{font-weight:600;margin:0!important;color:var(--identity)}.plot-title.ancestry{color:var(--ancestry)}.plotwrap+.plotwrap{margin-top:18px}.line-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:8px 0 12px}.line-legend span::before{content:'';display:inline-block;vertical-align:middle;width:24px;height:0;border-top:2px solid currentColor;margin-right:5px}.line-legend .dashed::before{border-top-style:dashed}.scrub{display:flex;align-items:center;gap:12px;margin-top:18px}.scrub label{font-size:12px;white-space:nowrap}.scrub input{min-width:40px}.scrub output{font-weight:600;min-width:25px}.metric-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 10px}.metric{border-top:1px solid var(--rule);padding-top:9px}.metric .value{display:block;font-size:23px;line-height:1.3;font-variant-numeric:tabular-nums;letter-spacing:-.5px}.metric .label{color:var(--muted);font-size:11px}.section{padding:22px 24px;border-top:1px solid var(--rule)}.section details{margin:0}summary{cursor:pointer;font-weight:600;min-height:36px;padding:5px 0;font-family:system-ui,sans-serif;font-size:14px}.table-scroll{overflow:auto;-webkit-overflow-scrolling:touch;max-width:100%}table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{text-align:right;padding:9px 8px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}th{font-weight:600;line-height:1.35;font-size:12px}th:first-child,td:first-child{text-align:left}tbody tr.selected{background:#eef3f7}caption{text-align:left;color:var(--muted);font-size:12px;margin-bottom:8px}.interactive table{font-size:12px;margin:12px 0}.parameter-table{min-width:720px}.parameter-table th{font-size:11px}.parameter-table td:first-child{min-width:115px}.parameter-table input{width:68px;font-size:12px}.group-legend{display:flex;gap:9px 16px;flex-wrap:wrap;font-size:11px;margin:14px 0}.swatch{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;background:var(--swatch);vertical-align:baseline}.ring-key{display:inline-block;width:13px;height:13px;border:2px solid var(--ancestry);border-radius:50%;margin-right:4px;vertical-align:middle}.animation-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:14px 0}.animation-controls label{font-size:12px}.birth-canvas{display:block;width:100%;background:var(--panel);border:1px solid var(--rule)}.sample-mass{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.advanced-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:16px}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:15px}.toolbar label{font-size:12px}.toolbar input{width:105px}.toolbar .seed{width:128px}.status{font-size:12px;min-height:18px;margin-top:12px!important;color:var(--muted)}.status.error{color:var(--error)}textarea{font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;width:100%;min-height:240px;padding:12px;border:1px solid var(--rule);background:var(--panel);resize:vertical;color:var(--ink)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.mini-results{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.mini-results span{border:1px solid var(--rule);padding:8px 10px;min-width:63px;text-align:center;font-size:12px}.mini-results b{display:block;font-size:18px;font-weight:600}.toy-inner{padding:22px}.toy-inner label{max-width:330px}.toy-dots{width:100%;display:block;height:auto;margin-top:16px}.toy-dots rect{shape-rendering:geometricPrecision}.toy-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px}.methods{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0;margin-top:40px}.methods p{font-size:16px}.footnotes{font-size:14px;color:var(--muted);overflow-wrap:anywhere}.footnotes li{margin-bottom:12px}.footnotes p{margin:8px 0}.footnotes hr{border:0;border-top:1px solid var(--rule);margin-top:38px}.clock{font-variant-numeric:tabular-nums}.static-results{font:13px/1.5 system-ui,sans-serif}.composition{display:block;width:100%;height:auto}.composition text{font:11px system-ui,sans-serif;fill:var(--muted)}.explain{max-width:700px}.empty{padding:35px;text-align:center}.configerror{white-space:pre-wrap}.no-js{padding:15px;background:oklch(97% 0.014 65);margin:20px 0}.source-card{font-size:12px}.source-card strong{font-weight:600}.sweep-note{max-width:730px}.caption{color:var(--muted);font-size:12px;line-height:1.5}.top-rule{height:1px;background:var(--rule);margin:0 0 22px}.annotation{color:var(--muted);font-style:italic;font-size:16px}
-@media(max-width:760px){button,select{min-height:44px}.sim-layout{grid-template-columns:1fr}.controls{border-right:none;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:0 18px;padding:18px}.controls .assumption{grid-column:1/-1}.plots{padding:18px 15px}.widget-head{padding:18px 16px 10px}.presets{padding:9px 16px 16px;gap:6px}.presets button{font-size:11px;padding:7px}.section{padding:19px 16px}.advanced-grid{grid-template-columns:1fr 1fr}.metric-row{gap:8px}.metric .value{font-size:22px}.equation{font-size:19px}.wide{width:calc(100vw - 24px)}.toy-inner{padding:16px}th,td{padding:8px 6px}.parameter-table td{padding:6px}.kicker{font-size:10px}.scrub{gap:8px}.scrub label{font-size:11px}}
-@media(max-width:390px){.advanced-grid{grid-template-columns:1fr}.controls{column-gap:12px}.metric .label{font-size:10px}.metric .value{font-size:21px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-@media print{.wide{width:100%;left:auto;transform:none}.interactive{break-inside:avoid}.controls,.presets,.toolbar,.animation-controls,textarea{display:none}.sim-layout{display:block}.section:has(textarea){display:none}.plots{padding:5px}.interactive{font-size:9pt}a{text-decoration:none}.no-js{display:none}}
-
-/* Keep model detail subordinate to the essay and preserve readable touch targets. */
-.interactive { border-radius: 0; }
-.interactive button, .interactive select { min-height: 44px; }
-.interactive .note { font-size: 13px; }
-.interactive .control .note { font-size: 12px; }
-.kicker { text-transform: uppercase; letter-spacing: .07em; }
-.metric-row { margin-bottom: 6px; }
-.more-presets { padding: 0 24px 14px; }
-.more-presets .presets { padding: 6px 0; }
-.mini-results span { border: 0; border-top: 1px solid var(--rule); padding: 8px 4px; min-width: 70px; }
+.wide { width: min(980px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); }
+.interactive { font: 14px/1.5 system-ui, sans-serif; border: 1px solid var(--rule); margin: 28px 0; background: var(--paper); }
+.interactive p { margin: 10px 0; }
+.interactive h2 { font-size: 23px; margin: 0 0 8px; }
+.interactive h3 { font-size: 17px; line-height: 1.35; margin: 22px 0 12px; }
+.widget-head { padding: 24px 28px 8px; }
+.section { padding: 20px 28px; border-top: 1px solid var(--rule); }
+.setup-section { border-top: 0; padding-top: 12px; }
+.note, .caption { color: var(--muted); font-size: 13px; line-height: 1.55; }
+button, select, input, textarea { font: inherit; color: var(--ink); }
+button, select { min-height: 44px; border: 1px solid var(--rule); background: var(--paper); border-radius: 3px; padding: 8px 12px; cursor: pointer; }
+button:hover { background: var(--panel); border-color: var(--muted); }
+button:disabled { opacity: .5; cursor: default; }
+button[aria-pressed="true"] { background: var(--panel); border-color: var(--identity); }
+input[type="number"] { width: 100%; min-width: 0; min-height: 42px; padding: 7px 8px; border: 1px solid var(--rule); border-radius: 2px; background: var(--paper); font-variant-numeric: tabular-nums; }
+input[readonly] { background: var(--panel); border-color: transparent; }
+input[type="range"] { width: 100%; min-height: 32px; margin: 0; accent-color: var(--identity); }
+input[type="checkbox"] { accent-color: var(--identity); width: 17px; height: 17px; margin: 0; }
+input:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible, .table-scroll:focus-visible { outline: 2px solid var(--identity); outline-offset: 3px; }
+.number-control { display: grid; gap: 7px; font-size: 13px; font-weight: 600; min-width: 0; }
+.number-control input { max-width: 180px; font-size: 18px; font-weight: 400; }
+.time-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.population-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.baseline-row { display: flex; gap: 20px; align-items: center; justify-content: space-between; margin: 12px 0 22px; }
+.baseline-row p { max-width: 60ch; }
+.baseline-row button { flex-shrink: 0; font-size: 12px; }
+.table-scroll { overflow: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; }
+th, td { text-align: right; padding: 9px 8px; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+th { font-weight: 600; line-height: 1.4; font-size: 12px; }
+th:first-child, td:first-child { text-align: left; }
+caption { text-align: left; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+.starting-table input { width: 86px; }
+.starting-table th[scope="row"] { font-size: 14px; font-weight: 500; }
+.starting-table tr:last-child td, .starting-table tr:last-child th { border-bottom: 0; }
+.starting-table tr:last-child td:nth-child(2) { color: var(--muted); font-size: 12px; }
+.parameter-table { min-width: 610px; }
+.parameter-table input { width: 80px; }
+tr.selected { background: var(--panel); }
+.source-note { margin-top: 10px; }
+summary { cursor: pointer; font-weight: 600; min-height: 40px; padding: 8px 0; font-size: 14px; }
+details > p { max-width: 75ch; }
+.results-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.results-heading h3 { margin: 0; font-size: 21px; }
+.timeline-actions { display: flex; gap: 8px; }
+.scrub { display: flex; align-items: center; gap: 14px; margin-top: 20px; }
+.scrub label { font-size: 13px; }
+.scrub input { min-width: 40px; }
+.scrub output { font-weight: 600; min-width: 20px; }
+.clock { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.metric-row { display: flex; gap: 42px; margin: 14px 0 6px; }
+.metric { display: flex; align-items: baseline; gap: 9px; color: var(--identity); }
+.metric.ancestry { color: var(--ancestry); }
+.metric .value { font-size: 25px; font-variant-numeric: tabular-nums; letter-spacing: -.5px; }
+.metric .label { font-size: 13px; }
+.comparison-toggle { margin: 22px 0 14px; }
+.comparison-toggle label { display: inline-flex; gap: 9px; align-items: center; font-size: 13px; cursor: pointer; min-height: 30px; }
+.line-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+.line-legend span::before { content: ''; display: inline-block; vertical-align: middle; width: 24px; border-top: 2px solid currentColor; margin-right: 6px; }
+.line-legend .dashed::before { border-top-style: dashed; }
+.chart-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.plotwrap { min-width: 0; }
+.plot { width: 100%; display: block; height: auto; touch-action: pan-y; }
+.plot text, .composition text { fill: var(--muted); font: 11px system-ui, sans-serif; }
+.plot .axis-title { font-size: 10px; }
+.plot-title { font-weight: 600; margin: 0 !important; color: var(--identity); }
+.plot-title.ancestry { color: var(--ancestry); }
+.composition { display: block; width: 100%; height: auto; }
+.group-legend { display: flex; gap: 9px 16px; flex-wrap: wrap; font-size: 12px; margin: 12px 0; }
+.swatch { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; background: var(--swatch); }
+.advanced-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 20px; }
+label.control { display: block; margin: 0 0 12px; }
+.labelrow { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 3px; font-size: 12px; font-weight: 600; }
+.control output { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.control .note { display: block; font-size: 12px; }
+.toolbar { display: flex; gap: 10px; align-items: end; flex-wrap: wrap; margin-top: 14px; }
+.toolbar label { display: grid; gap: 4px; font-size: 12px; }
+.toolbar input { max-width: 100px; }
+.toolbar .seed { max-width: 130px; }
+.status { font-size: 13px; color: var(--muted); }
+.status:empty { display: none; }
+.status.error { color: var(--error); }
+textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; min-height: 240px; margin-top: 10px; padding: 12px; border: 1px solid var(--rule); background: var(--panel); resize: vertical; }
+.configerror { white-space: pre-wrap; }
+.toy-inner { padding: 22px; }
+.toy-inner label { max-width: 330px; }
+.kicker { color: var(--muted); font-size: 11px; }
+.toy-dots { width: 100%; display: block; height: auto; margin-top: 16px; }
 .toy-dots rect { transition: fill 480ms cubic-bezier(.22, 1, .36, 1); }
-.table-scroll:focus-visible { outline: 2px solid var(--identity); outline-offset: 3px; }
-#sample-details { overflow-x: auto; }
+.toy-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.mini-results { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 15px; }
+.mini-results span { border-top: 1px solid var(--rule); padding: 8px 0; min-width: 64px; text-align: center; font-size: 12px; }
+.mini-results b { display: block; font-size: 18px; font-weight: 600; }
+.methods { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-top: 30px; }
+.methods p { font-size: 15px; }
+.footnotes { font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+.footnotes li { margin-bottom: 12px; }
+.footnotes p { margin: 8px 0; }
+.footnotes hr { border: 0; border-top: 1px solid var(--rule); margin-top: 32px; }
+.no-js { padding: 15px; background: var(--panel); margin: 20px 0; }
+.static-results { font: 13px/1.5 system-ui, sans-serif; }
 @media (max-width: 760px) {
-  .more-presets { padding: 0 16px 12px; }
-  .presets button { font-size: 12px; }
+ .widget-head { padding: 20px 16px 8px; }
+ .section { padding: 18px 16px; }
+ .setup-section { padding-top: 8px; }
+ .time-controls { gap: 12px; }
+ .time-controls .number-control { grid-template-rows: 3em auto; }
+ .number-control { font-size: 12px; }
+ .number-control input { font-size: 16px; }
+ .baseline-row { align-items: start; flex-direction: column; gap: 4px; }
+ .population-controls { gap: 16px; }
+ .chart-pair { grid-template-columns: 1fr; gap: 22px; }
+ .results-heading { align-items: start; flex-direction: column; gap: 12px; }
+ .metric-row { flex-direction: column; gap: 4px; }
+ .metric { justify-content: space-between; }
+ .advanced-grid { grid-template-columns: 1fr 1fr; }
+ .wide { width: calc(100vw - 24px); }
+ .starting-table th[scope="row"] { font-size: 12px; }
+ .starting-table th, .starting-table td { padding: 7px 4px; }
+ .starting-table input { width: 68px; }
+ .starting-table th:nth-child(2), .starting-table th:nth-child(3) { width: 76px; }
+ .equation { font-size: 18px; }
+ .toy-inner { padding: 16px; }
 }
 @media (max-width: 390px) {
-  .controls { grid-template-columns: 1fr; }
-  .metric-row { grid-template-columns: 1fr; gap: 0; }
-  .metric { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-  .metric .label { font-size: 12px; }
+ .time-controls { gap: 8px; }
+ .advanced-grid { grid-template-columns: 1fr; }
+ .population-controls { grid-template-columns: 1fr; }
+ .starting-table .swatch { display: none; }
+ .clock { font-size: 15px; }
 }
-@media (prefers-reduced-motion: reduce) { .toy-dots rect { transition: none; } }
-@media print { .interactive { break-inside: auto; } .toy-dots { max-height: 160px; } }
-</style></head><body><a class="skip-link" href="#main">skip to content</a><header class="site-header"><a class="name" href="https://www.samuelhavens.com/">Sam Havens</a><nav aria-label="main navigation"><a href="https://www.samuelhavens.com/blog/">Blog</a><a href="https://www.samuelhavens.com/resume.html">Resume</a></nav></header><main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">Sam Havens · draft for review · interactive essay</p><h1>modeling jewish ancestry</h1><nav class="contents" aria-label="on this page"><a href="#a-simple-model">simple model</a><a href="#try-it">subgroup model</a><a href="#limits">limits</a><a href="#sources-and-code">sources + code</a></nav></div>
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+@media print {
+ .wide { width: 100%; left: auto; transform: none; }
+ .interactive { break-inside: auto; }
+ .timeline-actions, .toolbar, textarea, .comparison-toggle, .baseline-row button { display: none; }
+ .section { padding: 12px 0; }
+ .toy-dots { max-height: 160px; }
+}
+</style></head><body><a class="skip-link" href="#main">skip to content</a><header class="site-header"><a class="name" href="https://www.samuelhavens.com/">Sam Havens</a><nav aria-label="main navigation"><a href="https://www.samuelhavens.com/blog/">Blog</a><a href="https://www.samuelhavens.com/resume.html">Resume</a></nav></header><main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">Sam Havens · draft for review · interactive essay</p><h1>modeling jewish ancestry</h1><nav class="contents" aria-label="on this page"><a href="#start-in-the-past">interactive model</a><a href="#why-separate-the-denominations">why subgroups?</a><a href="#limits">limits</a><a href="#sources-and-code">sources + code</a></nav></div>
 <noscript><p class="no-js">javascript is off. the essay, equations, sources, and default results remain readable; the interactive controls need javascript.</p></noscript>
-<p>I was wondering how many americans have at least one jewish ancestor. the percentage who identify as jewish doesn't answer that, since ancestry keeps passing down after a family stops identifying as jewish.</p>
-<p>I tried a simple model, but using one fertility rate and one intermarriage rate for all jews seemed questionable. those rates differ between subgroups, which means the population averages should change as the proportions of those groups change. so I added subgroups. below you can change the assumptions and see how much they matter.</p>
-<h2 id="a-simple-model">a simple model</h2>
-<p>start with a population where 2% have the ancestry we're tracking. assume random pairing, equal expected fertility, and no immigration.</p>
-<p>a child has that ancestry if either parent does. if the current share is <code>a</code>, the next generation's share is:</p>
+<p>start in 2013. Pew estimated that 2.2% of american adults identified as jewish, including secular and cultural jews.<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup> take a population with that starting share and follow its descendants, one generation at a time.</p>
+<p>I wanted to know how many americans have at least one jewish ancestor. a child inherits ancestry from either parent, even if they grow up with a different identity. meanwhile, differences in fertility and marriage patterns change the composition of the jewish population itself. this model follows both processes.</p>
+<h2 id="start-in-the-past">start in the past</h2>
+<p>the starting denomination mix and available fertility references come from the 2013 survey. some inputs remain assumptions, identified under the setup.<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup><sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup><sup class="footnote-ref" id="fnref-4"><a href="#fn-4">4</a></sup> edit the starting values, then follow the timeline. this is a conditional experiment, not yet a historical estimate of today's ancestry.</p>
+<div id="sim-widget" class="interactive wide"><p>enable javascript to change the model. the 2013 reference results remain available below.</p></div>
+
+<p>the broader count, “jewish roots + descendants,” includes the starting jewish population, jewish arrivals, and their descendants. a convert can be a starting root without already having a jewish ancestor. secular people who identify as jewish belong in the jewish groups. this doesn't measure dna or determine halakhic status.</p>
+<details class="methods"><summary>2013 reference results, without javascript</summary>
+
+<p>this table always uses the reference inputs. the live results above respond to your edits.</p>
+<div class="table-scroll static-results" role="region" aria-label="default model results" tabindex="0"><table><caption>2013 reference inputs; successive generations</caption><thead><tr><th>year</th><th>generation</th><th>jewish identity</th><th>roots + descendants</th><th>haredi share of jews</th><th>intermarriage among jews</th></tr></thead><tbody><tr><td>2013</td><td>0</td><td>2.2%</td><td>2.2%</td><td>6.2%</td><td>48.1%</td></tr><tr><td>2040</td><td>1</td><td>2.0%</td><td>2.7%</td><td>11.2%</td><td>47.7%</td></tr><tr><td>2067</td><td>2</td><td>2.0%</td><td>3.6%</td><td>18.0%</td><td>43.7%</td></tr><tr><td>2094</td><td>3</td><td>2.1%</td><td>5.1%</td><td>25.9%</td><td>38.2%</td></tr><tr><td>2121</td><td>4</td><td>2.4%</td><td>7.3%</td><td>34.0%</td><td>32.5%</td></tr></tbody></table></div>
+
+</details>
+
+<h2 id="why-separate-the-denominations">why separate the denominations?</h2>
+<p>fertility and intermarriage differ between groups. if a higher-fertility group becomes a larger share of the next generation, average fertility rises even when every group's own rate stays fixed. if that group also has lower intermarriage, average intermarriage falls.</p>
+<p>the model separates haredi, other orthodox, conservative, reform, and other/unaffiliated jews. haredi and other orthodox partition orthodoxy. each group has its own fertility and pairing rules; children can move between groups. the two non-jewish groups distinguish descendants from people without a connection counted in this run.</p>
+<p>turn on <strong>compare with frozen starting averages</strong> to see why the distinction matters. the dashed comparison combines all jews into one group and holds its initial average rates fixed. both versions produce the same first generation. after that, only the detailed version responds to changes in the denomination mix.</p>
+<p>under the 2013 reference assumptions, generation four (2121) is 2.4% jewish-identifying and 7.3% roots + descendants. these are conditional model outputs for that generation.</p>
+<h2 id="what-to-change">what to change</h2>
+<p><strong>existing ancestry.</strong> the default starts counting in 2013, with zero ancestry outside jewish identity. that omits earlier descent; it doesn't estimate it at zero. to assume an 8% total starting share, set ancestry outside identity to 5.8% alongside the 2.2% jewish share. an earlier draft used 8%, but that number was never established as an american ancestry estimate.</p>
+<p><strong>fertility.</strong> increase haredi fertility, or lower another group's, and watch its share of jewish identity change. the reference applies the published orthodox average to both orthodox groups because it doesn't supply separate completed-fertility rates. you can enter a different split directly.</p>
+<p><strong>time.</strong> the default interval is 27 years: 2013, 2040, 2067, and so on. 25 years gives 2013, 2038, 2063. the states at generation 1, 2, and 3 stay the same; this model has whole generations rather than overlapping ages. a custom start year also needs suitable starting inputs. the page doesn't silently invent them.</p>
+<p><strong>identity and pairing.</strong> open the additional rules to change intermarriage or the fraction of children staying in their parents' group. leaving orthodoxy need not mean leaving jewish identity. even if all new jewish intermarriage stopped, descendants already outside jewish identity would continue passing ancestry to their children.</p>
+<details class="methods" id="a-simple-model"><summary>the simplest case: random pairing</summary>
+
+<p>with equal fertility, random pairing and no arrivals, let <code>a</code> be the share with ancestry. the probability that neither parent has it is <code>(1 − a)²</code>, so:</p>
 <div class="equation">a′ = 1 − (1 − a)²</div>
 
-<p>starting at 2%, this gives roughly 4%, 8%, 15%, 28%, and 48% over the next five generations. after six generations it's about 73%.</p>
-<div id="toy-widget" class="interactive"><p>the random-pairing example requires javascript. the equation above gives the same results.</p></div>
+<p>starting at 2%, the ancestry share reaches about 48% after five generations. the average fractional contribution from the starting group remains 2%. having <em>any</em> ancestry and the average <em>amount</em> of ancestry are different quantities.</p>
+<div id="toy-widget" class="interactive"><p>the equation above provides the same calculation without javascript.</p></div>
 
-<p>the mean fractional contribution from the starting group stays at 2% in this model. more people have some ancestry from that group, but the average contribution across the population hasn't increased. the fraction of people with any ancestry and the average amount of ancestry are different quantities.</p>
-<p>random pairing is a poor assumption for the actual population. in pew's 2020 survey, 2% of married orthodox respondents had a non-jewish spouse, compared with 25% of conservative respondents, 42% of reform respondents, and 68% of respondents with no branch affiliation.<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup> those differences matter for how quickly ancestry spreads.</p>
-<h2 id="adding-subgroups">adding subgroups</h2>
-<p>I split the jewish-identifying population into haredi, modern/other non-haredi orthodox, conservative, reform, and other/unaffiliated jewish. the two orthodox groups are separate categories; haredim aren't counted twice.</p>
-<p>each group has its own fertility, intermarriage, and identity-transmission rates. children can end up in a different jewish subgroup or stop identifying as jewish. leaving orthodoxy doesn't necessarily mean leaving jewish identity, and children of intermarriages can identify as jewish.</p>
-<p>there are also two non-jewish-identifying groups: descendants of jews and people with no ancestry counted by the model. secular people who identify as jewish belong in the jewish groups. pew likewise includes both jews by religion and jews of no religion in its jewish population.<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup></p>
-<p>identity is a probabilistic transition. ancestry passes down from either parent. once someone leaves jewish identity, their descendants stay in the ancestry count, even across further generations of non-jewish marriages.</p>
-<p>the charts use “roots + descendants” for that broader count. it includes the starting jews themselves and jewish arrivals, as well as their descendants. a convert can be a starting root without already having a jewish ancestor. “no modeled connection” means no connection within this counting horizon; it doesn't establish that someone's entire family tree lacks jewish ancestors. the model doesn't determine halakhic status or measure dna.</p>
-<h2 id="why-the-averages-change">why the averages change</h2>
-<p>fertility differs too. pew's 2013 survey found an average of 4.1 children among orthodox respondents aged 40–59, compared with 1.8 among conservative respondents and 1.7 among reform respondents.<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></p>
-<p>suppose the higher-fertility groups become a larger share of the next generation. the population's average fertility then rises. if those same groups have lower intermarriage rates, average intermarriage falls. both can happen while every subgroup's rates stay fixed.</p>
-<p>to see how much this matters, I compare the subgroup model with a three-group version that combines all jewish-identifying people. its aggregate rates are calculated from the starting population and then held fixed. the two versions produce exactly the same first generation. after that, the subgroup model's averages can change as its composition changes.</p>
-<p>the solid lines show the subgroup model; the dashed lines show the fixed-average comparison.</p>
-<h2 id="try-it">try it</h2>
-<p>the default starts with a hypothetical cohort that's 2.4% jewish-identifying, using pew's 2020 adult estimate as a starting reference.<sup class="footnote-ref" id="fnref-2-2"><a href="#fn-2">2</a></sup> it counts descendants from that point forward, starting with zero descendants outside jewish identity. that's a choice of where to start counting.</p>
-<p>there's also an 8% starting-ancestry preset. I used that number in an earlier version, but it hasn't been established as an estimate of american ancestry. here it's an input to vary.</p>
-<div id="sim-widget" class="interactive wide"><p>enable javascript to run the subgroup model. the default results are also shown in the table below.</p></div>
+<p>this example shows the inheritance rule alone. it doesn't include the subgroup model's fertility differences, identity changes, pairing restrictions, or arrivals.</p>
+</details>
 
-<p>the table below always shows the original default assumptions; changing the controls above doesn't change it:</p>
-<div class="table-scroll static-results" role="region" aria-label="default model results" tabindex="0"><table><caption>default assumptions; successive descendant cohorts</caption><thead><tr><th>generation</th><th>jewish identity</th><th>roots + descendants</th><th>haredi share of jews</th><th>intermarriage among jews</th></tr></thead><tbody><tr><td>0</td><td>2.4%</td><td>2.4%</td><td>6.0%</td><td>61.4%</td></tr><tr><td>1</td><td>2.4%</td><td>3.4%</td><td>13.7%</td><td>58.5%</td></tr><tr><td>2</td><td>2.7%</td><td>5.1%</td><td>26.9%</td><td>49.3%</td></tr><tr><td>3</td><td>3.5%</td><td>7.9%</td><td>44.2%</td><td>36.5%</td></tr><tr><td>4</td><td>5.4%</td><td>12.4%</td><td>60.6%</td><td>24.3%</td></tr></tbody></table></div>
-
-<p>the haredi share of jews goes from 6% to about 61% over four generations. aggregate intermarriage falls from about 61% to 24%, although the subgroup intermarriage rates haven't changed. the jewish-identifying share grows from 2.4% to 5.4%; roots plus descendants grow from 2.4% to 12.4%.</p>
-<p>these are successive descendant cohorts, not the population alive in a particular future year. changing “years per generation” changes the illustrative dates; it doesn't change the number of reproductive steps. the model has no age structure.</p>
-<h2 id="changing-the-assumptions">changing the assumptions</h2>
-<p>switch to <strong>“start with 8% roots + descendants.”</strong> the broader share at generation four rises from 12.4% to 31.9%. jewish identity stays at about 5.4%.</p>
-<p>that's because the two non-jewish groups have equal fertility and are treated the same when paired with a jewish parent. moving people between those groups changes the amount of pre-existing ancestry without changing the mechanism for jewish identity.</p>
-<p>the <strong>“no new intermarriage; start at 8%”</strong> preset sets every jewish subgroup's intermarriage rate to zero. existing descendants outside jewish identity still have children, and their ancestry continues spreading through their own marriages. stopping new intermarriage among jews doesn't stop that process.</p>
-<p><strong>“shrinking orthodox fertility gap”</strong> lets the fertility advantages of the two orthodox groups halve over three reproductive steps. this reduces their subsequent growth. holding a fertility difference constant for several generations is a substantial assumption, so it's worth comparing.</p>
-<p>you can also change how many children stay in their parents' group and where the others end up. pew's switching tables show substantial movement between jewish denominations, but they describe respondents' upbringing and current affiliation. they don't directly measure the future child-to-adult transitions the model needs.<sup class="footnote-ref" id="fnref-4"><a href="#fn-4">4</a></sup></p>
-<h2 id="the-animation">the animation</h2>
-<p>each example shows parents and a child sampled from the same birth-weighted distribution used to calculate the charts. the fill shows identity; the ring marks a jewish root or descendant. a child can have a different identity from their parents and still inherit the ancestry flag.</p>
-<p>the filters select mixed-parent families, non-jewish families with ancestry, or two haredi parents. the label reports what fraction of the next cohort the selected filter represents. the twelve displayed examples are conditional samples, not a representative population or a persistent family tree. arrivals are shown separately because their parents aren't modeled.</p>
 <h2 id="limits">limits</h2>
-<p>many of the inputs remain assumptions: fertility within orthodoxy, future identity transitions, clustering among descendants, and arrivals. the survey figures above are useful reference points, but don't directly supply those parameters. for example, the marriage figures describe intact marriages at survey time, and the fertility figures describe respondents in a particular age range.<sup class="footnote-ref" id="fnref-1-2"><a href="#fn-1">1</a></sup><sup class="footnote-ref" id="fnref-3-2"><a href="#fn-3">3</a></sup></p>
-<p>the arrivals control specifies a share of each new cohort. it isn't an annual immigration rate or the fraction of the current population born abroad. arrival composition, including older ancestry among non-jewish arrivals, is specified separately.</p>
-<p>the sensitivity button varies inputs over stated ranges. its middle 90% contains 90% of the sampled scenarios, not a 90% probability interval for the future. it isn't fitting a model to observations. increasing the draw count tests the chosen ranges more thoroughly without improving their empirical basis.</p>
-<p>an actual calendar-year forecast would need ages at childbearing, mortality, and the current age distribution within each group. pew's 2020 overview reports that 17% of jewish adults aged 18–29 were orthodox, compared with 9% of jewish adults overall.<sup class="footnote-ref" id="fnref-5"><a href="#fn-5">5</a></sup> starting every group from an all-adult average misses that difference.</p>
-<p>estimating today's ancestry would also require a historical model, including ancestry that non-jewish immigrants already had before arriving. this model doesn't reconstruct that. it also doesn't estimate detectable dna: genealogical ancestors can leave no surviving genetic material. ralph and coop discuss that distinction and the relevance of geography and population structure, without providing a jewish-specific american ancestry estimate.<sup class="footnote-ref" id="fnref-6"><a href="#fn-6">6</a></sup></p>
-<h2 id="what-this-shows">what this shows</h2>
-<p>under the default assumptions, jewish identity grows, orthodox groups become a larger share of it, and descendants outside jewish identity grow too. those results are compatible because they describe different populations. higher fertility and lower intermarriage within some jewish groups don't stop ancestry from spreading among people whose families stopped identifying as jewish earlier.</p>
-<p>the sizes depend on the inputs. I still don't have a well-supported estimate of how many americans have a jewish ancestor. the subgroup comparison does show why keeping aggregate fertility and intermarriage fixed can produce different results from keeping each subgroup's rates fixed.</p>
+<p>the historical reference is a starting point, not a fitted reconstruction. Pew's population and denomination estimates describe adults of all ages. its fertility references here describe respondents aged 40–59, and its marriage figures describe intact marriages. applying them to a reproductive cohort requires assumptions.<sup class="footnote-ref" id="fnref-1-2"><a href="#fn-1">1</a></sup><sup class="footnote-ref" id="fnref-3-2"><a href="#fn-3">3</a></sup></p>
+<p>older ancestry outside jewish identity is not measured by these inputs. neither are future identity transitions, the other-jewish fertility setting, clustering among descendants, or arrivals. the arrivals control adds a share of each new generation; it isn't an annual immigration rate. the full source notes distinguish observations, proxies, and assumptions.</p>
+<p>the sensitivity controls vary those assumptions. the middle 90% of sampled outcomes contains 90% of the selected scenarios, not a 90% probability interval for the future. more samples don't make the chosen ranges better supported.</p>
+<p>estimating all americans alive in a particular year would require age structure, mortality and historical migration, along with the initial ancestry we're missing. detectable dna is another question: a genealogical ancestor can leave no surviving genetic material.<sup class="footnote-ref" id="fnref-5"><a href="#fn-5">5</a></sup></p>
+<p>I still don't have a defensible estimate of how many americans have a jewish ancestor. this model does make it easier to see which assumptions drive the answer, and why fixed population averages can miss what happens as groups grow at different rates.</p>
 <details class="methods"><summary>update equations and implementation details</summary>
 
-<p>let <code>xᵢ</code> be a group's share in the parent cohort. the model constructs a symmetric ordered-pair matrix <code>Pᵢⱼ</code> whose row and column sums equal <code>x</code>. <code>Fᵢⱼ</code> gives expected offspring per statistical pairing. <code>Tᵢⱼₖ</code> gives the probability that a child of that pairing belongs to group <code>k</code> in the next adult cohort. each transition row sums to one.</p>
+<p>let <code>xᵢ</code> be a group's share in the parent generation. the model constructs a symmetric ordered-pair matrix <code>Pᵢⱼ</code> with both marginals equal to <code>x</code>. <code>Fᵢⱼ</code> gives expected offspring per statistical pairing; <code>Tᵢⱼₖ</code> gives the probability of adult offspring identity <code>k</code>. each transition row sums to one.</p>
 <div class="equation">bₖ = Σᵢⱼ Pᵢⱼ Fᵢⱼ Tᵢⱼₖ<br>x′ₖ = (1 − u) bₖ / Σₗ bₗ + u vₖ</div>
 
-<p><code>u</code> is the arrival share of the next cohort; <code>v</code> is the arrivals' group composition. counting both parent orders introduces the same factor of two in every birth term, which cancels when normalizing.</p>
-<p>same-group fertility inputs average childlessness into statistical pairing units. between-group fertility uses the geometric mean of the two groups' inputs, with a multiplier for jewish/non-jewish pairings. these are modeling conventions rather than directly measured pair-specific fertility rates.</p>
-<p>within the jewish partner pool, each group reserves a fraction of its available members for same-subgroup pairing. the rest pair randomly within that pool. the remaining non-jewish population uses a mixture of random and same-ancestry pairing. the clustering setting approximates social and geographic structure; it doesn't assume people know their distant ancestry when choosing partners.</p>
-<p>partner demand is capped by supply. the full transition matrix is editable through the json settings. changing a same-group retention slider preserves the relative destinations among people who leave that group.</p>
-<p>children retain their parents' ancestry flag. the ancestry share of the population can nevertheless fall if other groups have more children or arrivals increase the denominator.</p>
+<p><code>u</code> is the arrival share; <code>v</code> is arrival composition. counting both parent orders introduces a factor that cancels when normalizing. cross-group fertility uses a geometric mean, with an additional multiplier for jewish/non-jewish pairs. partner demand is capped by supply.</p>
+<p>subgroup reservation and ancestry clustering approximate structured pairing. they don't assume people know their remote ancestry. identity-transition rows are editable in json; changing retention preserves the relative destinations among people who leave a group. children keep inherited ancestry, though its population share can fall under differential fertility or arrivals.</p>
 </details>
 
 <h2 id="sources-and-code">sources and code</h2>
-<p>this exploratory model was developed with an ai assistant. the javascript is checked against the python subgroup model, conservation checks, and simple mathematical cases. those tests check implementation consistency. demographic validation would require additional work. the source bundle includes the code, tests, and assumptions.</p>
+<p>this exploratory model was developed with an ai assistant. its javascript is checked against a python reference, conservation rules and simple mathematical cases. those checks establish implementation consistency, not demographic validity.</p>
 <p class="note">the model and interface code are embedded in this HTML file. the downloadable source archive on the website also contains the tests, methods, and Markdown manuscript.</p>
 
 <section class="footnotes">
 <ol>
-<li id="fn-1"><p>pew research center, <a href="https://www.pewresearch.org/religion/2021/05/11/marriage-families-and-children/">marriage, families and children</a>, may 11, 2021. the branch-specific intermarriage figures concern individuals in intact marriages at survey time.<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
-<li id="fn-2"><p>pew research center, <a href="https://www.pewresearch.org/religion/2021/05/11/the-size-of-the-u-s-jewish-population/">the size of the u.s. jewish population</a>, may 11, 2021; survey conducted in 2019–2020. the 2.4% figure concerns adults under pew's definition.<a href="#fnref-2" class="footnote">&#8617;</a></p></li>
-<li id="fn-3"><p>pew research center, <a href="https://www.pewresearch.org/religion/2013/10/01/chapter-2-intermarriage-and-other-demographics/">intermarriage and other demographics</a>, october 1, 2013, “fertility.” the 4.1, 1.8, and 1.7 figures use respondents aged 40–59. pew's <a href="https://www.pewresearch.org/religion/2021/05/11/jewish-demographics/">2020 demographic chapter</a> also reports fertility measures with different age definitions.<a href="#fnref-3" class="footnote">&#8617;</a></p></li>
-<li id="fn-4"><p>jacob ausubel, gregory a. smith, and alan cooperman, <a href="https://www.pewresearch.org/short-reads/2021/06/22/denominational-switching-among-u-s-jews-reform-judaism-has-gained-conservative-judaism-has-lost/">denominational switching among u.s. jews</a>, june 22, 2021. retrospective self-reported upbringing and current affiliation.<a href="#fnref-4" class="footnote">&#8617;</a></p></li>
-<li id="fn-5"><p>pew research center, <a href="https://www.pewresearch.org/religion/2021/05/11/jewish-americans-in-2020/">jewish americans in 2020</a>, may 11, 2021.<a href="#fnref-5" class="footnote">&#8617;</a></p></li>
-<li id="fn-6"><p>peter ralph and graham coop, <a href="https://doi.org/10.1371/journal.pbio.1001555">the geography of recent genetic ancestry across europe</a>, <em>plos biology</em>, 2013.<a href="#fnref-6" class="footnote">&#8617;</a></p></li>
+<li id="fn-1"><p>Pew Research Center, <a href="https://www.pewresearch.org/religion/2013/10/01/chapter-1-population-estimates/">population estimates</a>, october 1, 2013. the 2.2% estimate includes jews by religion and jews of no religion under Pew's definition; it is not a census of ancestry.<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+<li id="fn-2"><p>Pew Research Center, <a href="https://www.pewresearch.org/religion/2013/10/01/jewish-american-beliefs-attitudes-culture-survey/">a portrait of jewish americans</a>, october 1, 2013. reported adult denomination shares are survey estimates, with sampling uncertainty. the remaining share is combined as other/unaffiliated here.<a href="#fnref-2" class="footnote">&#8617;</a></p></li>
+<li id="fn-3"><p>Pew Research Center, <a href="https://www.pewresearch.org/religion/2013/10/01/chapter-2-intermarriage-and-other-demographics/">intermarriage and other demographics</a>, october 1, 2013. fertility references are reported children for respondents aged 40–59; marriage percentages concern currently married respondents.<a href="#fnref-3" class="footnote">&#8617;</a></p></li>
+<li id="fn-4"><p>Pew Research Center, <a href="https://www.pewresearch.org/religion/2015/08/26/a-portrait-of-american-orthodox-jews/">a portrait of american orthodox jews</a>, august 26, 2015, reanalyzing the 2013 survey. 62% of the 10% orthodox share yields a derived 6.2% haredi share; the other orthodox category includes the rest. this arithmetic does not imply decimal-level measurement precision.<a href="#fnref-4" class="footnote">&#8617;</a></p></li>
+<li id="fn-5"><p>peter ralph and graham coop, <a href="https://doi.org/10.1371/journal.pbio.1001555">the geography of recent genetic ancestry across europe</a>, <em>plos biology</em>, 2013. not an estimate of jewish ancestry among americans.<a href="#fnref-5" class="footnote">&#8617;</a></p></li>
 </ol>
 </section>
 </main><footer class="site-footer">Sam Havens · <a href="https://www.samuelhavens.com/blog/">all posts</a> · model 4.0.0 · calculations run in your browser</footer><script>/* ancestry-not-identity v4.0.0 — deterministic cohort scenarios, not forecasts.
@@ -435,111 +529,160 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
   return {VERSION,NAMES,SHORT,defaults,validate,initial,arrivals,collapse,pairing,fertilityMatrix,
     childTensor,next,metrics,diagnostics,simulate,setRetention,rng,sampleParameters,summarizeRuns,sampleBirths,toy,clone};
 });
+</script><script>/* Survey-linked starting values. The v4 engine and its reference fixtures stay unchanged. */
+(function(root, factory) {
+  'use strict';
+  if (typeof module === 'object' && module.exports) module.exports = factory(require('./model.js'));
+  else root.AncestrySetup = factory(root.AncestryModel);
+})(typeof globalThis !== 'undefined' ? globalThis : this, function(M) {
+  'use strict';
+  const VERSION = '1.0.0';
+  const REFERENCES = [
+    'https://www.pewresearch.org/religion/2013/10/01/chapter-1-population-estimates/',
+    'https://www.pewresearch.org/religion/2013/10/01/jewish-american-beliefs-attitudes-culture-survey/',
+    'https://www.pewresearch.org/religion/2013/10/01/chapter-2-intermarriage-and-other-demographics/',
+    'https://www.pewresearch.org/religion/2015/08/26/a-portrait-of-american-orthodox-jews/'
+  ];
+  function historical() {
+    const p = M.defaults();
+    p.referenceYear = 2013;
+    p.initialJewish = p.initialConnection = .022;
+    // 10% Orthodox × 62% Haredi; the other Orthodox category includes the remainder.
+    p.jewishMix = [.062, .038, .18, .35, .37];
+    // Apply the published Orthodox aggregate to both Orthodox groups; no invented split.
+    // Other-Jewish 1.6 is stipulated; general-public 2.2 proxies both non-Jewish groups.
+    p.fertility = [4.1, 4.1, 1.8, 1.7, 1.6, 2.2, 2.2];
+    // Unaffiliated marriage rate proxies the broader residual category.
+    p.intermarriage = [.02, .02, .27, .5, .69];
+    // Arrivals mirroring the starting community are an assumption, not survey findings.
+    p.arrivalJewish = p.initialJewish;
+    p.arrivalMix = p.jewishMix.slice();
+    return p;
+  }
+  function isHistorical(p) {
+    const reference = historical();
+    return ['referenceYear', 'initialJewish', 'initialConnection', 'jewishMix', 'fertility', 'intermarriage']
+      .every(key => JSON.stringify(p[key]) === JSON.stringify(reference[key]));
+  }
+  return { VERSION, REFERENCES, historical, isHistorical };
+});
 </script><script>/* Browser-only presentation. All calculations live in model.js. */
 (function(){
  'use strict';
- const M=window.AncestryModel;
- if(!M)return;
+ const M=window.AncestryModel, S=window.AncestrySetup;
+ if(!M||!S)return;
  const $=id=>document.getElementById(id), fmt=(v,d=1)=>(100*v).toFixed(d)+'%',num=(v,d=1)=>Number(v).toFixed(d);
  const COLORS=['#725c96','#3d7291','#438678','#b15f74','#697491','#9d9d97','#deded7'];
- const INK='#232526',MUTED='#62676b',LINE='#d9dcdf',J='#335b82',A='#b86b26';
+ const INK='#232526',LINE='#d9dcdf',J='#335b82',A='#b86b26';
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-  let params=M.defaults(),result,selected=4,sensitivity=null,sweepToken=0,playing=false,timer=null,animFrame=null,animStart=0,sample=null;
- let animationSeed=20260924;
- const presetFns={
-   roots:p=>p,
-   legacy:p=>{p.initialConnection=.08;return p;},
-   closed:p=>{p.arrivalShare=0;return p;},
-   stop:p=>{p.initialConnection=.08;p.intermarriage.fill(0);return p;},
-   equal:p=>{p.fertility.fill(2);return p;},
-   converge:p=>{p.fertilityHalfLife=3;return p;},
-   exit:p=>{M.setRetention(p,0,.70);return p;}
- };
- function escape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ let params=S.historical(),result,selected=0,sensitivity=null,sweepToken=0,playing=false,timer=null;
  function status(id,msg,error=false){$(id).textContent=msg;$(id).classList.toggle('error',error);}
  function slider(key,title,min,max,step,value,explanation,scale=1){
    return `<label class="control" for="p-${key}"><span class="labelrow"><span>${title}</span><output id="o-${key}"></output></span><input id="p-${key}" data-key="${key}" data-scale="${scale}" type="range" min="${Math.min(min,value)}" max="${Math.max(max,value)}" step="${step}" value="${value}"><span class="note">${explanation}</span></label>`;
  }
+ function field(key,title,min,max,step,value,scale=1){
+  return `<label class="number-control" for="p-${key}"><span>${title}</span><input id="p-${key}" data-key="${key}" data-scale="${scale}" type="number" min="${min}" max="${max}" step="${step}" value="${Number(value.toFixed(4))}"></label>`;
+ }
  function scaffold(){
   $('sim-widget').innerHTML=`
-  <div class="widget-head"><div class="kicker">experiment 02 / subgroup dynamics</div><h2>jewish identity and ancestry</h2><p class="note">change the inputs to calculate successive cohorts. these settings have not been fitted to the u.s. population. start by comparing the solid and dashed lines at cohort 4. presets reset the parameters; calculations run locally.</p></div>
-  <div class="presets" role="group" aria-label="scenario presets">
-   <button data-preset="roots" aria-pressed="true">start with jewish roots only</button><button data-preset="legacy" aria-pressed="false">start with 8% roots + descendants</button></div><details class="more-presets"><summary>more scenarios</summary><div class="presets"><button data-preset="closed" aria-pressed="false">no arrivals</button><button data-preset="stop" aria-pressed="false">no new intermarriage; start at 8%</button><button data-preset="equal" aria-pressed="false">equal fertility</button><button data-preset="converge" aria-pressed="false">shrinking orthodox fertility gap</button><button data-preset="exit" aria-pressed="false">lower haredi retention</button>
-  </div></details>
-  <div class="sim-layout"><div class="controls" id="primary-controls"></div><div class="plots">
-    <div class="line-legend"><span>subgroups evolve</span><span class="dashed">initial averages frozen</span></div><p class="note">each chart uses its own y-axis scale.</p>
-    <div class="plotwrap"><p class="plot-title ancestry">jewish roots + their descendants</p><svg id="connection-plot" class="plot" viewBox="0 0 680 214" role="img" aria-label="share of successive cohorts with a modeled jewish connection"></svg></div>
-    <div class="plotwrap"><p class="plot-title">jewish-identifying</p><svg id="identity-plot" class="plot" viewBox="0 0 680 214" role="img" aria-label="jewish-identifying share of successive cohorts"></svg></div>
-    <div class="scrub"><label for="generation">inspect cohort</label><input type="range" min="0" max="6" step="1" value="0" id="generation"><output id="generation-value">0</output></div>
-    <div class="metric-row"><div class="metric"><span class="value" id="a-value"></span><span class="label">roots + descendants</span></div><div class="metric"><span class="value" id="j-value"></span><span class="label">jewish-identifying</span></div><div class="metric"><span class="value" id="m-value"></span><span class="label">aggregate intermarriage*</span></div></div>
-    <p class="note">*among this cohort's modeled jewish parents. the two models match at cohort 1 by construction.</p>
-    <p class="note clock" id="clock"></p><p class="status" id="main-status" role="status" aria-live="polite"></p>
-  </div></div>
-  <div class="section"><h3>subgroup shares</h3><p class="note">each bar shows the composition of that cohort's jewish-identifying population and sums to 100%.</p><svg id="composition" class="composition" viewBox="0 0 980 204" role="img" aria-label="denominational composition within jewish identity"></svg><div class="group-legend" id="group-legend"></div><p class="note" id="composition-description"></p></div>
-  <div class="section"><h3>parent and child samples</h3><p class="note explain">fill shows identity; the <span class="ring-key"></span> ring marks a jewish root or descendant. each step samples new parent–child outcomes. it does not follow the same families across generations. arrivals have no simulated parents.</p>
-   <div class="animation-controls"><button id="play" class="primary" aria-pressed="false">play generations</button><button id="next">next cohort</button><button id="replay">resample this cohort</button><label for="birth-filter">sample</label><select id="birth-filter"><option value="all">all next-cohort members</option><option value="mixed" selected>one jewish-identifying parent</option><option value="descendants">non-jewish parents with ancestry</option><option value="haredi">two haredi parents</option></select></div>
-   <p class="sample-mass" id="sample-label"></p><canvas id="birth-canvas" class="birth-canvas" role="img" aria-label="sampled parent and child identities; equivalent descriptions are available in the sample details below"></canvas>
-   <details><summary>read the sampled outcomes</summary><div id="sample-details"></div></details>
+  <div class="widget-head"><h2>set up the starting population</h2><p class="note">edit the inputs, then play the timeline below. each step follows one new generation.</p></div>
+  <div class="section setup-section">
+   <div class="time-controls" id="time-controls"></div>
+   <div class="baseline-row"><p id="baseline-status" class="note"></p><button id="reset-baseline">load 2013 starting values</button></div>
+   <h3>who is here at the start?</h3><div class="population-controls" id="population-controls"></div>
+   <p class="note" id="starting-total"></p>
+   <p class="note">shares of the whole starting population. zero outside ancestry means counting begins here; older ancestry is unknown.</p>
+   <h3>denominations and fertility</h3>
+   <div class="table-scroll"><table class="starting-table"><thead><tr><th>group</th><th>share of jews (%)</th><th>children per pairing</th></tr></thead><tbody id="starting-rows"></tbody></table></div>
+   <p class="note" id="background-note"></p><p class="note">“other jewish” fills the remainder and includes unaffiliated and secular jews. fertility includes childlessness.</p>
+   <details class="source-note"><summary>where these starting values come from</summary><p class="note">the 2013 reference uses <a href="${S.REFERENCES[0]}">Pew’s adult population estimate</a> and <a href="${S.REFERENCES[1]}">denomination shares</a>. the haredi share is derived from <a href="${S.REFERENCES[3]}">Pew’s breakdown of orthodoxy</a>. these are survey estimates, applied here to a simplified cohort.</p><p class="note"><a href="${S.REFERENCES[2]}">fertility reports for ages 40–59</a> supply the orthodox, conservative and reform references. both orthodox groups receive the reported 4.1 average; a separate haredi rate is not measured here. other-jewish fertility (1.6) is assumed; 2.2 for both non-jewish groups is a general-public proxy. moving respondent averages into pairing units is also an assumption. older ancestry outside identity is unmeasured.</p></details>
+   <p class="status" id="main-status" role="status" aria-live="polite"></p>
   </div>
-  <div class="section"><details id="group-settings"><summary>edit the subgroup assumptions</summary><p class="note">these are editable assumptions. “stays in group” refers to children of two parents in the same group. children who leave can join another jewish group or stop identifying as jewish.</p><div class="table-scroll"><table class="parameter-table"><thead><tr><th>subgroup</th><th>initial share<br>of jews (%)</th><th>offspring per<br>same-group pairing</th><th>non-jewish<br>partner (%)</th><th>stays in<br>same group (%)</th><th>jewish identity with<br>one jewish parent (%)</th><th>reserve own<br>subgroup (%)</th></tr></thead><tbody id="parameter-rows"></tbody></table></div><p class="note">the last initial share is the remainder. subgroup reservation applies within the jewish in-marriage pool, not to all pairings. changing initial jewish composition does not change the separately specified arrival composition.</p><div class="advanced-grid" id="advanced-controls"></div></details></div>
-  <div class="section"><details><summary>full cohort table</summary><div class="table-scroll" id="cohort-table"></div><p class="note">the table reports cohort shares, with within-jewish shares labeled separately. it does not calculate absolute counts or the population of all ages in a future year.</p></details></div>
-  <div class="section"><details id="sensitivity-settings"><summary>sensitivity to the inputs</summary><p class="note sweep-note">sample inputs around the settings above. shading shows the middle 90% of sampled outcomes; it is not a forecast confidence interval. the solid line continues to show your selected scenario.</p><div class="toolbar"><label for="draws">draws <input id="draws" type="number" min="100" max="5000" step="100" value="500"></label><label for="seed">seed <input id="seed" class="seed" type="number" min="0" max="4294967295" step="1" value="20260924"></label><label for="width">range width <input id="width" type="number" min="0" max="2" step=".25" value="1"></label><button id="run-sweep">run sensitivity</button><button id="cancel-sweep" disabled>cancel</button></div><p class="status" id="sweep-status" role="status" aria-live="polite">no sensitivity results yet.</p><div class="table-scroll" id="sweep-table"></div><details><summary>sampling ranges</summary><p class="note">independent uniform intervals, clipped to valid values: each fertility input ±20%; intermarriage half-ranges: haredi 1 percentage point, other orthodox 3.5 points, conservative 15 points, reform 13 points, other jewish 10 points; same-group retention ±8 points; mixed-parent jewish identity retention ±15 points; ancestry clustering ±15 points; arrival cohort share ±5 points; jewish share of arrivals ±1 point; initial roots-plus-descendants share ±2 points, bounded below by initial jewish identity. width multiplies these half-ranges; zero reproduces the selected scenario. fertility in the two non-jewish groups uses a shared multiplicative factor. mixes, subgroup reservation, convergence, and other transmission destinations stay fixed. the destinations among leavers are rescaled when retention changes. correlations and interval widths are modeling choices.</p></details></details></div>
-  <div class="section"><details id="export-settings"><summary>export and import</summary><div class="toolbar"><button id="export-json">export model + results</button><button id="export-csv">export cohort csv</button><button id="share">copy state link</button><button id="show-config">edit / import full json</button></div><p class="status" id="export-status" role="status" aria-live="polite"></p><div id="config-panel" hidden><label for="config" class="note">complete parameters, including the 5 × 7 identity transition matrix</label><textarea id="config" spellcheck="false"></textarea><div class="toolbar"><button id="apply-config">validate and apply</button><button id="close-config">close editor</button></div><p id="config-status" class="status configerror" role="status"></p></div><p class="note">model ${M.VERSION}. charts use expected values; the animation samples outcomes with a separate seed.</p></details></div>`;
+  <div class="section results-section">
+   <div class="results-heading"><h3>follow the generations</h3><div class="timeline-actions"><button id="play" aria-pressed="false">play timeline</button><button id="next">next generation</button></div></div>
+   <div class="scrub"><label for="generation">generation</label><input type="range" min="0" max="6" step="1" value="0" id="generation"><output id="generation-value">0</output></div>
+   <p class="clock" id="clock" aria-live="polite"></p>
+   <div class="metric-row"><div class="metric ancestry"><span class="value" id="a-value"></span><span class="label">jewish roots + descendants</span></div><div class="metric"><span class="value" id="j-value"></span><span class="label">jewish-identifying</span></div></div>
+   <p class="note">shares of this generation, not everyone alive in the labeled year.</p>
+   <div class="comparison-toggle"><label><input type="checkbox" id="compare"> compare with frozen starting averages</label></div>
+   <div id="comparison-note" hidden><div class="line-legend"><span>subgroups evolve</span><span class="dashed">starting averages stay fixed</span></div><p class="note" id="comparison-description"></p></div>
+   <div class="chart-pair"><div class="plotwrap"><p class="plot-title ancestry">jewish roots + descendants</p><svg id="connection-plot" class="plot" role="img" aria-label="share of successive generations with jewish roots or ancestry"></svg></div><div class="plotwrap"><p class="plot-title">jewish-identifying</p><svg id="identity-plot" class="plot" role="img" aria-label="jewish-identifying share of successive generations"></svg></div></div>
+   <p class="note">the charts use different vertical scales. click a point on either timeline to inspect that generation.</p>
+   <h3 class="composition-heading">denominations within jewish identity</h3><svg id="composition" class="composition" role="img" aria-label="denominational composition within jewish identity"></svg><div class="group-legend" id="group-legend"></div><p class="note" id="composition-description"></p>
+  </div>
+  <div class="section"><details id="group-settings"><summary>pairing, identity and arrivals</summary><p class="note">starting shares and fertility are above. these additional rules determine who pairs with whom, the identity children reach as adults, and arrivals in each generation.</p><div class="table-scroll"><table class="parameter-table"><thead><tr><th>group</th><th>non-jewish<br>partner (%)</th><th>stays in<br>same group (%)</th><th>jewish identity with<br>one jewish parent (%)</th><th>reserve own<br>subgroup (%)</th></tr></thead><tbody id="parameter-rows"></tbody></table></div><p class="note">the 2013 marriage references concern intact marriages, not all reproductive pairings. “stays in group” concerns children of two parents in that group; leavers can join another jewish group. identity transitions and subgroup reservation are assumptions.</p><div class="advanced-grid" id="advanced-controls"></div><p class="note">arrivals use a separately specified denomination mix, initially matching the 2013 starting mix. editing the initial mix does not change it; the full json editor exposes both.</p></details></div>
+  <div class="section"><details><summary>full results table</summary><div class="table-scroll" id="cohort-table"></div></details></div>
+  <div class="section"><details id="sensitivity-settings"><summary>how much do the assumptions matter?</summary><p class="note">sample inputs around your settings. the shaded middle 90% describes the sampled scenarios, not a forecast probability. the solid line keeps your selected inputs.</p><div class="toolbar"><label for="draws">draws <input id="draws" type="number" min="100" max="5000" step="100" value="500"></label><label for="seed">seed <input id="seed" class="seed" type="number" min="0" max="4294967295" step="1" value="20260924"></label><label for="width">range width <input id="width" type="number" min="0" max="2" step=".25" value="1"></label><button id="run-sweep">run sensitivity</button><button id="cancel-sweep" disabled>cancel</button></div><p class="status" id="sweep-status" role="status" aria-live="polite">no sensitivity results yet.</p><div class="table-scroll" id="sweep-table"></div><details><summary>sampling ranges</summary><p class="note">independent uniform intervals, clipped to valid values: each fertility input ±20%; intermarriage half-ranges: haredi 1 percentage point, other orthodox 3.5 points, conservative 15 points, reform 13 points, other jewish 10 points; same-group retention ±8 points; mixed-parent identity retention ±15 points; clustering ±15 points; arrival share ±5 points; jewish share of arrivals ±1 point; starting roots + descendants ±2 points, bounded below by jewish identity. width multiplies these ranges; zero reproduces your scenario. non-jewish fertility uses a shared multiplier. dates, generation length, mixes, reservation and convergence stay fixed. these ranges are assumptions.</p></details></details></div>
+  <div class="section"><details id="export-settings"><summary>save, share or inspect the model</summary><div class="toolbar"><button id="export-json">export model + results</button><button id="export-csv">export csv</button><button id="share">copy state link</button><button id="show-config">edit / import full json</button></div><p class="status" id="export-status" role="status" aria-live="polite"></p><div id="config-panel" hidden><label for="config" class="note">complete parameters, including identity transitions and arrival composition</label><textarea id="config" spellcheck="false"></textarea><div class="toolbar"><button id="apply-config">validate and apply</button><button id="close-config">close editor</button></div><p id="config-status" class="status configerror" role="status"></p></div><p class="note">engine ${M.VERSION}; starting setup ${S.VERSION}. calculations run locally.</p></details></div>`;
   $('group-legend').innerHTML=M.SHORT.slice(0,5).map((n,i)=>`<span><i class="swatch" style="--swatch:${COLORS[i]}"></i>${n}</span>`).join('');
  }
+ function groupInput(i,key,title,value,min,max,step,scale=1){
+  const remainder=i===4&&key==='jewishMix';
+  return `<input type="number" aria-label="${M.SHORT[i]}: ${title}" data-group="${i}" data-field="${key}" data-scale="${scale}" value="${Number(value.toFixed(4))}" min="${min}" max="${max}" step="${step}" ${remainder?'readonly id="remainder-mix"':''}>`;
+ }
  function renderControls(){
-  $('primary-controls').innerHTML=[
-    slider('initialConnection','initial roots + descendants',params.initialJewish*100,50,.1,params.initialConnection*100,'includes jewish-identifying roots and any descendants outside jewish identity. this is an assumed starting share.',100),
-    slider('clustering','ancestry clustering',0,100,1,params.clustering*100,'among remaining non-jewish parents: 0 = random pairing; 100 = pair only within the same ancestry category.',100),
-    slider('arrivalShare','arrivals in each new cohort',0,40,1,params.arrivalShare*100,'share added through arrivals to each new cohort. not an annual immigration rate or a foreign-born population share.',100),
-    slider('generations','whole generations',1,16,1,params.generations,'each step replaces the parent cohort with its descendants and arrivals.'),
-    '<div class="assumption">initial jewish identity: '+fmt(params.initialJewish)+'. the default counts descendants from this starting cohort and sets pre-existing outside ancestry to zero.</div>'
+  $('time-controls').innerHTML=[
+   field('referenceYear','start year',1500,2500,1,params.referenceYear),
+   field('generationYears','years per generation',15,50,1,params.generationYears),
+   field('generations','generations to follow',1,16,1,params.generations)
   ].join('');
-  $('parameter-rows').innerHTML=M.SHORT.slice(0,5).map((n,i)=>`<tr><td><i class="swatch" style="--swatch:${COLORS[i]}"></i>${n}</td>${[
-    [params.jewishMix[i]*100,'jewishMix',0,100,.1,100],
-    [params.fertility[i],'fertility',.1,15,.1,1],
-    [params.intermarriage[i]*100,'intermarriage',0,100,.1,100],
-    [params.sameGroupTransitions[i][i]*100,'retention',0,100,.1,100],
-    [params.mixedRetention[i]*100,'mixedRetention',0,100,.1,100],
-    [params.selfPair[i]*100,'selfPair',0,100,.1,100]
-  ].map(([v,key,min,max,step,scale],c)=>`<td><input type="number" aria-label="${n}: ${['initial share among jews','offspring per same-group pairing','non-jewish partner percent','same-group retention percent','mixed-parent jewish identity percent','own-subgroup reservation percent'][c]}" data-group="${i}" data-field="${key}" data-scale="${scale}" value="${Number(v.toFixed(4))}" min="${min}" max="${max}" step="${step}" ${i===4&&key==='jewishMix'?'readonly id="remainder-mix"':''}></td>`).join('')}</tr>`).join('');
+  $('population-controls').innerHTML=[
+   field('initialJewish','jewish-identifying (%)',0,100,.1,params.initialJewish*100,100),
+   field('initialDescendants','ancestry outside jewish identity (%)',0,100,.1,(params.initialConnection-params.initialJewish)*100,100)
+  ].join('');
+  $('starting-rows').innerHTML=M.SHORT.slice(0,5).map((n,i)=>`<tr><th scope="row"><i class="swatch" style="--swatch:${COLORS[i]}"></i>${n}</th><td>${groupInput(i,'jewishMix','share of jews (%)',params.jewishMix[i]*100,0,100,.1,100)}</td><td>${groupInput(i,'fertility','children per pairing',params.fertility[i],0,15,.1)}</td></tr>`).join('')+`<tr><th scope="row">not jewish-identifying</th><td>outside this mix</td><td><input type="number" id="p-backgroundFertility" aria-label="not jewish-identifying: children per pairing" data-key="backgroundFertility" data-scale="1" min="0" max="15" step=".1" value="${params.fertility[6]}"></td></tr>`;
+  $('parameter-rows').innerHTML=M.SHORT.slice(0,5).map((n,i)=>`<tr><th scope="row">${n}</th>${[
+   ['intermarriage','non-jewish partner (%)',params.intermarriage[i]],
+   ['retention','same-group retention (%)',params.sameGroupTransitions[i][i]],
+   ['mixedRetention','mixed-parent jewish identity (%)',params.mixedRetention[i]],
+   ['selfPair','own-subgroup reservation (%)',params.selfPair[i]]
+  ].map(([key,label,v])=>`<td>${groupInput(i,key,label,v*100,0,100,.1,100)}</td>`).join('')}</tr>`).join('');
   $('advanced-controls').innerHTML=[
-    slider('backgroundFertility','non-jewish offspring per pairing',.5,5,.1,params.fertility[6],'applies to both non-jewish groups: descendants and people with no modeled connection.'),
-    slider('mixedFertility','mixed-pair fertility multiplier',0,100,1,params.mixedFertility*100,'multiplies geometric-mean fertility for jewish/non-jewish pairings.',100),
-    slider('arrivalJewish','jewish share of arrivals',0,25,.1,params.arrivalJewish*100,'the arrival composition is an assumption.',100),
-    slider('arrivalDescendant','non-jewish descendants in arrivals',0,50,.1,params.arrivalDescendant*100,'older imported ancestry, outside jewish identity.',100),
-    slider('fertilityHalfLife','orthodox fertility-gap half-life',0,10,.5,params.fertilityHalfLife,'0 = no convergence; otherwise half-life in reproductive steps.'),
-    slider('generationYears','years per generation',20,35,1,params.generationYears,'changes the illustrative dates only. there is no age structure in this model.')
+   slider('clustering','ancestry clustering',0,100,1,params.clustering*100,'0 = random pairing among non-jewish groups; 100 = only within the same ancestry category.',100),
+   slider('arrivalShare','arrivals in each generation',0,40,1,params.arrivalShare*100,'share of the new cohort, not an annual immigration rate.',100),
+   slider('mixedFertility','mixed-pair fertility multiplier',0,100,1,params.mixedFertility*100,'applied to jewish/non-jewish pairings.',100),
+   slider('arrivalJewish','jewish share of arrivals',0,25,.1,params.arrivalJewish*100,'assumed composition of arrivals.',100),
+   slider('arrivalDescendant','ancestry outside identity in arrivals',0,50,.1,params.arrivalDescendant*100,'an additional share, beyond jewish arrivals.',100),
+   slider('fertilityHalfLife','orthodox fertility-gap half-life',0,10,.5,params.fertilityHalfLife,'0 = fixed fertility; otherwise the excess halves over this many generations.')
   ].join('');
   updateOutputs();
  }
  function updateOutputs(){
   document.querySelectorAll('[data-key]').forEach(el=>{
-    const key=el.dataset.key,scale=+el.dataset.scale,v=key==='backgroundFertility'?params.fertility[6]:params[key];
-    if(document.activeElement!==el)el.value=v*scale;
+    const key=el.dataset.key,scale=+el.dataset.scale,v=key==='backgroundFertility'?params.fertility[6]:key==='initialDescendants'?params.initialConnection-params.initialJewish:params[key];
+    if(document.activeElement!==el)el.value=Number((v*scale).toFixed(6));
     const o=$('o-'+key);if(o)o.textContent=scale===100?fmt(v):key==='fertilityHalfLife'&&v===0?'off':num(v,['generations','generationYears'].includes(key)?0:1);
   });
  }
  function render(){
   const row=result.rows[selected];$('generation').max=params.generations;$('generation').value=selected;$('generation-value').textContent=selected;
-  $('a-value').textContent=fmt(row.connection);$('j-value').textContent=fmt(row.identity);$('m-value').textContent=fmt(row.aggregateIntermarriage);
-  $('clock').textContent=`cohort ${selected}: ${selected*params.generationYears} illustrative years after the reference cohort (${row.illustrativeYear}). this is not the population alive in that year.`;
+  $('a-value').textContent=fmt(row.connection);$('j-value').textContent=fmt(row.identity);
+  $('clock').textContent=selected===0?`${params.referenceYear} · starting population`:`${row.illustrativeYear} · generation ${selected} · ${selected*params.generationYears} years after the start`;
+  $('next').textContent=selected===params.generations?'back to the start':`next: ${params.referenceYear+(selected+1)*params.generationYears}`;
+  $('baseline-status').textContent=S.isHistorical(params)?'2013 reference loaded; future rules are assumptions.':params.referenceYear===2013?'custom starting values for 2013. reload the reference to restore the linked inputs.':`custom scenario beginning in ${params.referenceYear}. changing the year does not supply historical population data; review the starting values below.`;
+  $('starting-total').textContent=`total roots + descendants: ${fmt(params.initialConnection)} = ${fmt(params.initialJewish)} jewish + ${fmt(params.initialConnection-params.initialJewish)} outside ancestry.`;
+  $('comparison-note').hidden=!$('compare').checked;
+  $('comparison-description').textContent='both models produce the same first generation. later differences reflect '+(params.fertilityHalfLife>0?'changing group composition and the chosen fertility convergence.':'changing group composition.');
+  $('background-note').hidden=params.fertility[5]===params.fertility[6];
+  $('background-note').textContent=`imported settings: outside-identity descendants use ${params.fertility[5]} children per pairing. the field above shows ${params.fertility[6]} for people with no counted connection; editing it sets both groups to that value.`;
   plot('connection-plot','connection','controlConnection',A);plot('identity-plot','identity','controlIdentity',J);composition();
-  $('cohort-table').innerHTML=`<table><caption>shares of each successive cohort (%)</caption><thead><tr><th>cohort</th><th>roots + descendants</th><th>jewish identity</th><th>descendants outside identity</th><th>frozen: connection</th><th>frozen: identity</th><th>haredi share of jews</th><th>intermarriage among jews</th></tr></thead><tbody>${result.rows.map(r=>`<tr class="${r.generation===selected?'selected':''}"><td>${r.generation}</td>${['connection','identity','descendants','controlConnection','controlIdentity','harediShare','aggregateIntermarriage'].map(k=>`<td>${fmt(r[k],2)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
-  updateOutputs();updateSamples();
+  $('cohort-table').innerHTML=`<table><caption>conditional shares of each generation (%)</caption><thead><tr><th>generation / year</th><th>roots + descendants</th><th>jewish identity</th><th>ancestry outside identity</th><th>frozen: ancestry</th><th>frozen: identity</th><th>haredi share of jews</th><th>intermarriage among jews</th></tr></thead><tbody>${result.rows.map(r=>`<tr class="${r.generation===selected?'selected':''}"><td>${r.generation} / ${r.illustrativeYear}</td>${['connection','identity','descendants','controlConnection','controlIdentity','harediShare','aggregateIntermarriage'].map(k=>`<td>${fmt(r[k],2)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  updateOutputs();
  }
  function plot(id,key,control,color){
-  const W=Math.max(260,$(id).clientWidth||680),H=214,L=48,R=12,T=14,B=34,w=W-L-R,h=H-T-B;
+  const W=Math.max(260,$(id).clientWidth||680),H=240,L=44,R=24,T=14,B=38,w=W-L-R,h=H-T-B;
   $(id).setAttribute('viewBox',`0 0 ${W} ${H}`);
-  let maximum=Math.max(.01,...result.rows.flatMap(r=>[r[key],r[control]]));
+  const compare=$('compare').checked;
+  let maximum=Math.max(.01,...result.rows.flatMap(r=>compare?[r[key],r[control]]:[r[key]]));
   if(sensitivity)maximum=Math.max(maximum,...sensitivity.rows.map(r=>r[key][2]));
   const yMax=Math.min(1,Math.ceil(maximum*1.08*20)/20||.05),x=g=>L+g/params.generations*w,y=v=>T+h*(1-v/yMax);
   const line=arr=>arr.map((v,i)=>`${i?'L':'M'}${x(i).toFixed(2)},${y(v).toFixed(2)}`).join(' ');
-  let s=`<title>${key==='connection'?'jewish roots and descendants':'jewish identity'}: conditional cohort scenarios</title><desc>solid is the subgroup model; dashed is the initially matched frozen-average control. exact values are in the cohort table.</desc>`;
+  let s=`<title>${key==='connection'?'jewish roots and descendants':'jewish identity'}: conditional cohort scenarios</title><desc>${compare?'solid: subgroups evolve. dashed: frozen starting averages.':'subgroups evolve under the stated assumptions.'} exact values are in the results table.</desc>`;
   for(let k=0;k<5;k++){const v=yMax*k/4,yy=y(v);s+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="${LINE}" stroke-width=".7"/><text x="${L-8}" y="${yy+4}" text-anchor="end">${(100*v).toFixed(yMax<=.1?1:0)}%</text>`;}
-  for(let g=0;g<=params.generations;g++)if(g%Math.max(1,Math.ceil(params.generations/8))===0||g===params.generations)s+=`<text x="${x(g)}" y="${H-15}" text-anchor="middle">${g}</text>`;
+  for(let g=0;g<=params.generations;g++)if(g%Math.max(1,Math.ceil(params.generations/Math.max(2,Math.floor(W/85))))===0||g===params.generations)s+=`<text x="${x(g)}" y="${H-15}" text-anchor="middle">${params.referenceYear+g*params.generationYears}</text>`;
   if(sensitivity){const upper=sensitivity.rows.map(r=>r[key][2]),lower=sensitivity.rows.map(r=>r[key][0]);const d=line(upper)+' '+lower.map((_,ii)=>{const i=lower.length-1-ii;return `L${x(i)},${y(lower[i])}`;}).join(' ')+' Z';s+=`<path d="${d}" fill="${color}" opacity=".12"/>`;}
-  s+=`<path d="${line(result.rows.map(r=>r[control]))}" stroke="${color}" fill="none" stroke-width="1.8" stroke-dasharray="6 4" opacity=".65"/><path d="${line(result.rows.map(r=>r[key]))}" stroke="${color}" fill="none" stroke-width="2.6"/><line x1="${x(selected)}" x2="${x(selected)}" y1="${T}" y2="${T+h}" stroke="${INK}" stroke-width=".8" opacity=".5"/><circle cx="${x(selected)}" cy="${y(result.rows[selected][key])}" r="4" fill="${color}"/><text x="${W-R}" y="${H-1}" text-anchor="end" class="axis-title">generations elapsed</text>`;
+  if(compare)s+=`<path d="${line(result.rows.map(r=>r[control]))}" stroke="${color}" fill="none" stroke-width="1.8" stroke-dasharray="6 4" opacity=".65"/>`;
+  s+=`<path d="${line(result.rows.map(r=>r[key]))}" stroke="${color}" fill="none" stroke-width="2.6"/><line x1="${x(selected)}" x2="${x(selected)}" y1="${T}" y2="${T+h}" stroke="${INK}" stroke-width=".8" opacity=".5"/><circle cx="${x(selected)}" cy="${y(result.rows[selected][key])}" r="4" fill="${color}"/><text x="${W-R}" y="${H-1}" text-anchor="end" class="axis-title">year (whole generations)</text>`;
   $(id).innerHTML=s;
  }
  function composition(){
@@ -549,60 +692,37 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
   result.full.forEach((x,g)=>{
    const total=x.slice(0,5).reduce((a,b)=>a+b,0),xx=left+g*(bw+gap);let y=H-B;
    if(total===0){s+=`<text x="${xx+bw/2}" y="90" text-anchor="middle">none</text>`;}
-   else for(let i=0;i<5;i++){const hh=(H-T-B)*x[i]/total;y-=hh;s+=`<rect x="${xx}" y="${y}" width="${bw}" height="${hh}" fill="${COLORS[i]}"><title>cohort ${g}, ${M.SHORT[i]}: ${fmt(x[i]/total)}</title></rect>`;}
+   else for(let i=0;i<5;i++){const hh=(H-T-B)*x[i]/total;y-=hh;s+=`<rect x="${xx}" y="${y}" width="${bw}" height="${hh}" fill="${COLORS[i]}"><title>${params.referenceYear+g*params.generationYears}, ${M.SHORT[i]}: ${fmt(x[i]/total)}</title></rect>`;}
    if(g===selected)s+=`<rect x="${xx-3}" y="${T-3}" width="${bw+6}" height="${H-T-B+6}" fill="none" stroke="${INK}" stroke-width="1.5"/>`;
-   if(g%Math.max(1,Math.ceil(params.generations/8))===0||g===params.generations||g===selected)s+=`<text x="${xx+bw/2}" y="${H-6}" text-anchor="middle">${g}</text>`;
+   if(g%Math.max(1,Math.ceil(params.generations/Math.max(2,Math.floor(W/85))))===0||g===params.generations)s+=`<text x="${xx+bw/2}" y="${H-6}" text-anchor="middle">${params.referenceYear+g*params.generationYears}</text>`;
   });
   $('composition').innerHTML=s;
-  const row=result.rows[selected];$('composition-description').textContent=`cohort ${selected}: haredi ${fmt(row.harediShare)} of jewish identity; all orthodox ${fmt(row.orthodoxShare)}. these are modeled composition changes, not forecasts.`;
+  const row=result.rows[selected];$('composition-description').textContent=`${row.illustrativeYear}: haredi ${fmt(row.harediShare)} of jewish identity; all orthodox ${fmt(row.orthodoxShare)}. each bar sums to 100% of jewish identity, not the whole population.`;
  }
- function updateSamples(){
-  const g=Math.min(selected,params.generations-1),filter=$('birth-filter').value;
-  sample=M.sampleBirths(result,g,(animationSeed+g*997)>>>0,12,filter);
-  $('sample-label').textContent=`parents: cohort ${g} → next adult cohort ${g+1}. ${filter==='all'?'unconditional sample.':`conditional sample covering ${fmt(sample.mass,3)} of the next cohort.`} 12 draws; chart values use exact expected shares.`;
-  $('sample-details').innerHTML=sample.events.length?`<table><thead><tr><th>example</th><th>parents / source</th><th>next-cohort identity</th><th>connection flag</th></tr></thead><tbody>${sample.events.map((e,i)=>`<tr><td>${i+1}</td><td>${e.arrival?'arrival (parents not modeled)':escape(M.SHORT[e.i]+' + '+M.SHORT[e.j])}</td><td>${escape(M.SHORT[e.k])}</td><td>${e.k<6?'root or descendant':'no modeled connection'}</td></tr>`).join('')}</tbody></table>`:'<p class="note">this outcome has zero probability under these settings. there are no examples to sample.</p>';
-  animStart=performance.now();if(animFrame)cancelAnimationFrame(animFrame);animateBirths(animStart);
- }
- function animateBirths(now){
-  const t=reduced.matches?1:Math.min(1,(now-animStart)/1600);drawBirths(t);
-  if(t<1&&!document.hidden)animFrame=requestAnimationFrame(animateBirths);else animFrame=null;
- }
- function drawBirths(t){
-  const canvas=$('birth-canvas'),width=canvas.clientWidth;if(width<1)return;
-  const cols=width<650?2:3,rows=Math.ceil(Math.max(1,sample.events.length)/cols),cellH=128,height=rows*cellH+12,dpr=window.devicePixelRatio||1;
-  if(canvas.width!==Math.round(width*dpr)||canvas.height!==Math.round(height*dpr)){canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);canvas.style.height=height+'px';}
-  const c=canvas.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,width,height);c.textAlign='center';
-  if(!sample.events.length){c.fillStyle=MUTED;c.font='13px system-ui';c.fillText('no outcomes of this type under these assumptions',width/2,70);return;}
-  const cellW=width/cols;
-  function dot(x,y,k,alpha=1){c.globalAlpha=alpha;c.beginPath();c.arc(x,y,8,0,Math.PI*2);c.fillStyle=COLORS[k];c.fill();if(k<6){c.beginPath();c.arc(x,y,12,0,Math.PI*2);c.strokeStyle=A;c.lineWidth=1.8;c.stroke();}c.globalAlpha=1;}
-  function path(x1,y1,x2,y2,k){c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.strokeStyle=LINE;c.lineWidth=1.4;c.stroke();const u=Math.min(1,t/.8);if(u<1){c.beginPath();c.arc(x1+(x2-x1)*u,y1+(y2-y1)*u,2.5,0,Math.PI*2);c.fillStyle=k<6?A:MUTED;c.fill();}}
-  sample.events.forEach((e,i)=>{
-   const ox=(i%cols)*cellW,oy=Math.floor(i/cols)*cellH+8,x1=ox+cellW*.24,x2=ox+cellW*.76,y1=oy+28,cx=ox+cellW*.5,cy=oy+82;
-   c.strokeStyle=LINE;c.lineWidth=.5;c.strokeRect(ox+7,oy+3,cellW-14,cellH-9);
-   c.fillStyle=MUTED;c.font='10px system-ui';c.textAlign='left';c.fillText(String(i+1),ox+14,oy+15);c.textAlign='center';
-   if(e.arrival){c.fillText('arrival; no simulated parents',cx,oy+35);c.beginPath();c.setLineDash([3,3]);c.moveTo(cx,oy+42);c.lineTo(cx,cy-15);c.stroke();c.setLineDash([]);}
-   else {path(x1,y1+12,cx,cy-12,e.i);path(x2,y1+12,cx,cy-12,e.j);dot(x1,y1,e.i);dot(x2,y1,e.j);c.fillStyle=MUTED;c.font=(cellW<190?'9':'10')+'px system-ui';c.fillText(M.SHORT[e.i],x1,oy+53,cellW*.44);c.fillText(M.SHORT[e.j],x2,oy+53,cellW*.44);}
-   dot(cx,cy,e.k,.15+.85*Math.min(1,t/.85));c.fillStyle=INK;c.font='11px system-ui';c.fillText(M.SHORT[e.k],cx,oy+107,cellW-26);
-  });
- }
- function markCustom(){document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed','false'));}
  function cancelSweep(message){sweepToken++;$('run-sweep').disabled=false;$('cancel-sweep').disabled=true;if(message)status('sweep-status',message);}
  function rerun(){
   M.validate(params);stopPlaying();cancelSweep(sensitivity||$('run-sweep').disabled?'settings changed; run sensitivity again.':undefined);sensitivity=null;$('sweep-table').innerHTML='';
   result=M.simulate(params);selected=Math.min(selected,params.generations);render();status('main-status','');
  }
- function stopPlaying(){playing=false;if(timer)clearTimeout(timer);timer=null;$('play').textContent='play generations';$('play').setAttribute('aria-pressed','false');}
+ function stopPlaying(){playing=false;if(timer)clearTimeout(timer);timer=null;$('play').textContent='play timeline';$('play').setAttribute('aria-pressed','false');}
  function nextGeneration(){selected=selected>=params.generations?0:selected+1;render();}
  function play(){
   if(playing){stopPlaying();return;}playing=true;if(selected>=params.generations)selected=0;$('play').textContent='pause';$('play').setAttribute('aria-pressed','true');render();
   const tick=()=>{if(!playing)return;if(selected>=params.generations){stopPlaying();return;}selected++;render();timer=setTimeout(tick,2300);};timer=setTimeout(tick,2300);
  }
  function handleInput(e){
-  const el=e.target;if(el.dataset.key){
-   const old=M.clone(params),v=Number(el.value)/(+el.dataset.scale||1),key=el.dataset.key;
-   if(key==='backgroundFertility')params.fertility[5]=params.fertility[6]=v;else params[key]=v;
-   try{rerun();markCustom();}catch(err){params=old;renderControls();status('main-status',err.message,true);}
-  }
+  const el=e.target;if(!el.dataset.key)return;
+  if(el.type==='range'&&e.type!=='input'||el.type!=='range'&&e.type!=='change')return;
+  const old=M.clone(params),v=Number(el.value)/(+el.dataset.scale||1),key=el.dataset.key;
+  try{
+   if(el.value.trim()===''||!Number.isFinite(v))throw Error('enter a valid number');
+   if(key==='referenceYear'&&!Number.isInteger(v))throw Error('start year must be a whole year');
+   if(key==='backgroundFertility')params.fertility[5]=params.fertility[6]=v;
+   else if(key==='initialDescendants')params.initialConnection=params.initialJewish+v;
+   else if(key==='initialJewish'){const outside=params.initialConnection-params.initialJewish;params.initialJewish=v;params.initialConnection=v+outside;}
+   else params[key]=v;
+   rerun();
+  }catch(err){params=old;renderControls();status('main-status',err.message,true);}
  }
  function handleGroup(e){
   const el=e.target;if(el.dataset.field===undefined)return;
@@ -610,7 +730,7 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
   try{if(el.value.trim()===''||!Number.isFinite(v))throw Error('enter a valid number');
    if(key==='retention')M.setRetention(params,i,v);else params[key][i]=v;
    if(key==='jewishMix'){params.jewishMix[4]=1-params.jewishMix.slice(0,4).reduce((a,b)=>a+b,0);if(params.jewishMix[4]<0)throw Error('the first four initial subgroup shares must sum to at most 100%');$('remainder-mix').value=(params.jewishMix[4]*100).toFixed(2);}
-   rerun();markCustom();
+   rerun();
   }catch(err){params=old;renderControls();status('main-status',err.message,true);}
  }
  function sensitivitySweep(){
@@ -629,36 +749,37 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
   setTimeout(batch,0);
  }
  function download(name,text,type){const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- function exportJson(){download('ancestry-scenario.json',JSON.stringify({modelVersion:M.VERSION,warning:'conditional successive-cohort scenarios; initial ancestry unvalidated; no all-age calendar forecast, DNA estimate, or halakhic status',parameters:params,results:result,sensitivity},null,2),'application/json');status('export-status','exported parameters, model version, full outputs, and any completed sensitivity run.');}
- function exportCsv(){const keys=['generation','connection','identity','descendants','controlConnection','controlIdentity','harediShare','orthodoxShare','aggregateIntermarriage'];const text='# conditional successive cohorts, not all-age calendar forecasts\n# shares are fractions of 1, not percent\n# model '+M.VERSION+'\n'+keys.join(',')+'\n'+result.rows.map(r=>keys.map(k=>r[k]).join(',')).join('\n')+'\n';download('ancestry-cohorts.csv',text,'text/csv');status('export-status','exported cohort shares as fractions (0.08 means 8%). export json too to preserve the inputs.');}
+ function exportJson(){download('ancestry-scenario.json',JSON.stringify({modelVersion:M.VERSION,setupVersion:S.VERSION,sourceReferences:S.REFERENCES,historicalStartingValues:S.isHistorical(params),warning:'conditional successive-cohort scenarios; initial ancestry unvalidated; no all-age calendar forecast, DNA estimate, or halakhic status',parameters:params,results:result,sensitivity},null,2),'application/json');status('export-status','exported parameters, model version, full outputs, and any completed sensitivity run.');}
+ function exportCsv(){const keys=['generation','illustrativeYear','connection','identity','descendants','controlConnection','controlIdentity','harediShare','orthodoxShare','aggregateIntermarriage'];const text='# conditional successive cohorts, not all-age calendar forecasts\n# shares are fractions of 1, not percent\n# model '+M.VERSION+'\n# start year '+params.referenceYear+'; years per generation '+params.generationYears+'\n'+keys.join(',')+'\n'+result.rows.map(r=>keys.map(k=>r[k]).join(',')).join('\n')+'\n';download('ancestry-cohorts.csv',text,'text/csv');status('export-status','exported cohort shares as fractions (0.08 means 8%). export json too to preserve the inputs.');}
  async function share(){
-  const state={v:M.VERSION,p:params,g:selected},hash=btoa(JSON.stringify(state));const url=location.href.split('#')[0]+'#sim='+encodeURIComponent(hash);
+  const state={v:M.VERSION,p:params,g:selected,c:$('compare').checked},hash=btoa(JSON.stringify(state));const url=location.href.split('#')[0]+'#sim='+encodeURIComponent(hash);
   try{await navigator.clipboard.writeText(url);status('export-status',location.protocol==='file:'?'copied a local-file state link. it works with this file path; use an exported json to move between computers.':'copied a link containing the complete scenario.');}
   catch(e){$('config-panel').hidden=false;$('config').value=url;$('config').focus();$('config').select();status('export-status','clipboard unavailable. the full state link is selected in the editor; copy it manually.');}
  }
  function loadHash(){
   if(!location.hash.startsWith('#sim='))return;
-  try{const s=JSON.parse(atob(decodeURIComponent(location.hash.slice(5))));if(s.v!==M.VERSION)throw Error('saved state uses a different model version');M.validate(s.p);params=M.clone(s.p);selected=Math.max(0,Math.min(params.generations,Number.isInteger(s.g)?s.g:0));markCustom();}
+  try{const s=JSON.parse(atob(decodeURIComponent(location.hash.slice(5))));if(s.v!==M.VERSION)throw Error('saved state uses a different model version');M.validate(s.p);params=M.clone(s.p);$('compare').checked=s.c===true;selected=Math.max(0,Math.min(params.generations,Number.isInteger(s.g)?s.g:0));}
   catch(e){$('export-settings').open=true;status('export-status','could not load saved state: '+e.message,true);}
  }
  function bind(){
-  $('sim-widget').addEventListener('input',handleInput);$('parameter-rows').addEventListener('change',handleGroup);
-  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{params=presetFns[b.dataset.preset](M.defaults());selected=4;renderControls();rerun();document.querySelectorAll('[data-preset]').forEach(o=>o.setAttribute('aria-pressed',String(o===b)));}));
+  $('sim-widget').addEventListener('input',handleInput);$('sim-widget').addEventListener('change',handleInput);
+  $('starting-rows').addEventListener('change',handleGroup);$('parameter-rows').addEventListener('change',handleGroup);
+  $('reset-baseline').addEventListener('click',()=>{const years=params.generationYears,steps=params.generations;params=S.historical();params.generationYears=years;params.generations=steps;selected=0;renderControls();rerun();});
   $('generation').addEventListener('input',()=>{stopPlaying();selected=+$('generation').value;render();});
-  ['connection-plot','identity-plot'].forEach(id=>$(id).addEventListener('click',e=>{const r=$(id).getBoundingClientRect(),vw=$(id).viewBox.baseVal.width,xx=(e.clientX-r.left)/r.width*vw;selected=Math.round(Math.max(0,Math.min(1,(xx-48)/(vw-60)))*params.generations);stopPlaying();render();}));
-  $('play').addEventListener('click',play);$('next').addEventListener('click',()=>{stopPlaying();nextGeneration();});$('replay').addEventListener('click',()=>{animationSeed=(animationSeed+1)>>>0;updateSamples();});$('birth-filter').addEventListener('change',updateSamples);
+  ['connection-plot','identity-plot'].forEach(id=>$(id).addEventListener('click',e=>{const r=$(id).getBoundingClientRect(),vw=$(id).viewBox.baseVal.width,xx=(e.clientX-r.left)/r.width*vw;selected=Math.round(Math.max(0,Math.min(1,(xx-44)/(vw-68)))*params.generations);stopPlaying();render();}));
+  $('play').addEventListener('click',play);$('next').addEventListener('click',()=>{stopPlaying();nextGeneration();});
+  $('compare').addEventListener('change',render);
   $('run-sweep').addEventListener('click',sensitivitySweep);$('cancel-sweep').addEventListener('click',()=>cancelSweep('cancelled; incomplete runs are not reported.'));
   ['draws','seed','width'].forEach(id=>$(id).addEventListener('change',()=>{cancelSweep('sensitivity settings changed; run again to update the bands.');sensitivity=null;$('sweep-table').innerHTML='';plot('connection-plot','connection','controlConnection',A);plot('identity-plot','identity','controlIdentity',J);}));
   $('export-json').addEventListener('click',exportJson);$('export-csv').addEventListener('click',exportCsv);$('share').addEventListener('click',share);
   $('show-config').addEventListener('click',()=>{$('config-panel').hidden=false;$('config').value=JSON.stringify(params,null,2);status('config-status','');});$('close-config').addEventListener('click',()=>{$('config-panel').hidden=true;});
-  $('apply-config').addEventListener('click',()=>{try{const s=JSON.parse($('config').value),p=s.parameters||s;M.validate(p);params=M.clone(p);renderControls();rerun();markCustom();status('config-status','valid settings applied.');}catch(e){status('config-status',e.message,true);}});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopPlaying();if(animFrame)cancelAnimationFrame(animFrame);}else drawBirths(1);});
-  if(window.ResizeObserver)new ResizeObserver(()=>{if(sample)drawBirths(1);}).observe($('birth-canvas'));
+  $('apply-config').addEventListener('click',()=>{try{const s=JSON.parse($('config').value),p=s.parameters||s;M.validate(p);params=M.clone(p);renderControls();rerun();status('config-status','valid settings applied.');}catch(e){status('config-status',e.message,true);}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopPlaying();});
   window.addEventListener('resize',()=>{if(result){plot('connection-plot','connection','controlConnection',A);plot('identity-plot','identity','controlIdentity',J);composition();}});
   window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#sim=')){loadHash();renderControls();rerun();}});
  }
  function toyInit(){
-  $('toy-widget').innerHTML=`<div class="toy-inner"><div class="kicker">experiment 01 / equal fertility, no arrivals</div><h3>random-pairing example</h3><label class="control" for="toy-start"><span class="labelrow"><span>starting ancestry share</span><output id="toy-start-label">2%</output></span><input id="toy-start" type="range" min=".1" max="10" step=".1" value="2"></label><div class="scrub"><label for="toy-g">generations</label><input id="toy-g" type="range" min="0" max="8" step="1" value="0"><output id="toy-g-label">0</output></div><svg id="toy-dots" class="toy-dots" viewBox="0 0 640 204" role="img" aria-label="any-ancestry share in a random-pairing toy model"></svg><div class="toy-footer"><button id="toy-play">play generations</button><span>any ancestry from the starting group: <b id="toy-any"></b><br><span class="note">mean contribution from the starting group: <b id="toy-mean"></b> (unchanged)</span></span></div><p class="note">each square is 0.1 percentage points; squares are a display of the distribution, not individual people. the colored area is rounded to the nearest square. exact values use the equation above.</p><div id="toy-steps" class="mini-results"></div></div>`;
+  $('toy-widget').innerHTML=`<div class="toy-inner"><div class="kicker">equal fertility, no arrivals</div><h3>random-pairing example</h3><label class="control" for="toy-start"><span class="labelrow"><span>starting ancestry share</span><output id="toy-start-label">2%</output></span><input id="toy-start" type="range" min=".1" max="10" step=".1" value="2"></label><div class="scrub"><label for="toy-g">generations</label><input id="toy-g" type="range" min="0" max="8" step="1" value="0"><output id="toy-g-label">0</output></div><svg id="toy-dots" class="toy-dots" viewBox="0 0 640 204" role="img" aria-label="any-ancestry share in a random-pairing toy model"></svg><div class="toy-footer"><button id="toy-play">play generations</button><span>any ancestry from the starting group: <b id="toy-any"></b><br><span class="note">mean contribution from the starting group: <b id="toy-mean"></b> (unchanged)</span></span></div><p class="note">each square is 0.1 percentage points; squares are a display of the distribution, not individual people. the colored area is rounded to the nearest square. exact values use the equation above.</p><div id="toy-steps" class="mini-results"></div></div>`;
   let timer=null,playing=false;
   function draw(){const p=+$('toy-start').value/100,g=+$('toy-g').value,a=M.toy(p,g);$('toy-start-label').textContent=fmt(p);$('toy-g-label').textContent=g;$('toy-any').textContent=fmt(a,2);$('toy-mean').textContent=fmt(p,2);let s=`<title>${fmt(a,2)} with any ancestry from the starting group after ${g} generations; mean contribution ${fmt(p,2)}</title>`;const n=Math.round(a*1000);for(let i=0;i<1000;i++){const x=(i%50)*12.5+9,y=Math.floor(i/50)*9.8+5;s+=`<rect x="${x}" y="${y}" width="8.5" height="6" rx="1" fill="${i<n?A:'#e6e7e4'}"/>`;}if(!$('toy-dots').querySelector('rect'))$('toy-dots').innerHTML=s;else{$('toy-dots').querySelector('title').textContent=`${fmt(a,2)} with any ancestry after ${g} generations; mean contribution ${fmt(p,2)}`;$('toy-dots').querySelectorAll('rect').forEach((rect,i)=>{rect.style.transitionDelay=reduced.matches?'0ms':`${(i%50)*5}ms`;rect.setAttribute('fill',i<n?A:'#e6e7e4');});}$('toy-steps').innerHTML=Array.from({length:7},(_,i)=>`<span>cohort ${i}<b>${fmt(M.toy(p,i),1)}</b></span>`).join('');}
   function stop(){playing=false;clearTimeout(timer);$('toy-play').textContent='play generations';}
@@ -668,6 +789,6 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
  }
  scaffold();document.querySelectorAll('.table-scroll').forEach(el=>{el.tabIndex=0;el.setAttribute('role','region');if(!el.hasAttribute('aria-label'))el.setAttribute('aria-label',el.id==='cohort-table'?'full cohort results':'model assumptions or results table');});loadHash();renderControls();bind();result=M.simulate(params);render();toyInit();
  // Deliberate development surface for browser smoke tests and local agent audits.
- window.AncestryDemo={getState:()=>({parameters:M.clone(params),result:M.clone(result),selected,sensitivity:M.clone(sensitivity)}),setScenario:p=>{M.validate(p);params=M.clone(p);renderControls();rerun();markCustom();}};
+ window.AncestryDemo={getState:()=>({parameters:M.clone(params),result:M.clone(result),selected,sensitivity:M.clone(sensitivity)}),setScenario:p=>{M.validate(p);params=M.clone(p);renderControls();rerun();}};
 })();
 </script></body></html>

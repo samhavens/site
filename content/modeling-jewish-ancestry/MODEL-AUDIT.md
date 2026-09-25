@@ -34,3 +34,9 @@ v3 improved the single-Jewish-group model by separating five identity groups and
 The model is sex-symmetric, non-overlapping, and age-free. Survey fertility for adult respondents is not automatically statistical-pair fertility. Branch labels, especially the future Haredi/modern split, do not determine immutable behavior. Inputs may evolve over time; one optional fertility-convergence rule does not resolve that uncertainty. The D/N clustering coefficient is a proxy, not a geographic mating network. Conversion, reaffiliation outside mixed families, mortality, and migration-by-origin are absent.
 
 The matched-control comparison is a mechanism experiment. With constant subgroup inputs, later differences arise from subgroup composition and the identity/partner structure it induces. With fertility convergence enabled, differences also include that imposed within-group rate change. Neither comparison is a causal estimate from observed demographic data.
+
+## September 2026 clarity revision
+
+The page now starts in 2013 at generation zero. `setup.js` contains the survey-linked reference, separately versioned from the unchanged engine and fixtures. The old 2020-inspired engine defaults are retained only for reproducibility and previously saved scenarios. Source denominators, proxy mappings, unknown pre-existing ancestry and future-rule assumptions are visible in the setup and source ledger.
+
+The parent/child animation is removed. Starting year, generation interval, initial identity, additional outside ancestry, denomination mix and fertility are visible before the results. Comparison with frozen starting averages is optional. A custom date retains the entered population and visibly states that historical data has not been loaded. Whole-step clock semantics and the exact first-step match are preserved. CSV now includes illustrative years and clock assumptions; JSON includes setup version and references.

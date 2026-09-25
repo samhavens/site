@@ -1,35 +1,33 @@
 # Blog draft verification
 
-Verified locally on September 24, 2026 (America/Los_Angeles).
+Verified locally on September 24, 2026 (America/Los_Angeles). The blog and essay remain drafts with `noindex` metadata. This revision updates the private Tailscale preview; it does not publish to samuelhavens.com.
 
-The new routes are `/blog/` and `/blog/modeling-jewish-ancestry/`. They remain local drafts, with `noindex` metadata. No push or deployment was performed.
+## Current revision
 
-## Numerical consistency
+- Begin explicitly in 2013 at generation zero.
+- Load a survey-linked starting population from `setup.js` 1.0.0. Show the source denominators, mappings and assumptions; distinguish unknown older ancestry from zero ancestry counted in this run.
+- Put starting year, generation interval, initial Jewish identity, outside ancestry, denomination mix and fertility together before the results.
+- Remove the parent/child samples, associated filters, explanation and unused presentation code.
+- Use a simple timeline with years on charts, results tables, state links and exports. Make the frozen-average comparison optional.
+- Shorten the article, move the random-pairing illustration into expandable detail, and retain a no-JavaScript reading path.
+- Preserve old saved v4 scenarios and the separate full parameter editor.
 
-`npm test`: 76 tests passed. The engine, Python reference, numerical tests, and parity fixtures are byte-for-byte identical to the recovered revised draft. Coverage includes 50 Python-reference comparisons, pairing conservation, exact first-generation control matching, limiting cases, ancestry persistence, and seeded sampling. These checks establish implementation consistency, not demographic validity.
+## Numerical checks
 
-## Browser integration
+`npm test`: **80 tests passed**. The v4 engine, Python reference and numerical parity fixtures are unchanged. The four new setup tests cover the coherent 2013 reference, normalized cohort states, first-step equality with the frozen control, custom-input identification, and date/interval invariance of reproductive states. Correct implementation is not demographic validation.
 
-`npm run test:browser`: 72 checks passed across Playwright Chromium, Firefox, and WebKit; no browser runs failed. The tests used the real local HTTP routes and actual filesystem downloads, not injected HTML or intercepted export blobs.
+## Browser checks
 
-Checked navigation from the homepage through the blog index, default and alternate scenario outputs, subgroup edits, rejection of invalid imports, sensitivity bands, footnote navigation retaining sensitivity results, JSON/CSV downloads, saved-state URL reloads, visible errors for malformed state links, play/pause, keyboard scrubbing, mobile widths of 390 and 320 CSS pixels, reduced motion, text alternatives, no-JavaScript reading, and opening the self-contained HTML from disk without network dependencies.
+`BLOG_TEST_URL=http://127.0.0.1:8786 npm run test:browser`: **138 checks passed**, across Chromium, Firefox and WebKit; no failed browser runs or JavaScript errors.
 
-The desktop and mobile opening/model screenshots were visually inspected. Screenshot artifacts and the per-check record are in ignored `artifacts/blog/`. Local links and HTML ID uniqueness passed. `git diff --check` passed.
+Checks use actual HTTP navigation, user-facing form inputs and real file downloads. Coverage includes visible historical setup, timeline stepping and play/pause, editable initial ancestry and identity, mix balancing, invalid-input recovery, fertility effects, optional comparison, convergence labeling, imported unequal non-Jewish fertility, sensitivity, ordinary anchor navigation, saved links across reloads, compatibility with previous links, JSON/CSV dates and source metadata, keyboard operation, 390/320-pixel layouts, non-overlapping year labels, reduced motion, no-JavaScript reading and offline execution.
 
-WebKit automation is not a physical iPhone or Safari application test. Formal screen-reader conformance has not been certified. Live-domain integration remains a post-publication check.
+The desktop opening/setup/results and mobile setup/results screenshots were visually inspected. Artifacts and the full per-check record are in ignored `artifacts/blog/`. WebKit automation is not a physical iPhone test or formal screen-reader certification.
 
-## Source checks and scope
+## Build and source review
 
-The cited Pew pages and Ralph–Coop paper were retrieved during integration. Pew's branch marriage percentages, age-specific fertility figures, and adult population definition were checked against the published text. Dated survey observations remain separate from the model's forward assumptions. The unvalidated 8% initial ancestry setting remains labeled as an input, and the article reports successive descendant cohorts rather than an all-age national forecast.
+Local links and unique HTML IDs checked. Generated model, setup, UI, styles, methods and source notes match their canonical files. Rebuilding reproduces the same bytes, including the source archive. The source archive contains the new setup module and its tests. `git diff --check` passed.
 
-## Integration corrections
+Pew's 2013 population, denomination, intermarriage and fertility references, plus the 2015 Orthodox analysis of the 2013 survey, were retrieved and checked. Haredi composition is derived; separate Haredi fertility is not supplied by the chosen reference. Unknown historical ancestry, proxy rates and future-rule assumptions remain labeled.
 
-- Use the personal site's system-font design and Sam Havens byline.
-- Preserve the revised plain explanatory prose.
-- Start the main model at cohort 4; make secondary scenarios and detailed controls expandable.
-- Animate the simple model's changing ancestry area without replacing every SVG element.
-- Keep table scrolling keyboard accessible and saved-state errors visible.
-- Ignore ordinary article anchors in the simulator's state loader so footnotes do not discard a completed sensitivity run.
-- Compute static tables and all generated companions from the canonical source.
-
-The local source archive contains the model, interface, assumptions, numerical tests, reference fixtures, and the portable HTML. The site's build instructions are in README.md.
+Fresh Eyes review caught a number-input step mismatch, crowded selected-year labels on long mobile timelines, and incomplete explanations for fertility convergence and imported unequal non-Jewish fertility. These were corrected and covered by browser checks.

@@ -72,37 +72,39 @@ def build_post(post):
     dest = BLOG / slug
     dest.mkdir(parents=True, exist_ok=True)
     # The article's example table comes from the same engine as its controls.
-    program = 'const M=require(process.argv[1]); console.log(JSON.stringify(M.simulate(M.defaults())))'
-    result = json.loads(subprocess.check_output(['node', '-e', program, str(source / 'model.js')], text=True))
-    columns = [('generation', 'generation'), ('identity', 'jewish identity'), ('connection', 'roots + descendants'), ('harediShare', 'haredi share of jews'), ('aggregateIntermarriage', 'intermarriage among jews')]
-    rows = [[str(r[k]) if k == 'generation' else f'{100*r[k]:.1f}%' for k, _ in columns] for r in result['rows'][:5]]
-    md_table = '| ' + ' | '.join(label for _, label in columns) + ' |\n|---|---:|---:|---:|---:|\n' + '\n'.join('| ' + ' | '.join(row) + ' |' for row in rows)
-    table = '<div class="table-scroll static-results" role="region" aria-label="default model results" tabindex="0"><table><caption>default assumptions; successive descendant cohorts</caption><thead><tr>' + ''.join(f'<th>{label}</th>' for _, label in columns) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
+    program = 'const M=require(process.argv[1]); const S=require(process.argv[2]); console.log(JSON.stringify(M.simulate(S.historical())))'
+    result = json.loads(subprocess.check_output(['node', '-e', program, str(source / 'model.js'), str(source / 'setup.js')], text=True))
+    columns = [('illustrativeYear', 'year'), ('generation', 'generation'), ('identity', 'jewish identity'), ('connection', 'roots + descendants'), ('harediShare', 'haredi share of jews'), ('aggregateIntermarriage', 'intermarriage among jews')]
+    rows = [[str(r[k]) if k in ('generation', 'illustrativeYear') else f'{100*r[k]:.1f}%' for k, _ in columns] for r in result['rows'][:5]]
+    md_table = '| ' + ' | '.join(label for _, label in columns) + ' |\n|' + '|'.join('---:' for _ in columns) + '|\n' + '\n'.join('| ' + ' | '.join(row) + ' |' for row in rows)
+    table = '<div class="table-scroll static-results" role="region" aria-label="default model results" tabindex="0"><table><caption>2013 reference inputs; successive generations</caption><thead><tr>' + ''.join(f'<th>{label}</th>' for _, label in columns) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
     manuscript = (source / 'index.md').read_text()
     if '<!-- DEFAULT-TABLE -->' not in manuscript:
         raise ValueError('The manuscript must retain its computed table marker')
-    article = render_markdown(manuscript).replace('<!-- DEFAULT-TABLE -->', table)
+    example = result['rows'][4]
+    summary = f"under the 2013 reference assumptions, generation four ({example['illustrativeYear']}) is {100*example['identity']:.1f}% jewish-identifying and {100*example['connection']:.1f}% roots + descendants. these are conditional model outputs for that generation."
+    article = render_markdown(manuscript.replace('<!-- DEFAULT-SUMMARY -->', summary)).replace('<!-- DEFAULT-TABLE -->', table)
     article = re.sub(r'^<h1>.*?</h1>\s*', '', article, count=1)
     label = 'draft for review' if draft else date.fromisoformat(post['published']).strftime('%B %-d, %Y')
-    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · interactive essay</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="on this page"><a href="#a-simple-model">simple model</a><a href="#try-it">subgroup model</a><a href="#limits">limits</a><a href="#sources-and-code">sources + code</a></nav></div>
+    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · interactive essay</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="on this page"><a href="#start-in-the-past">interactive model</a><a href="#why-separate-the-denominations">why subgroups?</a><a href="#limits">limits</a><a href="#sources-and-code">sources + code</a></nav></div>
 <noscript><p class="no-js">javascript is off. the essay, equations, sources, and default results remain readable; the interactive controls need javascript.</p></noscript>
 {article}</main><footer class="site-footer">Sam Havens · <a href="/blog/">all posts</a> · model 4.0.0 · calculations run in your browser</footer>'''
-    script = '<script src="model.js" defer></script><script src="app.js" defer></script>'
+    script = '<script src="model.js" defer></script><script src="setup.js" defer></script><script src="app.js" defer></script>'
     page = document(post['title'], post['description'], body, f'/blog/{slug}/', draft,
         scripts=script, extra_head='<link rel="stylesheet" href="styles.css">')
     write(dest / 'index.html', page)
-    write(dest / 'post.md', manuscript.replace('<!-- DEFAULT-TABLE -->', md_table))
-    for filename in ['model.js', 'app.js', 'styles.css', 'METHODS.md', 'SOURCES.md']:
+    write(dest / 'post.md', manuscript.replace('<!-- DEFAULT-TABLE -->', md_table).replace('<!-- DEFAULT-SUMMARY -->', summary))
+    for filename in ['model.js', 'setup.js', 'app.js', 'styles.css', 'METHODS.md', 'SOURCES.md']:
         shutil.copyfile(source / filename, dest / filename)
     write(dest / 'default-results.json', json.dumps(result, indent=2) + '\n')
     portable_body = re.sub(r'<div class="source-links">.*?</div>', '<p class="note">the model and interface code are embedded in this HTML file. the downloadable source archive on the website also contains the tests, methods, and Markdown manuscript.</p>', body)
     portable = document(post['title'], post['description'], portable_body, f'/blog/{slug}/', draft,
         inline_css=CSS + '\n' + (source / 'styles.css').read_text(),
-        scripts='<script>' + (source / 'model.js').read_text() + '</script><script>' + (source / 'app.js').read_text() + '</script>')
+        scripts='<script>' + (source / 'model.js').read_text() + '</script><script>' + (source / 'setup.js').read_text() + '</script><script>' + (source / 'app.js').read_text() + '</script>')
     portable = portable.replace('href="/"', f'href="{ORIGIN}/"').replace('href="/blog/"', f'href="{ORIGIN}/blog/"').replace('href="/resume.html"', f'href="{ORIGIN}/resume.html"')
     # Companion files come with the archive; the standalone HTML itself needs no network.
     write(dest / 'standalone.html', portable)
-    archive_files = {name: dest / name for name in ['standalone.html', 'model.js', 'app.js', 'styles.css', 'post.md', 'METHODS.md', 'SOURCES.md', 'default-results.json']}
+    archive_files = {name: dest / name for name in ['standalone.html', 'model.js', 'setup.js', 'app.js', 'styles.css', 'post.md', 'METHODS.md', 'SOURCES.md', 'default-results.json']}
     for pattern in ['tests/*.cjs', 'fixtures/*.json', 'reference/*.py']:
         archive_files.update({str(p.relative_to(source)): p for p in source.glob(pattern)})
     archive_files['index.md'] = source / 'index.md'

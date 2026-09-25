@@ -17,7 +17,7 @@ npm run build
 npm run serve
 ```
 
-The build requires Node.js and `uv`. It pins its Markdown renderer through the build script's inline dependency metadata. It computes the article's example table from the JavaScript engine and writes HTML, Markdown, an offline HTML copy, and a source archive. Do not edit generated files in `blog/` directly. The published page has no framework, analytics, CDN, or external JavaScript dependencies.
+The build requires Node.js and `uv`. It pins its Markdown renderer through the build script's inline dependency metadata. It computes the article's example table and numerical example from the JavaScript engine with the 2013 setup in `setup.js` and writes HTML, Markdown, an offline HTML copy, and a source archive. Do not edit generated files in `blog/` directly. The published page has no framework, analytics, CDN, or external JavaScript dependencies.
 
 With the local server running at `http://127.0.0.1:8765`, run the browser checks:
 
@@ -26,7 +26,9 @@ npx playwright install chromium firefox webkit
 npm run test:browser
 ```
 
-Results, real downloaded exports, and screenshots are written to ignored `artifacts/blog/`. The tests cover real navigation, model controls, sensitivity, saved scenarios, downloads, keyboard scrubbing, mobile layouts, reduced motion, reading without JavaScript, and offline execution. WebKit coverage is not a physical iPhone test.
+Results, real downloaded exports, and screenshots are written to ignored `artifacts/blog/`. The tests cover real navigation, model controls, sensitivity, saved scenarios, downloads, keyboard scrubbing, mobile layouts, reduced motion, reading without JavaScript, and offline execution. WebKit coverage is not a physical iPhone test. Set `BLOG_TEST_URL` to test another local origin.
+
+The interface begins at generation zero in 2013. Starting population, existing outside ancestry, denomination mix and fertility are visible together. `setup.js` supplies the survey-linked reference; editing the date alone does not load historical demography. The parent/child samples were removed; the timeline and optional random-pairing animation remain.
 
 GitHub Pages currently serves the repository root from `master`, with the custom domain `www.samuelhavens.com`. `.nojekyll` makes the generated HTML and companion Markdown serve as static files. Do not push the draft to `master` before Sam reviews it. Before an approved publication, set its status to `published` and supply the actual ISO publication date in `content/posts.json`, rebuild, and rerun the checks. A `noindex` tag labels this review build; it is not access control.
 

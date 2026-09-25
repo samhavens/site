@@ -17,7 +17,9 @@ The reference is the live samuelhavens.com homepage and this repository's raw HT
 - Let the reasoning and working model carry the page.
 - Preserve the site's identity rather than introducing a separate publication brand.
 - Keep assumptions and definitions near their outputs.
-- Give readers a useful first comparison and expandable detail.
+- Begin at an explicit historical starting population. Put date, generation interval, existing ancestry, denomination mix and fertility ahead of the results.
+- Make the frozen-average comparison optional. Keep secondary rules expandable.
+- Follow generations with a simple timeline; do not restore the removed parent/child sample animation.
 - Keep a readable static document with source links.
 
 ## Accessibility

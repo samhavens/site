@@ -6,7 +6,7 @@ Read `METHODS.md` and `MODEL-AUDIT.md` before changing the draft. This is a comp
 
 This is the full-prose revision requested after Sam rejected the first draft. Use informal, direct explanation, with actual assumptions and results. Avoid aphorisms, sentimental ancestry language, dramatic reveals, grand concluding statements, and forced slang. Apply this to the whole essay and interface, not only the introduction. Do not restore the older wording or infer that short sentences alone match the author. Keep necessary technical distinctions, source notes, and definitions.
 
-The current title is `modeling jewish ancestry`. `index.md` is canonical: run `npm run build` from the site root after prose edits. Numerical behavior is unchanged in this editorial revision.
+The current title is `modeling jewish ancestry`. `index.md` is canonical: run `npm run build` from the site root after prose edits. The v4 numerical engine is unchanged. The current essay uses the separate survey-linked `setup.js` (2013), while legacy `M.defaults()` values remain for old saved links. Read SOURCES.md before changing the starting setup.
 
 ## implementation contracts
 
@@ -17,7 +17,7 @@ Preserve these contracts:
 3. All numerical outputs describe successive whole cohorts. Never label them the share of all Americans alive in a future year. A common generation interval only changes the clock labels in this model.
 4. The ordered pairing matrix is symmetric and has both marginals equal to the input population. Offspring identity rows sum to one. A rooted parent's child never enters the no-connection group.
 5. The frozen-average control matches the subgroup model at the first reproductive step. Do not replace it with an arbitrary competing scenario.
-6. Animation samples must use the engine's birth-weighted distribution. A filtered sample must state its conditioning and its mass. Do not imply the 12 displayed families are an unconditioned population sample or a persistent genealogy.
+6. The parent/child sample animation was removed at Sam’s request; do not restore it. If sampling is used elsewhere, samples must use the engine's birth-weighted distribution. A filtered sample must state its conditioning and its mass. Do not imply the 12 displayed families are an unconditioned population sample or a persistent genealogy.
 7. Sensitivity bands are quantiles over stated input distributions, not forecast confidence intervals. Export the model version and assumptions with numerical results.
 8. Keep a no-JavaScript reading path, visible input labels, text alternatives for animation, reduced-motion support, and a locally scrollable subgroup table on small screens.
 9. Run `npm test` after model changes and `npm run build` after source changes. Regenerate parity fixtures only as a separately explained reference-model change, never just to make a failing test pass.

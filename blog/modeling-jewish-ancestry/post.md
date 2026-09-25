@@ -1,137 +1,101 @@
 # modeling jewish ancestry
 
-I was wondering how many americans have at least one jewish ancestor. the percentage who identify as jewish doesn't answer that, since ancestry keeps passing down after a family stops identifying as jewish.
+start in 2013. Pew estimated that 2.2% of american adults identified as jewish, including secular and cultural jews.[^population] take a population with that starting share and follow its descendants, one generation at a time.
 
-I tried a simple model, but using one fertility rate and one intermarriage rate for all jews seemed questionable. those rates differ between subgroups, which means the population averages should change as the proportions of those groups change. so I added subgroups. below you can change the assumptions and see how much they matter.
+I wanted to know how many americans have at least one jewish ancestor. a child inherits ancestry from either parent, even if they grow up with a different identity. meanwhile, differences in fertility and marriage patterns change the composition of the jewish population itself. this model follows both processes.
 
-## a simple model
+## start in the past
 
-start with a population where 2% have the ancestry we're tracking. assume random pairing, equal expected fertility, and no immigration.
+the starting denomination mix and available fertility references come from the 2013 survey. some inputs remain assumptions, identified under the setup.[^denominations][^fertility][^orthodox] edit the starting values, then follow the timeline. this is a conditional experiment, not yet a historical estimate of today's ancestry.
 
-a child has that ancestry if either parent does. if the current share is `a`, the next generation's share is:
+<div id="sim-widget" class="interactive wide"><p>enable javascript to change the model. the 2013 reference results remain available below.</p></div>
+
+the broader count, “jewish roots + descendants,” includes the starting jewish population, jewish arrivals, and their descendants. a convert can be a starting root without already having a jewish ancestor. secular people who identify as jewish belong in the jewish groups. this doesn't measure dna or determine halakhic status.
+
+<details class="methods"><summary>2013 reference results, without javascript</summary>
+
+this table always uses the reference inputs. the live results above respond to your edits.
+
+| year | generation | jewish identity | roots + descendants | haredi share of jews | intermarriage among jews |
+|---:|---:|---:|---:|---:|---:|
+| 2013 | 0 | 2.2% | 2.2% | 6.2% | 48.1% |
+| 2040 | 1 | 2.0% | 2.7% | 11.2% | 47.7% |
+| 2067 | 2 | 2.0% | 3.6% | 18.0% | 43.7% |
+| 2094 | 3 | 2.1% | 5.1% | 25.9% | 38.2% |
+| 2121 | 4 | 2.4% | 7.3% | 34.0% | 32.5% |
+
+</details>
+
+## why separate the denominations?
+
+fertility and intermarriage differ between groups. if a higher-fertility group becomes a larger share of the next generation, average fertility rises even when every group's own rate stays fixed. if that group also has lower intermarriage, average intermarriage falls.
+
+the model separates haredi, other orthodox, conservative, reform, and other/unaffiliated jews. haredi and other orthodox partition orthodoxy. each group has its own fertility and pairing rules; children can move between groups. the two non-jewish groups distinguish descendants from people without a connection counted in this run.
+
+turn on **compare with frozen starting averages** to see why the distinction matters. the dashed comparison combines all jews into one group and holds its initial average rates fixed. both versions produce the same first generation. after that, only the detailed version responds to changes in the denomination mix.
+
+under the 2013 reference assumptions, generation four (2121) is 2.4% jewish-identifying and 7.3% roots + descendants. these are conditional model outputs for that generation.
+
+## what to change
+
+**existing ancestry.** the default starts counting in 2013, with zero ancestry outside jewish identity. that omits earlier descent; it doesn't estimate it at zero. to assume an 8% total starting share, set ancestry outside identity to 5.8% alongside the 2.2% jewish share. an earlier draft used 8%, but that number was never established as an american ancestry estimate.
+
+**fertility.** increase haredi fertility, or lower another group's, and watch its share of jewish identity change. the reference applies the published orthodox average to both orthodox groups because it doesn't supply separate completed-fertility rates. you can enter a different split directly.
+
+**time.** the default interval is 27 years: 2013, 2040, 2067, and so on. 25 years gives 2013, 2038, 2063. the states at generation 1, 2, and 3 stay the same; this model has whole generations rather than overlapping ages. a custom start year also needs suitable starting inputs. the page doesn't silently invent them.
+
+**identity and pairing.** open the additional rules to change intermarriage or the fraction of children staying in their parents' group. leaving orthodoxy need not mean leaving jewish identity. even if all new jewish intermarriage stopped, descendants already outside jewish identity would continue passing ancestry to their children.
+
+<details class="methods" id="a-simple-model"><summary>the simplest case: random pairing</summary>
+
+with equal fertility, random pairing and no arrivals, let `a` be the share with ancestry. the probability that neither parent has it is `(1 − a)²`, so:
 
 <div class="equation">a′ = 1 − (1 − a)²</div>
 
-starting at 2%, this gives roughly 4%, 8%, 15%, 28%, and 48% over the next five generations. after six generations it's about 73%.
+starting at 2%, the ancestry share reaches about 48% after five generations. the average fractional contribution from the starting group remains 2%. having *any* ancestry and the average *amount* of ancestry are different quantities.
 
-<div id="toy-widget" class="interactive"><p>the random-pairing example requires javascript. the equation above gives the same results.</p></div>
+<div id="toy-widget" class="interactive"><p>the equation above provides the same calculation without javascript.</p></div>
 
-the mean fractional contribution from the starting group stays at 2% in this model. more people have some ancestry from that group, but the average contribution across the population hasn't increased. the fraction of people with any ancestry and the average amount of ancestry are different quantities.
+this example shows the inheritance rule alone. it doesn't include the subgroup model's fertility differences, identity changes, pairing restrictions, or arrivals.
 
-random pairing is a poor assumption for the actual population. in pew's 2020 survey, 2% of married orthodox respondents had a non-jewish spouse, compared with 25% of conservative respondents, 42% of reform respondents, and 68% of respondents with no branch affiliation.[^marriage] those differences matter for how quickly ancestry spreads.
-
-## adding subgroups
-
-I split the jewish-identifying population into haredi, modern/other non-haredi orthodox, conservative, reform, and other/unaffiliated jewish. the two orthodox groups are separate categories; haredim aren't counted twice.
-
-each group has its own fertility, intermarriage, and identity-transmission rates. children can end up in a different jewish subgroup or stop identifying as jewish. leaving orthodoxy doesn't necessarily mean leaving jewish identity, and children of intermarriages can identify as jewish.
-
-there are also two non-jewish-identifying groups: descendants of jews and people with no ancestry counted by the model. secular people who identify as jewish belong in the jewish groups. pew likewise includes both jews by religion and jews of no religion in its jewish population.[^size]
-
-identity is a probabilistic transition. ancestry passes down from either parent. once someone leaves jewish identity, their descendants stay in the ancestry count, even across further generations of non-jewish marriages.
-
-the charts use “roots + descendants” for that broader count. it includes the starting jews themselves and jewish arrivals, as well as their descendants. a convert can be a starting root without already having a jewish ancestor. “no modeled connection” means no connection within this counting horizon; it doesn't establish that someone's entire family tree lacks jewish ancestors. the model doesn't determine halakhic status or measure dna.
-
-## why the averages change
-
-fertility differs too. pew's 2013 survey found an average of 4.1 children among orthodox respondents aged 40–59, compared with 1.8 among conservative respondents and 1.7 among reform respondents.[^fertility]
-
-suppose the higher-fertility groups become a larger share of the next generation. the population's average fertility then rises. if those same groups have lower intermarriage rates, average intermarriage falls. both can happen while every subgroup's rates stay fixed.
-
-to see how much this matters, I compare the subgroup model with a three-group version that combines all jewish-identifying people. its aggregate rates are calculated from the starting population and then held fixed. the two versions produce exactly the same first generation. after that, the subgroup model's averages can change as its composition changes.
-
-the solid lines show the subgroup model; the dashed lines show the fixed-average comparison.
-
-## try it
-
-the default starts with a hypothetical cohort that's 2.4% jewish-identifying, using pew's 2020 adult estimate as a starting reference.[^size] it counts descendants from that point forward, starting with zero descendants outside jewish identity. that's a choice of where to start counting.
-
-there's also an 8% starting-ancestry preset. I used that number in an earlier version, but it hasn't been established as an estimate of american ancestry. here it's an input to vary.
-
-<div id="sim-widget" class="interactive wide"><p>enable javascript to run the subgroup model. the default results are also shown in the table below.</p></div>
-
-the table below always shows the original default assumptions; changing the controls above doesn't change it:
-
-| generation | jewish identity | roots + descendants | haredi share of jews | intermarriage among jews |
-|---|---:|---:|---:|---:|
-| 0 | 2.4% | 2.4% | 6.0% | 61.4% |
-| 1 | 2.4% | 3.4% | 13.7% | 58.5% |
-| 2 | 2.7% | 5.1% | 26.9% | 49.3% |
-| 3 | 3.5% | 7.9% | 44.2% | 36.5% |
-| 4 | 5.4% | 12.4% | 60.6% | 24.3% |
-
-the haredi share of jews goes from 6% to about 61% over four generations. aggregate intermarriage falls from about 61% to 24%, although the subgroup intermarriage rates haven't changed. the jewish-identifying share grows from 2.4% to 5.4%; roots plus descendants grow from 2.4% to 12.4%.
-
-these are successive descendant cohorts, not the population alive in a particular future year. changing “years per generation” changes the illustrative dates; it doesn't change the number of reproductive steps. the model has no age structure.
-
-## changing the assumptions
-
-switch to **“start with 8% roots + descendants.”** the broader share at generation four rises from 12.4% to 31.9%. jewish identity stays at about 5.4%.
-
-that's because the two non-jewish groups have equal fertility and are treated the same when paired with a jewish parent. moving people between those groups changes the amount of pre-existing ancestry without changing the mechanism for jewish identity.
-
-the **“no new intermarriage; start at 8%”** preset sets every jewish subgroup's intermarriage rate to zero. existing descendants outside jewish identity still have children, and their ancestry continues spreading through their own marriages. stopping new intermarriage among jews doesn't stop that process.
-
-**“shrinking orthodox fertility gap”** lets the fertility advantages of the two orthodox groups halve over three reproductive steps. this reduces their subsequent growth. holding a fertility difference constant for several generations is a substantial assumption, so it's worth comparing.
-
-you can also change how many children stay in their parents' group and where the others end up. pew's switching tables show substantial movement between jewish denominations, but they describe respondents' upbringing and current affiliation. they don't directly measure the future child-to-adult transitions the model needs.[^switching]
-
-## the animation
-
-each example shows parents and a child sampled from the same birth-weighted distribution used to calculate the charts. the fill shows identity; the ring marks a jewish root or descendant. a child can have a different identity from their parents and still inherit the ancestry flag.
-
-the filters select mixed-parent families, non-jewish families with ancestry, or two haredi parents. the label reports what fraction of the next cohort the selected filter represents. the twelve displayed examples are conditional samples, not a representative population or a persistent family tree. arrivals are shown separately because their parents aren't modeled.
+</details>
 
 ## limits
 
-many of the inputs remain assumptions: fertility within orthodoxy, future identity transitions, clustering among descendants, and arrivals. the survey figures above are useful reference points, but don't directly supply those parameters. for example, the marriage figures describe intact marriages at survey time, and the fertility figures describe respondents in a particular age range.[^marriage][^fertility]
+the historical reference is a starting point, not a fitted reconstruction. Pew's population and denomination estimates describe adults of all ages. its fertility references here describe respondents aged 40–59, and its marriage figures describe intact marriages. applying them to a reproductive cohort requires assumptions.[^population][^fertility]
 
-the arrivals control specifies a share of each new cohort. it isn't an annual immigration rate or the fraction of the current population born abroad. arrival composition, including older ancestry among non-jewish arrivals, is specified separately.
+older ancestry outside jewish identity is not measured by these inputs. neither are future identity transitions, the other-jewish fertility setting, clustering among descendants, or arrivals. the arrivals control adds a share of each new generation; it isn't an annual immigration rate. the full source notes distinguish observations, proxies, and assumptions.
 
-the sensitivity button varies inputs over stated ranges. its middle 90% contains 90% of the sampled scenarios, not a 90% probability interval for the future. it isn't fitting a model to observations. increasing the draw count tests the chosen ranges more thoroughly without improving their empirical basis.
+the sensitivity controls vary those assumptions. the middle 90% of sampled outcomes contains 90% of the selected scenarios, not a 90% probability interval for the future. more samples don't make the chosen ranges better supported.
 
-an actual calendar-year forecast would need ages at childbearing, mortality, and the current age distribution within each group. pew's 2020 overview reports that 17% of jewish adults aged 18–29 were orthodox, compared with 9% of jewish adults overall.[^overview] starting every group from an all-adult average misses that difference.
+estimating all americans alive in a particular year would require age structure, mortality and historical migration, along with the initial ancestry we're missing. detectable dna is another question: a genealogical ancestor can leave no surviving genetic material.[^genealogy]
 
-estimating today's ancestry would also require a historical model, including ancestry that non-jewish immigrants already had before arriving. this model doesn't reconstruct that. it also doesn't estimate detectable dna: genealogical ancestors can leave no surviving genetic material. ralph and coop discuss that distinction and the relevance of geography and population structure, without providing a jewish-specific american ancestry estimate.[^genealogy]
-
-## what this shows
-
-under the default assumptions, jewish identity grows, orthodox groups become a larger share of it, and descendants outside jewish identity grow too. those results are compatible because they describe different populations. higher fertility and lower intermarriage within some jewish groups don't stop ancestry from spreading among people whose families stopped identifying as jewish earlier.
-
-the sizes depend on the inputs. I still don't have a well-supported estimate of how many americans have a jewish ancestor. the subgroup comparison does show why keeping aggregate fertility and intermarriage fixed can produce different results from keeping each subgroup's rates fixed.
+I still don't have a defensible estimate of how many americans have a jewish ancestor. this model does make it easier to see which assumptions drive the answer, and why fixed population averages can miss what happens as groups grow at different rates.
 
 <details class="methods"><summary>update equations and implementation details</summary>
 
-let `xᵢ` be a group's share in the parent cohort. the model constructs a symmetric ordered-pair matrix `Pᵢⱼ` whose row and column sums equal `x`. `Fᵢⱼ` gives expected offspring per statistical pairing. `Tᵢⱼₖ` gives the probability that a child of that pairing belongs to group `k` in the next adult cohort. each transition row sums to one.
+let `xᵢ` be a group's share in the parent generation. the model constructs a symmetric ordered-pair matrix `Pᵢⱼ` with both marginals equal to `x`. `Fᵢⱼ` gives expected offspring per statistical pairing; `Tᵢⱼₖ` gives the probability of adult offspring identity `k`. each transition row sums to one.
 
 <div class="equation">bₖ = Σᵢⱼ Pᵢⱼ Fᵢⱼ Tᵢⱼₖ<br>x′ₖ = (1 − u) bₖ / Σₗ bₗ + u vₖ</div>
 
-`u` is the arrival share of the next cohort; `v` is the arrivals' group composition. counting both parent orders introduces the same factor of two in every birth term, which cancels when normalizing.
+`u` is the arrival share; `v` is arrival composition. counting both parent orders introduces a factor that cancels when normalizing. cross-group fertility uses a geometric mean, with an additional multiplier for jewish/non-jewish pairs. partner demand is capped by supply.
 
-same-group fertility inputs average childlessness into statistical pairing units. between-group fertility uses the geometric mean of the two groups' inputs, with a multiplier for jewish/non-jewish pairings. these are modeling conventions rather than directly measured pair-specific fertility rates.
-
-within the jewish partner pool, each group reserves a fraction of its available members for same-subgroup pairing. the rest pair randomly within that pool. the remaining non-jewish population uses a mixture of random and same-ancestry pairing. the clustering setting approximates social and geographic structure; it doesn't assume people know their distant ancestry when choosing partners.
-
-partner demand is capped by supply. the full transition matrix is editable through the json settings. changing a same-group retention slider preserves the relative destinations among people who leave that group.
-
-children retain their parents' ancestry flag. the ancestry share of the population can nevertheless fall if other groups have more children or arrivals increase the denominator.
+subgroup reservation and ancestry clustering approximate structured pairing. they don't assume people know their remote ancestry. identity-transition rows are editable in json; changing retention preserves the relative destinations among people who leave a group. children keep inherited ancestry, though its population share can fall under differential fertility or arrivals.
 
 </details>
 
 ## sources and code
 
-this exploratory model was developed with an ai assistant. the javascript is checked against the python subgroup model, conservation checks, and simple mathematical cases. those tests check implementation consistency. demographic validation would require additional work. the source bundle includes the code, tests, and assumptions.
+this exploratory model was developed with an ai assistant. its javascript is checked against a python reference, conservation rules and simple mathematical cases. those checks establish implementation consistency, not demographic validity.
 
-<div class="source-links"><a href="source.zip" download>download source + tests</a><a href="standalone.html" download>offline interactive essay</a><a href="post.md">markdown</a><a href="model.js">javascript model</a><a href="METHODS.md">methods</a></div>
+<div class="source-links"><a href="source.zip" download>source + tests</a><a href="standalone.html" download>offline interactive essay</a><a href="post.md">markdown</a><a href="model.js">model</a><a href="METHODS.md">methods</a><a href="SOURCES.md">source notes</a></div>
 
-[^size]: pew research center, [the size of the u.s. jewish population](https://www.pewresearch.org/religion/2021/05/11/the-size-of-the-u-s-jewish-population/), may 11, 2021; survey conducted in 2019–2020. the 2.4% figure concerns adults under pew's definition.
+[^population]: Pew Research Center, [population estimates](https://www.pewresearch.org/religion/2013/10/01/chapter-1-population-estimates/), october 1, 2013. the 2.2% estimate includes jews by religion and jews of no religion under Pew's definition; it is not a census of ancestry.
 
-[^marriage]: pew research center, [marriage, families and children](https://www.pewresearch.org/religion/2021/05/11/marriage-families-and-children/), may 11, 2021. the branch-specific intermarriage figures concern individuals in intact marriages at survey time.
+[^denominations]: Pew Research Center, [a portrait of jewish americans](https://www.pewresearch.org/religion/2013/10/01/jewish-american-beliefs-attitudes-culture-survey/), october 1, 2013. reported adult denomination shares are survey estimates, with sampling uncertainty. the remaining share is combined as other/unaffiliated here.
 
-[^fertility]: pew research center, [intermarriage and other demographics](https://www.pewresearch.org/religion/2013/10/01/chapter-2-intermarriage-and-other-demographics/), october 1, 2013, “fertility.” the 4.1, 1.8, and 1.7 figures use respondents aged 40–59. pew's [2020 demographic chapter](https://www.pewresearch.org/religion/2021/05/11/jewish-demographics/) also reports fertility measures with different age definitions.
+[^fertility]: Pew Research Center, [intermarriage and other demographics](https://www.pewresearch.org/religion/2013/10/01/chapter-2-intermarriage-and-other-demographics/), october 1, 2013. fertility references are reported children for respondents aged 40–59; marriage percentages concern currently married respondents.
 
-[^switching]: jacob ausubel, gregory a. smith, and alan cooperman, [denominational switching among u.s. jews](https://www.pewresearch.org/short-reads/2021/06/22/denominational-switching-among-u-s-jews-reform-judaism-has-gained-conservative-judaism-has-lost/), june 22, 2021. retrospective self-reported upbringing and current affiliation.
+[^orthodox]: Pew Research Center, [a portrait of american orthodox jews](https://www.pewresearch.org/religion/2015/08/26/a-portrait-of-american-orthodox-jews/), august 26, 2015, reanalyzing the 2013 survey. 62% of the 10% orthodox share yields a derived 6.2% haredi share; the other orthodox category includes the rest. this arithmetic does not imply decimal-level measurement precision.
 
-[^overview]: pew research center, [jewish americans in 2020](https://www.pewresearch.org/religion/2021/05/11/jewish-americans-in-2020/), may 11, 2021.
-
-[^genealogy]: peter ralph and graham coop, [the geography of recent genetic ancestry across europe](https://doi.org/10.1371/journal.pbio.1001555), *plos biology*, 2013.
+[^genealogy]: peter ralph and graham coop, [the geography of recent genetic ancestry across europe](https://doi.org/10.1371/journal.pbio.1001555), *plos biology*, 2013. not an estimate of jewish ancestry among americans.
