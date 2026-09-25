@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Modeling Jewish Ancestry · Sam Havens</title><meta name="description" content="Could 8% of Americans have some Jewish ancestry? Historical simulations from 1877–1927 to the present, with visible assumptions and scenario filtering.">
+<title>Modeling Jewish Ancestry · Sam Havens</title><meta name="description" content="Could 8% of Americans have some Jewish ancestry? A historical model to the present, then a separate projection with denominations and fertility.">
 <meta name="author" content="Sam Havens"><link rel="canonical" href="https://www.samuelhavens.com/blog/modeling-jewish-ancestry/">
-<meta property="og:type" content="article"><meta property="og:title" content="Modeling Jewish Ancestry"><meta property="og:description" content="Could 8% of Americans have some Jewish ancestry? Historical simulations from 1877–1927 to the present, with visible assumptions and scenario filtering."><meta property="og:url" content="https://www.samuelhavens.com/blog/modeling-jewish-ancestry/">
+<meta property="og:type" content="article"><meta property="og:title" content="Modeling Jewish Ancestry"><meta property="og:description" content="Could 8% of Americans have some Jewish ancestry? A historical model to the present, then a separate projection with denominations and fertility."><meta property="og:url" content="https://www.samuelhavens.com/blog/modeling-jewish-ancestry/">
 <style>:root {
   color-scheme: light;
   --paper: oklch(99.7% 0.002 250);
@@ -72,8 +72,8 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
 .wide { width: min(980px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); }
 .interactive { font: 14px/1.5 system-ui, sans-serif; border: 1px solid var(--rule); margin: 28px 0; background: var(--paper); }
 .interactive p { margin: 10px 0; }
-.interactive h2 { font-size: 23px; margin: 0 0 8px; }
 .interactive h3 { font-size: 17px; line-height: 1.35; margin: 22px 0 12px; }
+.interactive .widget-head h3 { font-size: 23px; margin: 0 0 8px; }
 .widget-head { padding: 24px 28px 8px; }
 .section { padding: 20px 28px; border-top: 1px solid var(--rule); }
 .setup-section { border-top: 0; padding-top: 12px; }
@@ -242,47 +242,56 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
  .section { padding: 12px 0; }
  .toy-dots { max-height: 160px; }
 }
-</style></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><a class="name" href="https://www.samuelhavens.com/">Sam Havens</a><nav aria-label="Main navigation"><a href="https://www.samuelhavens.com/blog/">Blog</a><a href="https://www.samuelhavens.com/resume.html">Resume</a></nav></header><main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">Sam Havens · September 24, 2026 · Updated September 25, 2026</p><h1>Modeling Jewish Ancestry</h1><nav class="contents" aria-label="On this page"><a href="#start-in-the-past-finish-in-the-present">Interactive model</a><a href="#which-scenarios-survived">The screen</a><a href="#what-the-model-leaves-uncertain">Limits</a><a href="#sources-and-code">Sources + code</a></nav></div>
+</style></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><a class="name" href="https://www.samuelhavens.com/">Sam Havens</a><nav aria-label="Main navigation"><a href="https://www.samuelhavens.com/blog/">Blog</a><a href="https://www.samuelhavens.com/resume.html">Resume</a></nav></header><main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">Sam Havens · September 24, 2026 · Updated September 25, 2026</p><h1>Modeling Jewish Ancestry</h1><nav class="contents" aria-label="On this page"><a href="#historical-to-present">Historical to present</a><a href="#projection">Projection</a><a href="#sources-and-code">Sources + code</a></nav></div>
 <noscript><p class="no-js">JavaScript is off. The essay, equations, sources, and default results remain readable; the interactive controls need JavaScript.</p></noscript>
 <p>Someone told me they'd heard that 8% of Americans had some Jewish ancestry. They thought that had to be wrong, so I tried modeling it.</p>
 <p>That is a different question from how many Americans identify as Jewish. A child can inherit ancestry from a Jewish parent without growing up Jewish. Their children can inherit it too. Over several generations, the population with some ancestry can become much larger than the population that identifies as Jewish.</p>
-<p>I started about a century ago and worked forward. Then I varied the starting date, generation length, fertility and other assumptions, and discarded scenarios that couldn't satisfy the model's checks. The question was whether something like 8% could emerge from that process. It wasn't a number I put into the starting population.</p>
-<h2 id="start-in-the-past-finish-in-the-present">Start in the past, finish in the present</h2>
-<p>The first experiment ran approximately <strong>1925–2025</strong>, four generations of 25 years. The next version sampled starting dates from <strong>1877–1927</strong> and generation lengths from <strong>24–30 years</strong>. An earlier start loaded a smaller historical Jewish population; it didn't just move the dates on an otherwise identical calculation.<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></p>
-<p>The interactive below restores that second experiment. It ends in <strong>2026</strong> by default; choose 2025 to use the original endpoint. The final reference values are held fixed for the extra year, not treated as new observations. You can narrow the starting period, use 1925 alone, or change the generation length. Set a range's minimum and maximum equal to hold it fixed.</p>
+<p>I split the question into two parts. <strong>Historical to present:</strong> could something like 8% emerge from a historical starting population, after trying different assumptions and screening the results? <strong>Projection:</strong> how might ancestry and identity change in later generations when Jewish denominations have different fertility and marriage patterns?</p>
+<h2 id="historical-to-present">Historical to present</h2>
+<p>This model starts in <strong>1877–1927</strong> and runs to the present, using generations of <strong>24–30 years</strong>. It treats <strong>Jewish-identifying people as one group, without a denomination breakdown</strong>. The other two groups are descendants outside Jewish identity and people with no ancestry counted in the model.</p>
+<p>Each scenario draws a starting year and loads the matching historical Jewish population share. An earlier start usually means a smaller starting population and more time for ancestry to spread.<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup> You can narrow the starting period, use 1925 alone, or change the generation length. Set a range's minimum and maximum equal to hold it fixed.</p>
+<p>The endpoint is <strong>2026</strong> by default; choose 2025 to use the original experiment's endpoint. The final reference values are held fixed for the extra year, not treated as new observations.</p>
+<p>With the default assumptions, <strong>1,335 of 30,000 scenarios</strong> pass the historical screen. Their median ancestry share in 2026 is <strong>6.8%</strong>, with a middle 90% range of <strong>5.3%–9.2%</strong>. This describes the selected scenarios, not a confidence interval or an age-weighted estimate of all living Americans.</p>
 <div id="historical-widget" class="interactive wide"><p>Enable JavaScript to vary the historical scenarios and inspect the screen. The default results remain readable below.</p></div>
 
 <p>“Roots + descendants” counts the starting Jewish population, Jewish arrivals, and anyone descended from those roots. It includes people who still identify as Jewish. It doesn't measure the amount of someone's ancestry, detectable DNA, or halakhic status. A convert can enter as a Jewish root without having a Jewish ancestor already.<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup></p>
 <details class="methods"><summary>Default historical results, without JavaScript</summary>
 
 <p>These results use the published defaults. Changing the interactive does not change this reference table.</p>
-<div class="table-scroll static-results" role="region" aria-label="Default historical results" tabindex="0"><table><caption>Corrected historical default; selected scenarios, not a confidence interval</caption><thead><tr><th>Default historical experiment</th><th>Value</th></tr></thead><tbody><tr><td>Starting years</td><td>1877–1927</td></tr><tr><td>Years per generation</td><td>24–30</td></tr><tr><td>Endpoint</td><td>2026</td></tr><tr><td>Scenarios drawn</td><td>30,000</td></tr><tr><td>Scenarios retained</td><td>1,335 (4.5%)</td></tr><tr><td>Retained median ancestry</td><td>6.8%</td></tr><tr><td>Middle 90% of retained ancestry</td><td>5.3%–9.2%</td></tr><tr><td>Random seed</td><td>106</td></tr></tbody></table></div>
+<div class="table-scroll static-results" role="region" aria-label="Default historical results" tabindex="0"><table><caption>Default historical run; selected scenarios, not a confidence interval</caption><thead><tr><th>Default historical experiment</th><th>Value</th></tr></thead><tbody><tr><td>Starting years</td><td>1877–1927</td></tr><tr><td>Years per generation</td><td>24–30</td></tr><tr><td>Endpoint</td><td>2026</td></tr><tr><td>Scenarios drawn</td><td>30,000</td></tr><tr><td>Scenarios retained</td><td>1,335 (4.5%)</td></tr><tr><td>Retained median ancestry</td><td>6.8%</td></tr><tr><td>Middle 90% of retained ancestry</td><td>5.3%–9.2%</td></tr><tr><td>Random seed</td><td>106</td></tr></tbody></table></div>
 
 </details>
 
-<h2 id="which-scenarios-survived">Which scenarios survived?</h2>
-<p>There were two experiments, with different screens.</p>
-<p>In the first, I ran <strong>100,000 scenarios</strong> and kept the <strong>34,503</strong> whose rough adult-weighted results put Jewish identity between <strong>2.1–2.7%</strong> and a Jewish-parent-or-identity proxy between <strong>3.1–4.0%</strong>. Those were chosen screening windows around modern benchmarks, not survey confidence intervals. Pew's 2020 estimates distinguish 2.4% of adults classified as Jewish from another 1.1% with a Jewish parent or upbringing; the model's proxy is only an approximation to those categories.<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></p>
-<p>With assumed weights for four surviving cohorts, the retained scenarios had a median all-age ancestry share of <strong>6.4%</strong>, with a middle 90% range of <strong>5.2–8.1%</strong>. The weights were rough; this wasn't a full age-structured population model. The original script and exact reproduction are in the source archive.</p>
-<p>The second experiment, now interactive above, asked each historical path to match a reference curve for the Jewish population share. At each step it solved for the Jewish share of arrivals needed to make that happen. It rejected the whole path if the required share was negative or above 60%. It <strong>did not also apply the first experiment's adult-parent screen</strong>. Nor did either experiment filter for an answer near 8%.</p>
+<h3>What survives the screen?</h3>
+<p>The model asks each historical path to match a reference curve for the Jewish population share. At each step it solves for the Jewish share of arrivals needed to make that happen. It rejects the whole path if the required share is negative or above 60%. <strong>It never filters for an answer near 8%.</strong></p>
 <p>This screen is restrictive. With the default corrected run, only about one scenario in 22 survives. Most rejected runs leave too large a Jewish-identifying share to match the next reference point even when every arrival is non-Jewish. Matching the curve is built into the calculation; it is not independent evidence that the retained histories are true.</p>
-<h2 id="a-timing-correction-that-matters">A timing correction that matters</h2>
+<p>These assumptions can produce ancestry shares around 8%, but the output depends on the timing and screening rules. I wouldn't cite the model as evidence that exactly 8% of Americans have Jewish ancestry.</p>
+<details class="methods"><summary>Earlier experiments and a timing correction</summary>
+
+<p>The first experiment ran approximately <strong>1925–2025</strong>, four generations of 25 years. I ran <strong>100,000 scenarios</strong> and kept the <strong>34,503</strong> whose rough adult-weighted results put Jewish identity between <strong>2.1–2.7%</strong> and a Jewish-parent-or-identity proxy between <strong>3.1–4.0%</strong>. Those were chosen screening windows around modern benchmarks, not survey confidence intervals. Pew's 2020 estimates distinguish 2.4% of adults classified as Jewish from another 1.1% with a Jewish parent or upbringing; the model's proxy is only an approximation to those categories.<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></p>
+<p>With assumed weights for four surviving cohorts, the retained scenarios had a median all-age ancestry share of <strong>6.4%</strong>, with a middle 90% range of <strong>5.2–8.1%</strong>. The weights were rough; this wasn't a full age-structured population model. The original script and exact reproduction are in the source archive.</p>
+<p>The second experiment varied historical starts and generation lengths, and used the arrivals screen shown above. It <strong>did not also apply the first experiment's adult-parent screen</strong>. Neither experiment filtered on proximity to 8%.</p>
 <p>The original second script reported a median around <strong>8.0%</strong>, with a middle 90% range of <strong>6.0–11.7%</strong>, for its 2025 endpoint. But it contained a timing bug: a short final interval still received a whole generation of reproduction. A run ending with seven years left got another full generation of ancestry transmission.</p>
 <p>The version above advances only the elapsed fraction of that final generation. It interpolates between the current population and the next cohort, and prorates arrivals by the same fraction. This is an explicit approximation; it does not supply the missing age structure.</p>
-<p>With 30,000 draws ending in 2026, the corrected default gives a retained median of <strong>6.8%</strong>, with a middle 90% range of <strong>5.3%–9.2%</strong>. Applying the old timing rule to the same input draws gives <strong>8.1%</strong>, with a range of <strong>6.1%–11.9%</strong>. Each version applies its own feasibility screen. These are sensitivity results under the stated assumptions, not population confidence intervals.</p>
-<p>So the original suspicion doesn't settle the question. These assumptions can produce ancestry shares around 8%, but the output moves with the timing rule and the screening choices. I wouldn't cite the model as evidence that exactly 8% of Americans have Jewish ancestry.</p>
-<h2 id="what-the-model-leaves-uncertain">What the model leaves uncertain</h2>
+<p>Applying the old timing rule to the same input draws gives a retained median of <strong>8.1%</strong>, with a middle 90% range of <strong>6.1%–11.9%</strong>, compared with <strong>6.8%</strong> and <strong>5.3%–9.2%</strong> under the corrected rule. Each version applies its own feasibility screen. These are sensitivity results under the stated assumptions, not population confidence intervals.</p>
+</details>
+
+<details class="methods"><summary>Historical assumptions and limits</summary>
+
 <p>The historical Jewish population figures use different definitions and denominators across time. The modern anchors describe adults, while some earlier figures describe the whole population. Joining them into one curve is a modeling decision.<sup class="footnote-ref" id="fnref-1-2"><a href="#fn-1">1</a></sup><sup class="footnote-ref" id="fnref-3-2"><a href="#fn-3">3</a></sup></p>
 <p>Intermarriage also changes through time, using broad ranges around historical references. Pew's marriage figures describe marriages still intact at the survey date, not every reproductive pairing that occurred in a past decade. Mixed-parent identity retention, relative fertility and clustering among descendants are sampled assumptions.<sup class="footnote-ref" id="fnref-4"><a href="#fn-4">4</a></sup></p>
 <p>The arrivals rule uses a coarse foreign-born-population proxy. A stock of foreign-born residents is not the flow of new immigrants during a generation; the original proxy points are approximate and don't all match Census series exactly. Non-Jewish arrivals are assigned no additional Jewish ancestry. That leaves any such ancestry uncounted.<sup class="footnote-ref" id="fnref-5"><a href="#fn-5">5</a></sup></p>
-<p>Finally, ancestry already outside Jewish identity at the starting date is unknown. The default sets it to zero to make the counting horizon explicit. You can add an assumed starting share. The later model's endpoint is a simplified population state, not a count weighted across all ages alive today. The middle 90% range describes the assumptions that survived the screen, not a 90% confidence interval for the American population.</p>
-<h2 id="where-denominations-enter">Where denominations enter</h2>
-<p>After the historical experiments, I asked what different fertility and marriage patterns within Jewish communities might do over time. That became a separate model, with Haredi, other Orthodox, Conservative, Reform, and other/unaffiliated Jewish groups. If a higher-fertility group grows as a share of the population, population-wide averages can change even when each group's own rates stay fixed.</p>
-<p>That extension is below. Its linked starting values come from <strong>2013</strong>, when the survey supplies population, denomination and fertility references. It does <strong>not</strong> reconstruct historical denomination shares or feed into the historical screen above. Its date control labels successive cohorts; the historical model's generation-length control changes how many reproductive steps fit before the endpoint.</p>
-<details class="methods" id="denomination-extension"><summary>Explore the separate denomination and fertility experiment</summary>
+<p>Finally, ancestry already outside Jewish identity at the starting date is unknown. The default sets it to zero to make the counting horizon explicit. You can add an assumed starting share. This historical model's endpoint is a simplified population state, not a count weighted across all ages alive today. The middle 90% range describes the assumptions that survived the screen, not a 90% confidence interval for the American population.</p>
+</details>
 
-<p>Change the visible starting shares and fertility inputs, then follow successive generations. <strong>Compare with frozen starting averages</strong> shows how changing group composition differs from holding the initial average rates fixed. Both calculations match at the first generation. These are conditional cohort scenarios, not forecasts of everyone alive in a future year.</p>
-<div id="sim-widget" class="interactive wide"><p>Enable JavaScript to explore the optional subgroup model. Its equations and starting values are included in Methods.</p></div>
+<h2 id="projection">Projection</h2>
+<p>The second question is what happens in later generations. <strong>Here the model breaks Jewish identity into denominations:</strong> Haredi, other Orthodox, Conservative, Reform, and other/unaffiliated Jewish groups. If a higher-fertility group grows as a share of the population, population-wide averages can change even when each group's own rates stay fixed.</p>
+<p>This is a <strong>separate projection, starting from a 2013 survey baseline</strong> that supplies population, denomination and fertility references. It does not take the historical model's endpoint as its starting population, and its results do not enter the historical screen. The two sections answer different questions: what histories could fit the available benchmarks, and what these group differences could mean going forward.</p>
+<p>Change the starting shares and fertility inputs, then follow successive generations. <strong>Compare with frozen starting averages</strong> shows how changing group composition differs from holding the initial average rates fixed. Both calculations match at the first generation. These are conditional cohort scenarios, not forecasts of everyone alive in a future year.</p>
+<p>Unlike the historical model, this projection runs for a chosen number of whole generations. Its start year and years per generation label those cohorts; changing those dates does not load a different historical population or change the reproductive calculations.</p>
+<details class="methods" id="denomination-extension" open><summary>Projection controls and results</summary>
+
+<div id="sim-widget" class="interactive wide"><p>Enable JavaScript to explore the projection by denomination. Its equations and starting values are included in Methods.</p></div>
 
 </details>
 
@@ -296,9 +305,12 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
 
 </details>
 
-<h2 id="sources-and-code">Sources and code</h2>
+<details class="methods" id="sources-and-code"><summary>Sources and code</summary>
+
 <p>This exploratory model was developed with an AI assistant. The recovered historical Python scripts are included unchanged, alongside the corrected browser model, reproduction results and tests. The two historical screens and the later subgroup model are documented separately in Methods. Numerical checks establish that the code follows the stated rules; they don't validate the demographic assumptions.</p>
 <p class="note">The model and interface code are embedded in this HTML file. The downloadable source archive on the website also contains the tests, methods, and Markdown manuscript.</p>
+
+</details>
 
 <section class="footnotes">
 <ol>
@@ -439,7 +451,7 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
  function numberControl(key,label,min,max,step,value,scale=1){return `<label class="number-control" for="h-${key}"><span>${label}</span><input id="h-${key}" data-hkey="${key}" data-scale="${scale}" type="number" required min="${min}" max="${max}" step="${step}" value="${value}"></label>`;}
  function scaffold(){
   const p=H.defaults();
-  host.innerHTML=`<div class="widget-head"><h2>From the past to the present</h2><p>Each scenario draws a starting year and generation length from these ranges, then runs to the same endpoint.</p></div>
+  host.innerHTML=`<div class="widget-head"><h3>Historical model</h3><p>Jewish identity is one group here. Each scenario draws a starting year and generation length, then runs to the same endpoint.</p></div>
   <form id="h-form" novalidate><fieldset id="h-inputs" class="historical-inputs">
    <div class="section setup-section historical-setup"><div class="historical-time">${rangeFields.slice(0,2).map(f=>rangeControl(f,p)).join('')}${numberControl('endYear','End year',2000,H.PRESENT_YEAR,1,p.endYear)}</div>
    <div class="toolbar"><button type="button" id="h-1925">Use a 1925 start</button><button type="button" id="h-reset">Restore historical sweep</button></div>
@@ -449,7 +461,7 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
    <details id="h-assumptions"><summary>Fertility, identity, arrivals and the screening rule</summary>
     <p>Relative fertility: 1 means the same fertility as a pair with no counted ancestry. A range of 0.85–1.08 means 15% lower to 8% higher. Each scenario keeps its fertility assumptions through time.</p>
     <div class="historical-ranges">${rangeFields.slice(2,5).map(f=>rangeControl(f,p)).join('')}</div>
-    <p class="note">The historical experiment has three groups: Jewish-identifying, descendants outside Jewish identity, and everyone else. Historical denomination shares were not fitted. <a href="#denomination-extension">The separate denomination experiment is below.</a></p>
+    <p class="note">The historical experiment has three groups: Jewish-identifying, descendants outside Jewish identity, and everyone else. Historical denomination shares were not fitted. <a href="#projection">The projection below breaks out denominations.</a></p>
     <div class="historical-ranges">${rangeFields.slice(5).map(f=>rangeControl(f,p)).join('')}${numberControl('immigrantJewishMax','Maximum Jewish share of arrivals (%)',0,100,1,60,100)}</div>
     <p class="note">At each step, solve for the Jewish share of arrivals needed to match the historical identity curve. Reject the whole scenario if that share is negative or exceeds the ceiling. The ceiling is a modeling choice, not a measured limit. The 8% claim plays no part in this screen.</p>
     <p class="note">Intermarriage and mixed-parent identity retention change with calendar year. Their ranges, the identity curve and the foreign-born-stock proxy for arrivals come from the recovered historical experiment; see <a href="METHODS.md">Methods</a>. Values after the final reference date are held fixed through 2026. These are not newly measured 2026 rates.</p>
@@ -893,7 +905,7 @@ textarea { font: 12px/1.5 ui-monospace, SFMono-Regular, monospace; width: 100%; 
  }
  function scaffold(){
   $('sim-widget').innerHTML=`
-  <div class="widget-head"><h2>Set up the starting population</h2><p class="note">Edit the inputs, then play the timeline below. Each step follows one new generation.</p></div>
+  <div class="widget-head"><h3>Project forward by denomination</h3><p class="note">Set the starting population, then play the timeline. Each step follows one new generation from this independent baseline.</p></div>
   <div class="section setup-section">
    <div class="time-controls" id="time-controls"></div>
    <div class="baseline-row"><p id="baseline-status" class="note"></p><button id="reset-baseline">Load 2013 starting values</button></div>

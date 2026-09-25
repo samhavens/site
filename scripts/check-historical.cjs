@@ -24,7 +24,7 @@ async function run(name){
  try{
   await page.goto(url);await done();
   const baseline=(await state()).result,expected=H.ensemble(H.defaults());
-  check('historical sweep is the main visible model',await page.locator('#h-startRange-0').inputValue()==='1877'&&await page.locator('#h-startRange-1').inputValue()==='1927'&&await page.locator('#h-endYear').inputValue()==='2026'&&!(await page.locator('#denomination-extension').evaluate(el=>el.open)));
+  check('historical sweep leads the two-part article',await page.locator('#h-startRange-0').inputValue()==='1877'&&await page.locator('#h-startRange-1').inputValue()==='1927'&&await page.locator('#h-endYear').inputValue()==='2026'&&JSON.stringify(await page.locator('main > h2').allTextContents())===JSON.stringify(['Historical to present','Projection']));
   check('default retained screen matches the engine and static output',baseline.retained===1335&&JSON.stringify(baseline.quantiles)===JSON.stringify(expected.quantiles)&&(await text('h-screen-summary')).includes('1,335')&&(await page.locator('.static-results').textContent()).includes('1,335'));
   check('all rejected draws have a reason rather than zero ancestry',baseline.records.filter(r=>r.status==='rejected').every(r=>r.reason&&r.ancestry===undefined));
   check('every initial input satisfies its browser constraints',await page.locator('#historical-widget input').evaluateAll(inputs=>inputs.every(el=>el.checkValidity())));

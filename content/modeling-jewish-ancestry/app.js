@@ -18,7 +18,7 @@
  }
  function scaffold(){
   $('sim-widget').innerHTML=`
-  <div class="widget-head"><h2>Set up the starting population</h2><p class="note">Edit the inputs, then play the timeline below. Each step follows one new generation.</p></div>
+  <div class="widget-head"><h3>Project forward by denomination</h3><p class="note">Set the starting population, then play the timeline. Each step follows one new generation from this independent baseline.</p></div>
   <div class="section setup-section">
    <div class="time-controls" id="time-controls"></div>
    <div class="baseline-row"><p id="baseline-status" class="note"></p><button id="reset-baseline">Load 2013 starting values</button></div>

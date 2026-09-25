@@ -5,8 +5,8 @@ code { font: 85% ui-monospace, SFMono-Regular, monospace; background: var(--pane
 .wide { width: min(980px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); }
 .interactive { font: 14px/1.5 system-ui, sans-serif; border: 1px solid var(--rule); margin: 28px 0; background: var(--paper); }
 .interactive p { margin: 10px 0; }
-.interactive h2 { font-size: 23px; margin: 0 0 8px; }
 .interactive h3 { font-size: 17px; line-height: 1.35; margin: 22px 0 12px; }
+.interactive .widget-head h3 { font-size: 23px; margin: 0 0 8px; }
 .widget-head { padding: 24px 28px 8px; }
 .section { padding: 20px 28px; border-top: 1px solid var(--rule); }
 .setup-section { border-top: 0; padding-top: 12px; }

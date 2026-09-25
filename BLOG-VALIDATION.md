@@ -1,3 +1,13 @@
+# Two-part presentation clarification — September 25, 2026
+
+The article now has two main sections: Historical to present, without denomination groups, then Projection, with denomination groups. The projection is open by default and explicitly starts from its own 2013 survey baseline. Earlier experiments and the timing audit remain available in expandable notes. Both numerical engines, their inputs, historical default results and the homepage are unchanged.
+
+- All **89 model tests**, **87 historical browser checks** and **147 blog/projection browser checks** pass. Coverage includes Chromium, Firefox and WebKit, both models, saved scenarios, exports, keyboard operation, reduced motion, 320/390px layouts, no-JavaScript reading and offline execution.
+- Fresh Eyes review covered the prose, navigation, computed summaries, widget headings and generated outputs. Desktop and mobile screenshots of the opening and projection transition were inspected; the two section headings and independent baselines are visible, with no mobile overflow.
+- The generated article, Markdown, offline copy and source archive carry the same presentation. The main text retains the screening explanation and selected-scenario uncertainty; collapsing the experiment history does not remove its provenance or timing comparison.
+
+---
+
 # Historical restoration verification — September 25, 2026
 
 This revision restores the original historical-to-present modeling task and both scenario-screening experiments. It replaces the main 2013-to-future widget with a historical sweep and retains the subgroup engine as a closed optional extension. The opening anecdote, standard casing, direct blog URLs and unchanged homepage are preserved.

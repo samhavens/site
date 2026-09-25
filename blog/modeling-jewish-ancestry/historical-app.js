@@ -20,7 +20,7 @@
  function numberControl(key,label,min,max,step,value,scale=1){return `<label class="number-control" for="h-${key}"><span>${label}</span><input id="h-${key}" data-hkey="${key}" data-scale="${scale}" type="number" required min="${min}" max="${max}" step="${step}" value="${value}"></label>`;}
  function scaffold(){
   const p=H.defaults();
-  host.innerHTML=`<div class="widget-head"><h2>From the past to the present</h2><p>Each scenario draws a starting year and generation length from these ranges, then runs to the same endpoint.</p></div>
+  host.innerHTML=`<div class="widget-head"><h3>Historical model</h3><p>Jewish identity is one group here. Each scenario draws a starting year and generation length, then runs to the same endpoint.</p></div>
   <form id="h-form" novalidate><fieldset id="h-inputs" class="historical-inputs">
    <div class="section setup-section historical-setup"><div class="historical-time">${rangeFields.slice(0,2).map(f=>rangeControl(f,p)).join('')}${numberControl('endYear','End year',2000,H.PRESENT_YEAR,1,p.endYear)}</div>
    <div class="toolbar"><button type="button" id="h-1925">Use a 1925 start</button><button type="button" id="h-reset">Restore historical sweep</button></div>
@@ -30,7 +30,7 @@
    <details id="h-assumptions"><summary>Fertility, identity, arrivals and the screening rule</summary>
     <p>Relative fertility: 1 means the same fertility as a pair with no counted ancestry. A range of 0.85–1.08 means 15% lower to 8% higher. Each scenario keeps its fertility assumptions through time.</p>
     <div class="historical-ranges">${rangeFields.slice(2,5).map(f=>rangeControl(f,p)).join('')}</div>
-    <p class="note">The historical experiment has three groups: Jewish-identifying, descendants outside Jewish identity, and everyone else. Historical denomination shares were not fitted. <a href="#denomination-extension">The separate denomination experiment is below.</a></p>
+    <p class="note">The historical experiment has three groups: Jewish-identifying, descendants outside Jewish identity, and everyone else. Historical denomination shares were not fitted. <a href="#projection">The projection below breaks out denominations.</a></p>
     <div class="historical-ranges">${rangeFields.slice(5).map(f=>rangeControl(f,p)).join('')}${numberControl('immigrantJewishMax','Maximum Jewish share of arrivals (%)',0,100,1,60,100)}</div>
     <p class="note">At each step, solve for the Jewish share of arrivals needed to match the historical identity curve. Reject the whole scenario if that share is negative or exceeds the ceiling. The ceiling is a modeling choice, not a measured limit. The 8% claim plays no part in this screen.</p>
     <p class="note">Intermarriage and mixed-parent identity retention change with calendar year. Their ranges, the identity curve and the foreign-born-stock proxy for arrivals come from the recovered historical experiment; see <a href="METHODS.md">Methods</a>. Values after the final reference date are held fixed through 2026. These are not newly measured 2026 rates.</p>

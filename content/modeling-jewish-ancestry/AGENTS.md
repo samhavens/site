@@ -4,7 +4,7 @@ Read `METHODS.md`, `SOURCES.md` and `MODEL-AUDIT.md` before changing calculation
 
 ## Editorial scope
 
-Sam's original question concerned how much Jewish ancestry Americans might have today. The main model now restores the historical experiments: approximately 1925–2025 first, then varied starts from 1877–1927 and generation lengths. The main widget ends in 2026, with 2025 available as the original endpoint. The 2013-start subgroup model is a separate optional extension, not a substitute for the historical reconstruction.
+Sam's original question concerned how much Jewish ancestry Americans might have today. Present two explicit sections: historical to present, without denomination groups, then projection, with denomination groups. The historical widget varies starts from 1877–1927 and ends in 2026, with 2025 available as the original endpoint. The projection is visible by default and uses an independent 2013 survey baseline; it does not inherit the historical endpoint. Keep earlier experiments and the timing audit in expandable notes.
 
 Use direct, informal prose with standard casing. Preserve the opening anecdote about someone doubting an 8% claim. Avoid dramatic ancestry aphorisms, sentimental language and grand conclusions. Keep source definitions, uncertainty and assumptions intelligible.
 

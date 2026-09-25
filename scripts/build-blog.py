@@ -91,15 +91,17 @@ def build_post(post):
         ['Random seed', str(p['seed'])],
     ]
     md_table = '| Default historical experiment | Value |\n|---|---:|\n' + '\n'.join('| ' + ' | '.join(row) + ' |' for row in rows)
-    table = '<div class="table-scroll static-results" role="region" aria-label="Default historical results" tabindex="0"><table><caption>Corrected historical default; selected scenarios, not a confidence interval</caption><thead><tr><th>Default historical experiment</th><th>Value</th></tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
+    table = '<div class="table-scroll static-results" role="region" aria-label="Default historical results" tabindex="0"><table><caption>Default historical run; selected scenarios, not a confidence interval</caption><thead><tr><th>Default historical experiment</th><th>Value</th></tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{v}</td>' for v in row) + '</tr>' for row in rows) + '</tbody></table></div>'
     manuscript = (source / 'index.md').read_text()
     if '<!-- DEFAULT-TABLE -->' not in manuscript:
         raise ValueError('The manuscript must retain its computed table marker')
-    summary = f"With {p['draws']:,} draws ending in {p['endYear']}, the corrected default gives a retained median of **{percent(q[1])}**, with a middle 90% range of **{percent(q[0])}–{percent(q[2])}**. Applying the old timing rule to the same input draws gives **{percent(old_q[1])}**, with a range of **{percent(old_q[0])}–{percent(old_q[2])}**. Each version applies its own feasibility screen. These are sensitivity results under the stated assumptions, not population confidence intervals."
-    article = render_markdown(manuscript.replace('<!-- DEFAULT-SUMMARY -->', summary)).replace('<!-- DEFAULT-TABLE -->', table)
+    summary = f"With the default assumptions, **{result['retained']:,} of {p['draws']:,} scenarios** pass the historical screen. Their median ancestry share in {p['endYear']} is **{percent(q[1])}**, with a middle 90% range of **{percent(q[0])}–{percent(q[2])}**. This describes the selected scenarios, not a confidence interval or an age-weighted estimate of all living Americans."
+    timing = f"Applying the old timing rule to the same input draws gives a retained median of **{percent(old_q[1])}**, with a middle 90% range of **{percent(old_q[0])}–{percent(old_q[2])}**, compared with **{percent(q[1])}** and **{percent(q[0])}–{percent(q[2])}** under the corrected rule. Each version applies its own feasibility screen. These are sensitivity results under the stated assumptions, not population confidence intervals."
+    prose = manuscript.replace('<!-- DEFAULT-SUMMARY -->', summary).replace('<!-- TIMING-COMPARISON -->', timing)
+    article = render_markdown(prose).replace('<!-- DEFAULT-TABLE -->', table)
     article = re.sub(r'^<h1>.*?</h1>\s*', '', article, count=1)
     label = 'Draft for review' if draft else date.fromisoformat(post['published']).strftime('%B %-d, %Y')
-    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · Updated September 25, 2026</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="On this page"><a href="#start-in-the-past-finish-in-the-present">Interactive model</a><a href="#which-scenarios-survived">The screen</a><a href="#what-the-model-leaves-uncertain">Limits</a><a href="#sources-and-code">Sources + code</a></nav></div>
+    body = f'''<main id="main" class="ancestry-essay"><div class="article-header"><p class="post-meta">{escape(post['author'])} · {label} · Updated September 25, 2026</p><h1>{escape(post['title'])}</h1><nav class="contents" aria-label="On this page"><a href="#historical-to-present">Historical to present</a><a href="#projection">Projection</a><a href="#sources-and-code">Sources + code</a></nav></div>
 <noscript><p class="no-js">JavaScript is off. The essay, equations, sources, and default results remain readable; the interactive controls need JavaScript.</p></noscript>
 {article}</main><footer class="site-footer">Sam Havens · <a href="/blog/">All posts</a> · Historical model 1.0.0 · Calculations run in your browser</footer>'''
     runtime = ['historical.js', 'historical-app.js', 'model.js', 'setup.js', 'app.js']
@@ -107,7 +109,7 @@ def build_post(post):
     style_version = hashlib.sha256((source / 'styles.css').read_bytes()).hexdigest()[:12]
     page = document(post['title'], post['description'], body, f'/blog/{slug}/', draft,
         scripts=script, extra_head=f'<link rel="stylesheet" href="styles.css?v={style_version}">')
-    write(dest / 'post.md', manuscript.replace('<!-- DEFAULT-TABLE -->', md_table).replace('<!-- DEFAULT-SUMMARY -->', summary))
+    write(dest / 'post.md', prose.replace('<!-- DEFAULT-TABLE -->', md_table))
     for filename in runtime + ['styles.css', 'METHODS.md', 'SOURCES.md', 'historical-reproduction.json']:
         shutil.copyfile(source / filename, dest / filename)
     write(dest / 'default-results.json', json.dumps(audit, indent=2) + '\n')

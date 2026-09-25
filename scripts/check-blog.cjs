@@ -38,12 +38,11 @@ async function run(name) {
     await page.goto(origin + '/blog/');
     check('blog lists the publication date without draft metadata', (await page.locator('.post-meta').innerText()).includes('September 24, 2026') && await page.locator('meta[name="robots"]').count() === 0);
     await page.getByRole('link', { name: 'Modeling Jewish Ancestry', exact: true }).click();
-    await page.locator('#denomination-extension > summary').click();
     await page.locator('#a-value').waitFor();
     check('direct blog → article navigation', page.url() === origin + articlePath);
     check('article has its final title, publication date and public metadata', await page.title() === 'Modeling Jewish Ancestry · Sam Havens' && (await page.locator('.post-meta').innerText()).includes('September 24, 2026') && await page.locator('meta[name="robots"]').count() === 0);
-    check('optional subgroup extension opens at its 2013 reference', await text('a-value') === '2.2%' && await text('j-value') === '2.2%' && await text('clock') === '2013 · Starting population');
-    check('subgroup date, generation length and fertility are visible inside the extension', await field('referenceYear').isVisible() && await field('generationYears').isVisible() && await page.getByLabel('Haredi: children per pairing', { exact: true }).isVisible());
+    check('projection is open at its independent 2013 reference', await page.locator('#denomination-extension').evaluate(el => el.open) && await text('a-value') === '2.2%' && await text('j-value') === '2.2%' && await text('clock') === '2013 · Starting population');
+    check('projection date, generation length and fertility are visible', await field('referenceYear').isVisible() && await field('generationYears').isVisible() && await page.getByLabel('Haredi: children per pairing', { exact: true }).isVisible());
     check('parent-child samples are removed', await page.locator('#birth-canvas, #sample-details, #birth-filter').count() === 0 && !(await page.locator('main').innerText()).includes('parent and child samples'));
     check('initial form values satisfy browser constraints', await page.locator('#sim-widget input').evaluateAll(inputs => inputs.every(el => el.checkValidity())));
     check('desktop has no viewport overflow', await noOverflow(page));
@@ -108,7 +107,7 @@ async function run(name) {
     await enter(page.locator('#draws'), 100); await page.locator('#run-sweep').click();
     await page.waitForFunction(() => document.querySelector('#sweep-status').textContent.includes('100 scenarios complete'));
     check('sensitivity produces bands and quantiles', await page.locator('#sweep-table tbody tr').count() === 4 && await page.locator('#connection-plot path[opacity=".12"]').count() === 1);
-    await page.getByRole('link', { name: 'Limits', exact: true }).click();
+    await page.getByRole('link', { name: 'Historical to present', exact: true }).click();
     await page.locator('#compare').uncheck();
     check('article navigation and comparison toggle preserve sensitivity', (await text('sweep-status')).includes('100 scenarios complete'));
     const jsonDownload = page.waitForEvent('download'); await page.locator('#export-json').click();
@@ -133,7 +132,6 @@ async function run(name) {
     await page.goto(origin + articlePath + '#sim=invalid');
     check('bad state links show an accessible error', await page.locator('#export-status').isVisible() && (await text('export-status')).includes('Could not load saved state'));
     await page.goto(origin + articlePath); await page.reload();
-    await page.locator('#denomination-extension > summary').click();
     await page.locator('#play').click();
     await page.waitForFunction(() => document.querySelector('#generation-value').textContent === '1');
     await page.locator('#play').click();

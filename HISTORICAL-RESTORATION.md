@@ -1,5 +1,11 @@
 # Historical model restoration — September 25, 2026
 
+## Two-part presentation clarification
+
+Sam requested two explicit sections: historical to present without denomination groups, then projection with denomination groups. Keep both engines and their inputs unchanged. Make the projection visible, explain its independent 2013 survey baseline, and move the experiment history and timing audit into expandable notes. Update the article navigation and the downloaded versions together.
+
+Before publication, run the existing numerical and browser checks, including the visible projection, the two section links, saved scenarios, mobile layouts and offline/no-JavaScript reading. Inspect the rendered opening and transition, confirm the model files and homepage are unchanged, then verify the GitHub Pages release.
+
 ## Problem and source of truth
 
 The published page mistakenly made a 2013-to-future subgroup experiment the main model. Sam's original “Estimate Jewish Ancestry” conversation first modeled roughly 1925–2025, then varied starts from 1877–1927 and generation lengths, screening historical scenarios before summarizing their endpoints. The two recovered Python scripts are authoritative records of those experiments; the later subgroup model is a separate extension.

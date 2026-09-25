@@ -6,7 +6,7 @@
 
 ## Blog
 
-The blog extends the existing site at `/blog/`. Its first essay is published at `/blog/modeling-jewish-ancestry/`, by Sam Havens. The main interactive restores the original historical scenario screen, including a correction for a short final interval. The later subgroup model remains a separate optional extension with its original numerical tests.
+The blog extends the existing site at `/blog/`. Its first essay is published at `/blog/modeling-jewish-ancestry/`, by Sam Havens. It has two sections: historical to present, treating Jewish identity as one group, and projection, distinguishing denominations. Both interactives are visible by default. The historical scenario screen includes a correction for a short final interval; the projection uses its own 2013 survey baseline and retains its original numerical tests.
 
 Canonical prose, model, and widget code live in `content/modeling-jewish-ancestry/`. The catalog is `content/posts.json`; the shared blog design is `content/blog.css`. Read that content directory's `AGENTS.md`, `METHODS.md`, and `MODEL-AUDIT.md` before changing the model. The original recovered bundle remains outside this repository.
 
@@ -29,7 +29,7 @@ npm run test:historical-browser
 
 Results, real downloaded exports, and screenshots are written to ignored `artifacts/blog/`. The tests cover real navigation, model controls, sensitivity, saved scenarios, downloads, keyboard scrubbing, mobile layouts, reduced motion, reading without JavaScript, and offline execution. WebKit coverage is not a physical iPhone test. Set `BLOG_TEST_URL` to test another local origin.
 
-The main interface samples historical starts from 1877–1927, matches the starting Jewish share, and runs to a visible 2026 endpoint. Readers can change date and generation ranges, existing ancestry and fertility, then inspect retained/rejected scenarios and one accepted trajectory. `historical-reproduction.json` records the two recovered Python experiments. The optional subgroup extension uses the separate 2013 `setup.js` and preserves old saved links. The parent/child samples remain removed.
+The historical interface samples starts from 1877–1927, matches the starting Jewish share, and runs to a visible 2026 endpoint. Readers can change date and generation ranges, existing ancestry and fertility, then inspect retained/rejected scenarios and one accepted trajectory. `historical-reproduction.json` records the two recovered Python experiments. The projection uses the independent 2013 `setup.js` and preserves old saved links. It does not inherit the historical model's endpoint. The parent/child samples remain removed.
 
 Check historical scalar calculations against the recovered Python function with:
 
