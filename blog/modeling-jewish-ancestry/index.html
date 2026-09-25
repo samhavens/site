@@ -24,14 +24,15 @@
 </details>
 
 <h3>What survives the screen?</h3>
-<p>The model asks each historical path to match a reference curve for the Jewish population share. At each step it solves for the Jewish share of arrivals needed to make that happen. It rejects the whole path if the required share is negative or above 60%. <strong>It never filters for an answer near 8%.</strong></p>
+<p>The model asks each historical path to match a reference curve for the Jewish population share. At each step it solves for the Jewish share of arrivals needed to make that happen. It rejects the whole path if the required share is negative or above 60%.</p>
+<p>Are we assuming what we set out to explore? No, because the screen checks the historical share of people who identify as Jewish. The ancestry share also includes descendants who no longer identify as Jewish, and comes from following those family lines through each retained history.</p>
 <p>This screen is restrictive. With the default corrected run, only about one scenario in 22 survives. Most rejected runs leave too large a Jewish-identifying share to match the next reference point even when every arrival is non-Jewish. Matching the curve is built into the calculation; it is not independent evidence that the retained histories are true.</p>
 <p>These assumptions can produce ancestry shares around 8%, but the output depends on the timing and screening rules. I wouldn't cite the model as evidence that exactly 8% of Americans have Jewish ancestry.</p>
 <details class="methods"><summary>Earlier experiments and a timing correction</summary>
 
 <p>The first experiment ran approximately <strong>1925–2025</strong>, four generations of 25 years. I ran <strong>100,000 scenarios</strong> and kept the <strong>34,503</strong> whose rough adult-weighted results put Jewish identity between <strong>2.1–2.7%</strong> and a Jewish-parent-or-identity proxy between <strong>3.1–4.0%</strong>. Those were chosen screening windows around modern benchmarks, not survey confidence intervals. Pew's 2020 estimates distinguish 2.4% of adults classified as Jewish from another 1.1% with a Jewish parent or upbringing; the model's proxy is only an approximation to those categories.<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></p>
 <p>With assumed weights for four surviving cohorts, the retained scenarios had a median all-age ancestry share of <strong>6.4%</strong>, with a middle 90% range of <strong>5.2–8.1%</strong>. The weights were rough; this wasn't a full age-structured population model. The original script and exact reproduction are in the source archive.</p>
-<p>The second experiment varied historical starts and generation lengths, and used the arrivals screen shown above. It <strong>did not also apply the first experiment's adult-parent screen</strong>. Neither experiment filtered on proximity to 8%.</p>
+<p>The second experiment varied historical starts and generation lengths, and used the arrivals screen shown above. This replaced the first experiment's adult-parent screen.</p>
 <p>The original second script reported a median around <strong>8.0%</strong>, with a middle 90% range of <strong>6.0–11.7%</strong>, for its 2025 endpoint. But it contained a timing bug: a short final interval still received a whole generation of reproduction. A run ending with seven years left got another full generation of ancestry transmission.</p>
 <p>The version above advances only the elapsed fraction of that final generation. It interpolates between the current population and the next cohort, and prorates arrivals by the same fraction. This is an explicit approximation; it does not supply the missing age structure.</p>
 <p>Applying the old timing rule to the same input draws gives a retained median of <strong>8.1%</strong>, with a middle 90% range of <strong>6.1%–11.9%</strong>, compared with <strong>6.8%</strong> and <strong>5.3%–9.2%</strong> under the corrected rule. Each version applies its own feasibility screen. These are sensitivity results under the stated assumptions, not population confidence intervals.</p>
@@ -69,7 +70,7 @@
 <details class="methods" id="sources-and-code"><summary>Sources and code</summary>
 
 <p>This exploratory model was developed with an AI assistant. The recovered historical Python scripts are included unchanged, alongside the corrected browser model, reproduction results and tests. The two historical screens and the later subgroup model are documented separately in Methods. Numerical checks establish that the code follows the stated rules; they don't validate the demographic assumptions.</p>
-<div class="source-links"><a href="source.zip?v=30df47af9ab5" download>Source + tests</a><a href="standalone.html" download>Offline interactive essay</a><a href="post.md">Markdown</a><a href="historical.js">Historical model</a><a href="METHODS.md">Methods</a><a href="SOURCES.md">Source notes</a></div>
+<div class="source-links"><a href="source.zip?v=0d46859e0b72" download>Source + tests</a><a href="standalone.html" download>Offline interactive essay</a><a href="post.md">Markdown</a><a href="historical.js">Historical model</a><a href="METHODS.md">Methods</a><a href="SOURCES.md">Source notes</a></div>
 
 </details>
 
@@ -82,4 +83,4 @@
 <li id="fn-5"><p>U.S. Census Bureau, <a href="https://www.census.gov/library/working-papers/2006/demo/POP-twps0081.html">Historical Census Statistics on the Foreign-Born Population: 1850 to 2000</a>, 2006. This documents the distinction between a resident stock and immigration flows. The model's retained proxy curve is listed explicitly in Methods.<a href="#fnref-5" class="footnote">&#8617;</a></p></li>
 </ol>
 </section>
-</main><footer class="site-footer">Sam Havens · <a href="/blog/">All posts</a> · Historical model 1.0.0 · Calculations run in your browser</footer><script src="historical.js?v=72819ca4add6" defer></script><script src="historical-app.js?v=ddbf8345ba57" defer></script><script src="model.js?v=72c53817d311" defer></script><script src="setup.js?v=6a0464b7ee54" defer></script><script src="app.js?v=082e74eacd8f" defer></script></body></html>
+</main><footer class="site-footer">Sam Havens · <a href="/blog/">All posts</a> · Historical model 1.0.0 · Calculations run in your browser</footer><script src="historical.js?v=72819ca4add6" defer></script><script src="historical-app.js?v=6532c14ba433" defer></script><script src="model.js?v=72c53817d311" defer></script><script src="setup.js?v=6a0464b7ee54" defer></script><script src="app.js?v=082e74eacd8f" defer></script></body></html>

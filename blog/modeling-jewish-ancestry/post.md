@@ -39,7 +39,9 @@ These results use the published defaults. Changing the interactive does not chan
 
 ### What survives the screen?
 
-The model asks each historical path to match a reference curve for the Jewish population share. At each step it solves for the Jewish share of arrivals needed to make that happen. It rejects the whole path if the required share is negative or above 60%. **It never filters for an answer near 8%.**
+The model asks each historical path to match a reference curve for the Jewish population share. At each step it solves for the Jewish share of arrivals needed to make that happen. It rejects the whole path if the required share is negative or above 60%.
+
+Are we assuming what we set out to explore? No, because the screen checks the historical share of people who identify as Jewish. The ancestry share also includes descendants who no longer identify as Jewish, and comes from following those family lines through each retained history.
 
 This screen is restrictive. With the default corrected run, only about one scenario in 22 survives. Most rejected runs leave too large a Jewish-identifying share to match the next reference point even when every arrival is non-Jewish. Matching the curve is built into the calculation; it is not independent evidence that the retained histories are true.
 
@@ -51,7 +53,7 @@ The first experiment ran approximately **1925–2025**, four generations of 25 y
 
 With assumed weights for four surviving cohorts, the retained scenarios had a median all-age ancestry share of **6.4%**, with a middle 90% range of **5.2–8.1%**. The weights were rough; this wasn't a full age-structured population model. The original script and exact reproduction are in the source archive.
 
-The second experiment varied historical starts and generation lengths, and used the arrivals screen shown above. It **did not also apply the first experiment's adult-parent screen**. Neither experiment filtered on proximity to 8%.
+The second experiment varied historical starts and generation lengths, and used the arrivals screen shown above. This replaced the first experiment's adult-parent screen.
 
 The original second script reported a median around **8.0%**, with a middle 90% range of **6.0–11.7%**, for its 2025 endpoint. But it contained a timing bug: a short final interval still received a whole generation of reproduction. A run ending with seven years left got another full generation of ancestry transmission.
 

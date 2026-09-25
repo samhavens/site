@@ -32,7 +32,7 @@
     <div class="historical-ranges">${rangeFields.slice(2,5).map(f=>rangeControl(f,p)).join('')}</div>
     <p class="note">The historical experiment has three groups: Jewish-identifying, descendants outside Jewish identity, and everyone else. Historical denomination shares were not fitted. <a href="#projection">The projection below breaks out denominations.</a></p>
     <div class="historical-ranges">${rangeFields.slice(5).map(f=>rangeControl(f,p)).join('')}${numberControl('immigrantJewishMax','Maximum Jewish share of arrivals (%)',0,100,1,60,100)}</div>
-    <p class="note">At each step, solve for the Jewish share of arrivals needed to match the historical identity curve. Reject the whole scenario if that share is negative or exceeds the ceiling. The ceiling is a modeling choice, not a measured limit. The 8% claim plays no part in this screen.</p>
+    <p class="note">At each step, solve for the Jewish share of arrivals needed to match the historical identity curve. Reject the whole scenario if that share is negative or exceeds the ceiling. The ceiling is a modeling choice, not a measured limit.</p>
     <p class="note">Intermarriage and mixed-parent identity retention change with calendar year. Their ranges, the identity curve and the foreign-born-stock proxy for arrivals come from the recovered historical experiment; see <a href="METHODS.md">Methods</a>. Values after the final reference date are held fixed through 2026. These are not newly measured 2026 rates.</p>
    </details>
    <div class="toolbar">${numberControl('draws','Scenarios',100,100000,100,p.draws)}${numberControl('seed','Random seed',0,4294967295,1,p.seed)}</div>
